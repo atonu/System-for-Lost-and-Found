@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h2>Edit Category</h2>
+	<a href="/categories">Back to List</a>
+	<br/><br/>
+	<form method="post">
+		<input type="hidden" name="catid" value="<%= category.id %>">
+		<table>
+			<tr>
+				<td>NAME</td>
+				<td><input type="text" name="catname" value="<%= category.name %>"></td>
+			</tr>
+			<tr>
+				<td>DESCRIPTION</td>
+				<td><input type="text" name="desc" value="<%= category.description %>"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Save"></td>
+			</tr>
+		</table>
+		<ul>
+			<% for(var i = 0; i < errs.length; i++){ %>
+				<li><%= errs[i].message %></li>
+			<% } %>
+		</ul>
+	</form>
+</body>
+</html>
