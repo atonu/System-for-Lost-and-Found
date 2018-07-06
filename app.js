@@ -48,7 +48,7 @@ app.use('/logout', logout);
 app.use('/home', home);
 app.use('/categories', category);
 app.use('error',error);
-app.use('registration',registration);
+app.use('/registration',registration);
 
 app.get('/sess', function(req, res){
 	
