@@ -10,6 +10,8 @@ var login = require('./controllers/login');
 var logout = require('./controllers/logout');
 var home = require('./controllers/home');
 var category = require('./controllers/category');
+var error = require('./controllers/error');
+var registration = require('./controllers/registration');
 
 // CONFIGURE
 app.set('view engine', 'ejs');
@@ -45,6 +47,8 @@ app.use('/login', login);
 app.use('/logout', logout);
 app.use('/home', home);
 app.use('/categories', category);
+app.use('error',error);
+app.use('registration',registration);
 
 app.get('/sess', function(req, res){
 	

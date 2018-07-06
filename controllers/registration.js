@@ -2,7 +2,7 @@ var express=require('express');
 var asyncValidator=require('async-validator');
 var router=express.Router();
 regModel=require.main.require('./models/registration-model');
-regValidation=require.main.require('./Validation_rule/registration_validation');
+regValidation=require.main.require('./Validation_rules/registration_validation');
 
 
 // Request Handler
