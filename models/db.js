@@ -6,30 +6,7 @@ var connection = mysql.createConnection({
   database : 'node'
 });
 
-module.exports = {
-	executeQuery: function(sql, sqlParam, callback){
-		if(sqlParam == null)
-		{
-			connection.query(sql, function(error, result){
-				if(error)
-				{
-					console.log(error);
-				}
-				callback(result);
-			});
-		}
-		else
-		{
-			connection.query(sql, sqlParam, function(error, result){
-				if(error)
-				{
-					console.log(error);
-				}
-				callback(result);
-			});
-		}
-	},
-
+module.exports={
 	insertData: function(sql,param,callback){
 		console.log(param);
 		if(param==null)
@@ -58,5 +35,105 @@ module.exports = {
 			});
 		}
 
+	},
+	getAllData: function(sql,callback){
+		
+		connection.query(sql,function(error,result){
+			if(error)
+			{
+				
+				callback(null);
+
+			}
+			else
+			{
+				callback(result);
+			}
+		});
+	},
+	getData : function(sql,param,callback){
+		if(param==null)
+		{
+			connection.query(sql,function(error,result){
+				if (error) {
+					callback(null);
+				}
+				else
+				{
+					callback(result);
+				}
+			});
+			
+		}
+		else
+		{
+			connection.query(sql,param,function(error,result){
+				if (error) {
+					callback(null);	
+				}
+				else
+				{
+					callback(result);
+				}
+			});
+		}
+
+	},
+
+
+	deleteData : function(sql,param,callback){
+
+		if(param==null)
+		{
+			connection.query(sql,function(error,result){
+				if (error) {
+					callback(null);
+				}
+				else
+				{
+					callback(result);
+				}
+			});
+			
+		}
+		else
+		{
+			connection.query(sql,param,function(error,result){
+				if (error) {
+					callback(null);
+				}
+				else
+				{
+					callback(result);
+				}
+			});
+		}
+
+	},
+	updateData : function(sql,param,callback){
+		if(param==null)
+		{
+			connection.query(sql,function(error,result){
+				if (error) {
+					callback(null);
+				}
+				else
+				{
+					callback(result);
+				}
+			});
+		}
+		else
+		{
+			connection.query(sql,param,function(error,result){
+				if (error) {
+					callback(null);
+				}
+				else
+				{
+					callback(result);
+				}
+			});
+		}
 	}
 };

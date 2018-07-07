@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<% include ../partials/head %>
+</head>
+<body>
+
+	<header>
+		<% include ../partials/header %>
+	</header>
+
+	<img src="https://i.imgur.com/WTfOQet.jpg" alt="buybyclick" style="width:1650px;height:300px;">
+	
+
+
+
+	<div class="container-fluid">
+		<div class="row">
+			
+			<div class="col-md-9 mainresult">				
+				<div id="wrap">
+					<div id="columns" class="columns_4">
+						<%if(typeof result!=='undefined'){%>
+							<%for(var i=0;i<result.length;i++){%>
+								<%if(result[i].quantity!=0 && result[i].quantity>0){%>
+									<a href="/index/productdetails/<%=result[i].id%>">
+										<figure>
+										  <img src="https://i.gadgets360cdn.com/products/large/1519585124_635_samsung_galaxy_s9_blue.jpg" alt='Hello Moni'>
+											<figcaption><%=result[i].productname%></figcaption>
+											<p><%=result[i].catagory%></p>
+										    <span class="price">$<%=result[i].price%></span>
+									    	<a href="/index/productdetails/<%=result[i].id%>" class="button" type="submit">Buy Now</a> 
+										</figure>
+									</a>	
+								<%}%>
+							<%}%>
+						<%}%>
+						<% if(typeof errorMessage !== 'undefined'){ %>
+	                		<div class="panel panel-warning">
+	                			<h1 class="text-center text-danger"><span class="glyphicon glyphicon-search text-center"></span><br><%= errorMessage.message %></h1>
+	                		</div>
+	                	<% } %>
+						
+					</div>
+				</div>
+			</div>
+			<div class="searchresult col-md-9">
+				
+			</div>
+		</div>
+	</div>
+
+
+	
+	<hr>
+	<footer class="bg-dark text-white">
+	<% include ../partials/footer %>
+	</footer>
+</body>	
+</html>

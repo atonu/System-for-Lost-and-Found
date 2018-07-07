@@ -1,66 +1,67 @@
-// DECLARATION
-var express = require('express');
-var app = express();
-var port = 1337;
-
-var bodyParser = require('body-parser');
-var expressSession = require('express-session');
-
-var login = require('./controllers/login');
-var logout = require('./controllers/logout');
-var home = require('./controllers/home');
-var category = require('./controllers/category');
-var error = require('./controllers/error');
-var registration = require('./controllers/registration');
+//Diclaration
+var express=require('express');
+var app=express();
+var index=require('./controllers/index');
+var cart=require('./controllers/cart');
+var login=require('./controllers/login');
+var user=require('./controllers/user');
+var reg=require('./controllers/reg');
+var adminlogin=require('./controllers/adminlogin');
+var admindashboard=require('./controllers/admindashboard');
+var error=require('./controllers/error');
+var logout=require('./controllers/logout');
+var user = require('./controllers/user');
+var checkUser=require('./controllers/checkUser');
+var checkout=require('./controllers/checkout');
+var bodyParser=require('body-parser');
+var expressSession=require('express-session');
+var alertnode=require('alert-node');
 var path = require('path');
+var port=1234;
+//COnfigure
+app.set('view engine','ejs');
 
-// CONFIGURE
-app.set('view engine', 'ejs');
-
+//Middlewire
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(expressSession({secret: 'My secret',resave: false,saveUninitialized: true}));
+app.get('/',function(req,res){
+	res.redirect('/index');
+});
+// Static
 app.use(express.static(path.join(__dirname, './Asset')));
 
-// MIDDLEWARES
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(expressSession({secret: 'my top secret pass', resave: false, saveUninitialized: true}));
 
-app.use('*', function(req, res, next){
-	
-	// i was using the wrong property
-	// is will be req.originalUrl, not req.path
 
-	if(req.originalUrl == '/login' || req.originalUrl == '/logout' || req.originalUrl == '/home' || req.originalUrl == '/registration')
+app.all('*/*',function(req,res,next){
+	if(req.url=='/index' ||req.url=='/login' ||req.url=='/adminlogin' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username' || req.url=='/checkUser/adminemail' || req.url=='/checkUser/adminusername' || req.url=='index/productdetails/*' || req.url=='/cart' || req.url=='/cart/addtocart/*' || req.url=='/cart/removecart/*' || req.url=='/index/search')
+
 	{
 		next();
+		return;
+	}
+	if(req.session.loggedUser==null)
+	{
+		res.redirect('/index');
 	}
 	else
 	{
-		if(!req.session.username)
-		{
-			res.redirect('/home');
-			return;
-		}
 		next();
 	}
 });
-
-
-
-// ROUTES
-app.use('/login', login);
-app.use('/logout', logout);
-app.use('/home', home);
-app.use('/categories', category);
-app.use('error',error);
-app.use('/registration',registration);
-
-app.get('/sess', function(req, res){
-	
-	//req.session.email = 'abc@example.com';
-	res.send('Done');
-	 
-});
-
-// SERVER START
-app.listen(port, function(){
-	console.log('Server started ...');
+//Route
+app.use('/index',index);
+app.use('/cart',cart);
+app.use('/login',login);
+app.use('/user',user);
+app.use('/reg',reg);
+app.use('/adminlogin',adminlogin);
+app.use('/admindashboard',admindashboard);
+app.use('/error',error);
+app.use('/logout',logout);
+app.use('/checkUser',checkUser);
+app.use('/checkout',checkout);
+app.use('/user',user);
+//Server setup
+app.listen(port,function(){
+	console.log('Started port '+port);
 });
