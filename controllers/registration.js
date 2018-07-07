@@ -1,8 +1,8 @@
 var express=require('express');
 var asyncValidator=require('async-validator');
 var router=express.Router();
-var regModel=require.main.require('./models/registration-model');
-var regValidation=require.main.require('./Validation_rules/registration_validation');
+regModel=require.main.require('./models/registration-model');
+regValidation=require.main.require('./Validation_rules/registration_validation');
 
 
 // Request Handler
@@ -41,7 +41,7 @@ router.post('/',function(req,res){
 				{
 					if(valid)
 					{
-						res.redirect('./registration');
+						res.redirect('./login');
 					}
 					else
 					{
