@@ -25,7 +25,7 @@ app.use('*', function(req, res, next){
 	// i was using the wrong property
 	// is will be req.originalUrl, not req.path
 
-	if(req.originalUrl == '/login' || req.originalUrl == '/logout')
+	if(req.originalUrl == '/login' || req.originalUrl == '/logout' || req.originalUrl == '/home' || req.originalUrl == '/registration')
 	{
 		next();
 	}
@@ -33,7 +33,7 @@ app.use('*', function(req, res, next){
 	{
 		if(!req.session.username)
 		{
-			res.redirect('/login');
+			res.redirect('/home');
 			return;
 		}
 		next();
@@ -47,7 +47,7 @@ app.use('/login', login);
 app.use('/logout', logout);
 app.use('/home', home);
 app.use('/categories', category);
-app.use('/error',error);
+app.use('error',error);
 app.use('/registration',registration);
 
 app.get('/sess', function(req, res){
