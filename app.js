@@ -12,9 +12,12 @@ var home = require('./controllers/home');
 var category = require('./controllers/category');
 var error = require('./controllers/error');
 var registration = require('./controllers/registration');
+var path = require('path');
 
 // CONFIGURE
 app.set('view engine', 'ejs');
+
+app.use(express.static(path.join(__dirname, './Asset')));
 
 // MIDDLEWARES
 app.use(bodyParser.urlencoded({extended: false}));
