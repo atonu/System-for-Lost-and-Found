@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, './Asset')));
 
 
 app.all('*/*',function(req,res,next){
-	if(req.url=='/index' ||req.url=='/login' ||req.url=='/adminlogin' ||req.url=='/' ||req.url=='/reg' || req.url=='/checkUser/email' || req.url=='/checkUser/username' || req.url=='/checkUser/adminemail' || req.url=='/checkUser/adminusername' || req.url=='index/productdetails/*' || req.url=='/cart' || req.url=='/cart/addtocart/*' || req.url=='/cart/removecart/*' || req.url=='/index/search')
+	if(req.url=='/index' ||req.url=='/login' ||req.url=='/adminlogin' ||req.url=='/' ||req.url=='/reg' || req.url=='/cart')
 
 	{
 		next();
