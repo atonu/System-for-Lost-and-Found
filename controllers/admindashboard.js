@@ -128,21 +128,7 @@ router.post('/productedit/:id?',function(req,res){
 			}
 	});
 });
-router.all('/deliveryproduct/:id?',function(req,res){
-	var data={
-		id: req.params.id,
-	};
-	dashboardModel.deliveryproduct(data,function(valid){
-		if(valid)
-			{
-				res.redirect('/admindashboard/soldpendings');
-			}
-		else
-			{
-				res.render('/error/error');
-			}
-	});
-});
+
 router.all('/userlist',function(req,res){
 	dashboardModel.userlist(function(result){
 		if(result && result!=null)
@@ -155,95 +141,7 @@ router.all('/userlist',function(req,res){
 			}
 	});
 });
-router.all('/soldpendings',function(req,res){
-	dashboardModel.soldpendings(function(result){
-		if(result && result!=null)
-			{
-				res.render('./admindashboard/soldpendings',{result: result});
-			}
-		else
-			{
-				res.render('./error/error');
-			}
-	});
-});
 
-router.post('/search',function(req,res){
-	var data={
-		username: req.body.search
-	};
-	 dashboardModel.searchuser(data,function(result){
-	 	if(result && result!=null)
-	 		{
-	 			res.render('./admindashboard/userlist',{result: result});
-	 		}
-	 	else 
-	 		{
-	 			res.render('./error/error');
-	 		}
-	 });
-});
-
-router.post('/searchProduct',function(req,res){
-	var data={
-		productname: req.body.search
-	};
-	 index.searchproduct(data,function(result){
-	 	if(result && result!=null)
-	 		{
-	 			res.render('./admindashboard/productlist',{result: result});
-	 		}
-	 	else 
-	 		{
-	 			res.render('./error/error');
-	 		}
-	 });
-});
-router.get('/addadmin',function(req,res){
-	res.render('./admindashboard/addadmin');
-});
-
-router.post('/addadmin',function(req,res){
-	var data={
-		name: req.body.name,
-		username: req.body.username,
-		email: req.body.email,
-		phone: req.body.phone,
-		password: req.body.password,
-		gender: req.body.gender,
-		dob: req.body.dob,
-		nid: req.body.nid,
-		presentaddress: req.body.presentaddress,
-		parmanentaddress: req.body.parmanentaddress
-	};
-	var validator=new asyncValidator(registrationValidation.adminReg);
-	validator.validate(data,function(errors,fields){
-		if(errors){
-				res.render('/admindashboard/addadmin',{errors:errors});
-		}
-		else
-		{
-			if(req.body.password == req.body.cpassword)
-			{
-			dashboardModel.adminInsert(data,function(valid){
-				if(valid)
-				{
-					res.redirect('/admindashboard/addadmin');
-				}
-				else
-				{
-					res.redirect('/error/error');
-				}
-			});
-		}
-		else
-		{
-			res.render('/admindashboard/addadmin',{errors:errors});
-		}
-		}
-	});
-
-});
 
 //Exports
 
