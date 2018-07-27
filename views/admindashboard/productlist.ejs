@@ -37,20 +37,20 @@ tr:nth-child(even) {
 <table>
   <tr>
     <th>Id</th>
-    <th>Product Name</th>
-    <th>Price</th>
+    <th>Name</th>
+    <th>Agent Name</th>
     <th>Catagory</th>
-    <th>Quantity</th>
+    <th>Contact</th>
     <th>Option</th>
   </tr>
   <%for(var i=0;i<result.length;i++){%>
   <tr>
     <td><%=result[i].id%></td>
-    <td><%=result[i].productname%></td>
-    <td><%=result[i].price%></td>
+    <td><%=result[i].lost_name%></td>
+    <td><%=result[i].agent_name%></td>
     <td><%=result[i].catagory%></td>
-    <td><%=result[i].quantity%></td>
-    <td><a href="/admindashboard/productedit/<%=result[i].id%>">Edit</a><a href="/admindashboard/productdelete/<%=result[i].id%>">Delete</a></td>
+    <td><%=result[i].contact%></td>
+    <td><a href="/admindashboard/productedit/<%=result[i].id%>">Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>">Delete</a></td>
   </tr>
   <%}%>
   

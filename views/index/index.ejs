@@ -1,8 +1,18 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>Buy By Click</title>
 	<% include ../partials/head %>
+
+	<style>
+	img {
+    	display: block;
+    	margin-left: auto;
+    	margin-right: auto;
+	}
+
+	</style>
+
 </head>
 <body>
 
@@ -10,10 +20,12 @@
 		<% include ../partials/header %>
 	</header>
 
-	<img src="https://i.imgur.com/WTfOQet.jpg" alt="buybyclick" style="width:1650px;height:300px;">
+	<img src="images/bg.jpg" alt="buybyclick" style="width: 51%">
+
 	
 
-	<center><h1>Welcome Home!!</h1></center>
+	<center><h1>System for Lost and Found People</h1></center>
+	<a href="/user/addproduct" class="btn btn-primary">Create Entry</a>
 <center>
 	<div class="container-fluid">
 		<div class="row">
@@ -23,17 +35,19 @@
 					<div id="columns" class="columns_4">
 						<%if(typeof result!=='undefined'){%>
 							<%for(var i=0;i<result.length;i++){%>
-								<%if(result[i].quantity!=0 && result[i].quantity>0){%>
+								
 									<a href="/index/productdetails/<%=result[i].id%>">
 										<figure>
-										  <img src="https://i.gadgets360cdn.com/products/large/1519585124_635_samsung_galaxy_s9_blue.jpg" alt='Hello Moni'>
-											<figcaption><%=result[i].productname%></figcaption>
-											<p><%=result[i].catagory%></p>
-										    <span class="price">$<%=result[i].price%></span>
-									    	<a href="/index/productdetails/<%=result[i].id%>" class="button" type="submit">Buy Now</a> 
+										  	<img src = "images/lost.jpg">
+											<figcaption><%=result[i].lost_name%></figcaption>
+											<p>Age: <%=result[i].age%></p>
+										    <span class="price">Last Located: <%=result[i].last_located%></span>
+									    	<a href="/index/productdetails/<%=result[i].id%>" class="button" type="submit">Contact</a> 
 										</figure>
 									</a>	
-								<%}%>
+								
+
+								%>
 							<%}%>
 						<%}%>
 						<% if(typeof errorMessage !== 'undefined'){ %>

@@ -16,7 +16,7 @@ module.exports={
 		});
 	},
 	updatequantity:  function(data,callback) {
-		var sql='UPDATE product SET quantity = (quantity - ?) WHERE id=?';
+		var sql='UPDATE lost SET quantity = (quantity - ?) WHERE id=?';
 		var param=[data.quantityorder,data.productid];
 		console.log(data.quantityorder);
 			db.updateData(sql,param,function(result){

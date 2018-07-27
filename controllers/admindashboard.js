@@ -34,9 +34,9 @@ router.post('/addproduct',function(req,res){
 		price: req.body.price,
 		quantity: req.body.quantity,
 		catagory: req.body.catagory,
-		image1: req.body.image1,
-		image2: req.body.image2,
-		image3: req.body.image3,
+		origin: req.body.origin,
+		category: req.body.category,
+		agent_name: req.body.agent_name,
 		details: req.body.details,
 		date: date.format(new Date(), 'YYYY/MM/DD')
 	};

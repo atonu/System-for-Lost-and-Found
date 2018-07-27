@@ -3,7 +3,7 @@ var db=require('./db');
 module.exports={
 	
 	productdetails: function(data,callback) {
-		var sql='select * from product where id=?';
+		var sql='select * from lost where id=?';
 		var param=[data.id];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
@@ -17,7 +17,7 @@ module.exports={
 		});
 	},
 	addtocart: function(data,callback) {
-		var sql='select * from product where id=?';
+		var sql='select * from lost where id=?';
 		var param=[data.id];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
@@ -31,7 +31,7 @@ module.exports={
 		});
 	},
 	searchproduct: function(data,callback) {
-		var sql="SELECT * FROM product WHERE productname LIKE '" + data.productname + "%'";
+		var sql="SELECT * FROM lost WHERE lost_name LIKE '" + data.productname + "%'";
 			db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)
 			{
@@ -44,7 +44,7 @@ module.exports={
 		});
 	},
 	searchproductcatagory: function(data,callback) {
-		var sql='SELECT * FROM `product` WHERE catagory LIKE ?';
+		var sql='SELECT * FROM `lost` WHERE catagory LIKE ?';
 		var param=[data.catagory];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)

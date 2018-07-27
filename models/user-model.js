@@ -32,6 +32,39 @@ module.exports={
 			}
 		});
 	},
+
+	productInsert: function(data,callback){
+		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`) VALUES (?,?,?,?,?,?,?,?)";
+		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details];
+
+		db.insertData(sql,param,function(result){
+			if(result==null || result.length==0)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(true);
+			}
+		});
+	},
+
+	productlist: function(data,callback)
+	{
+		var sql='SELECT * FROM lost WHERE agent_name =?';
+		var param=[data.username];
+		db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);
+			}
+		});
+	},	
+
 		broughthistory:function(data,callback)
 	{
 		var sql="SELECT * FROM soldproduct WHERE userid=? ORDER BY Orderdate DESC,delivery";

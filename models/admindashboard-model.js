@@ -3,8 +3,8 @@ var passwordHash=require('password-hash');
 
 module.exports={
 	productInsert: function(data,callback){
-		var sql="INSERT INTO `product`(`productname`, `price`, `quantity`, `catagory`, `image1`, `image2`, `image3`, `details`) VALUES (?,?,?,?,?,?,?,?)";
-		var param=[data.productname,data.price,data.quantity,data.catagory,data.image1,data.image2,data.image3,data.details];
+		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`) VALUES (?,?,?,?,?,?,?,?)";
+		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details];
 
 		db.insertData(sql,param,function(result){
 			if(result==null || result.length==0)
@@ -18,7 +18,7 @@ module.exports={
 		});
 	},
 	productdelete: function(data,callback){
-		var sql="DELETE FROM `product` WHERE id = ?";
+		var sql="DELETE FROM `lost` WHERE id = ?";
 		var param=[data.id];
 
 		db.deleteData(sql,param,function(result){
@@ -50,7 +50,7 @@ module.exports={
 	},
 	productlist: function(callback)
 	{
-		var sql='SELECT * FROM product';
+		var sql="SELECT * FROM lost";
 
 		db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)
@@ -64,7 +64,7 @@ module.exports={
 		});
 	},
 	productupdate: function(data,callback){
-		var sql="UPDATE `product` SET `productname`=?,`price`=?,`quantity`=?,`catagory`=?,`image1`=?,`image2`=?,`image3`=?,`details`=? WHERE `id`=?";
+		var sql="UPDATE `lost` SET `lost_name`=?,`age`=?,`image`=?,`last_located`=?,`origin`=?,`catagory`=?,`agent_name`=?,`contact`=? WHERE `id`=?";
 		var param=[data.productname,data.price,data.quantity,data.catagory,data.image1,data.image2,data.image3,data.details,data.id];
 
 		db.updateData(sql,param,function(result){
