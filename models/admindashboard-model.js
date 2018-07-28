@@ -3,8 +3,8 @@ var passwordHash=require('password-hash');
 
 module.exports={
 	productInsert: function(data,callback){
-		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`) VALUES (?,?,?,?,?,?,?,?)";
-		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details];
+		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`,`uname`) VALUES (?,?,?,?,?,?,?,?,?)";
+		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.details];
 
 		db.insertData(sql,param,function(result){
 			if(result==null || result.length==0)

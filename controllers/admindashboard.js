@@ -62,6 +62,9 @@ router.post('/addproduct',function(req,res){
 
 });
 
+
+
+
 router.all('/productlist',function(req,res){
 	dashboardModel.productlist(function(result){
 		if(result && result!=null)
