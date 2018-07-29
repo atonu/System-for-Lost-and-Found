@@ -64,10 +64,11 @@ module.exports={
 		});
 	},
 	productupdate: function(data,callback){
-		var sql="UPDATE lost SET `lost_name`=?,`age`=?,`image`=?,`last_located`=?,`origin`=?,`catagory`=?,`agent_name`=?,`contact`=?,`uname`=? WHERE `id`=?";
-		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.uname,data.id];
+		var sql="UPDATE `lost` SET `lost_name`=?,`age`=?,`image`=?,`last_located`=?,`origin`=?,`catagory`=?,`agent_name`=?,`contact`=? WHERE `id`=?";
+		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.id];
 
 		
+
 		db.updateData(sql,param,function(result){
 			if(result==null || result.length==0)
 			{

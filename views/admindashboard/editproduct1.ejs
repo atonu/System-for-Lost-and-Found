@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit Post</title>
+	<title>Add Product | Buy By Click</title>
 	<% include ../partials/head %>
 </head>
 <body>
@@ -20,7 +20,7 @@
 	<div class="container font" style="margin-top: 1%;">
 	  <div class="row">
 			<div class="col-md-5 cal-md-offset-2">
-			<h1 class="text-center text-success font"><strong>Product Register page</strong></h1>
+			<h1 class="text-center text-success font"><strong>Enter Lost Person's descritions</strong></h1>
 			  <div class="tab-content">
 			    <div id="home" class="tab-pane fade in active">
 
@@ -32,49 +32,48 @@
 			    		</div>
 			    	<% } %>
 					<form method="post">
-						<%for(var i=0;i<result.length;i++){%>
 					  <div class="form-group font">
 					    <label for="productname" class="font">Person's Name:</label>
-					    <input type="text" class="form-control font" id="productname" name="productname" value="<%=result[i].lost_name%>">
+					    <input type="text" class="form-control font" id="productname" name="productname">
 					  </div>
 					  
 					  <div class="form-group font">
 					    <label for="price" class="font">Age:</label>
-					    <input type="text" class="form-control font" id="price" name="price" value="<%=result[i].age%>">
+					    <input type="text" class="form-control font" id="price" name="price">
 					  </div>
 					  
 					  <div class="form-group">
 					    <label for="quantity" class="font">Image:</label>
-					    <input type="file" class="form-control font" id="quentity" name="quantity" value="<%=result[i].quantity%>">
+					    <input type="file" class="form-control font" id="quentity" name="quantity">
 					  </div>
 					  
 					  <div class="form-group">
 					    <label for="catagory" class="font">Last_located:</label>
-					    <input type="text" class="form-control font" id="catagory" name="catagory" value="<%=result[i].catagory%>">
+					    <input type="text" class="form-control font" id="catagory" name="catagory">
 					  </div>
 
 					  <div class="form-group">
 					    <label for="origin" class="font">Origin:</label>
-					    <input type="text" class="form-control font" id="origin" name="origin" value="<%=result[i].origin%>">
+					    <input type="text" class="form-control font" id="origin" name="origin">
 					  </div>
 
 					  <div class="form-group">
 					    <label for="category" class="font">Category:</label>
-					    <input type="text" class="form-control font" id="category" name="category" value="<%=result[i].catagory%>">
+					    <input type="text" class="form-control font" id="category" name="category">
 					  </div>
 
 					  <div class="form-group">
 					    <label for="agent_name" class="font">Agent Name:</label>
-					    <input type="text" class="form-control font" id="agent_name" name="agent_name" value="<%=result[i].agent_name%>">
+					    <input type="text" class="form-control font" id="agent_name" name="agent_name">
 					  </div>
 
 					  <div class="form-group">
 					    <label for="details" class="font">Contact:</label>
-					    <textarea class="form-control font" id="details" name="details" value="<%=result[i].contact%>"></textarea>
+					    <textarea class="form-control font" id="details" name="details"></textarea>
 					  </div>
-					  <%}%>
+
 					  <!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->
-					  <button type="submit" class="btn btn-primary btn-lg font" id="submit">Save</button>
+					  <button type="submit" class="btn btn-primary btn-lg font" id="submit">Add</button>
 					</form>
 			    </div>
 			    </div>
