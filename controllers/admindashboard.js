@@ -110,15 +110,15 @@ router.get('/productedit/:id?',function(req,res){
 });
 router.post('/productedit/:id?',function(req,res){
 	var data={
-		id: req.params.id,
 		productname: req.body.productname,
 		price: req.body.price,
 		quantity: req.body.quantity,
 		catagory: req.body.catagory,
-		image1: req.body.image1,
-		image2: req.body.image2,
-		image3: req.body.image3,
-		details: req.body.details
+		origin: req.body.origin,
+		category: req.body.category,
+		agent_name: req.body.agent_name,
+		details: req.body.details,
+		date: date.format(new Date(), 'YYYY/MM/DD')
 	};
 	dashboardModel.productupdate(data,function(valid){
 		if(valid)

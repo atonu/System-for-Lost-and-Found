@@ -79,13 +79,13 @@ router.post('/addproduct',function(req,res){
 		productname: req.body.productname,
 		price: req.body.price,
 		quantity: req.body.quantity,
+		logged_user: req.session.loggedUser,
 		catagory: req.body.catagory,
 		origin: req.body.origin,
 		category: req.body.category,
 		agent_name: req.body.agent_name,
 		details: req.body.details,
 		date: date.format(new Date(), 'YYYY/MM/DD'),
-		uname: req.session.loggedUser
 	};
 	var validator=new asyncValidator(productValidation.product);
 	validator.validate(data,function(errors,fields){
@@ -94,7 +94,7 @@ router.post('/addproduct',function(req,res){
 		}
 		else
 		{
-			dashboardModel.productInsert(data,function(valid){
+			userModel.productInsert(data,function(valid){
 				if(valid)
 				{
 					res.redirect('/user/productlist');
@@ -127,6 +127,51 @@ router.all('/productlist',function(req,res){
 				res.render('./error/error');
 			}
 	});
+});
+
+router.get('/productedit/:id?',function(req,res){
+	var data={
+		id: req.params.id
+	};
+	userModel.productedit(data,function(result){
+		res.render('./user/editproduct',{result:result});
+	});
+});
+router.post('/productedit/:id?',function(req,res){
+	var data={
+		productname: req.body.productname,
+		price: req.body.price,
+		quantity: req.body.quantity,
+		catagory: req.body.catagory,
+		origin: req.body.origin,
+		category: req.body.category,
+		agent_name: req.body.agent_name,
+		details: req.body.details,
+		date: date.format(new Date(), 'YYYY/MM/DD')
+	};
+
+	var validator=new asyncValidator(productValidation.product);
+	validator.validate(data,function(errors,fields){
+		if(errors){
+				res.render('/user/productedit',{errors:errors});
+		}
+		else
+		{
+			userModel.productupdate(data,function(valid){
+				if(valid)
+				{
+					res.redirect('/user/productlist');
+				}
+				else
+				{
+					res.redirect('/error/error');
+				}
+			});
+		}
+	});
+
+
+
 });
 
 router.all('/user',function(req,res){

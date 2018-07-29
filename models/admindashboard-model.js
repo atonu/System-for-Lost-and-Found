@@ -3,7 +3,7 @@ var passwordHash=require('password-hash');
 
 module.exports={
 	productInsert: function(data,callback){
-		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`,`uname`) VALUES (?,?,?,?,?,?,?,?,?)";
+		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`,`date`) VALUES (?,?,?,?,?,?,?,?,?)";
 		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.details];
 
 		db.insertData(sql,param,function(result){
@@ -64,9 +64,10 @@ module.exports={
 		});
 	},
 	productupdate: function(data,callback){
-		var sql="UPDATE `lost` SET `lost_name`=?,`age`=?,`image`=?,`last_located`=?,`origin`=?,`catagory`=?,`agent_name`=?,`contact`=? WHERE `id`=?";
-		var param=[data.productname,data.price,data.quantity,data.catagory,data.image1,data.image2,data.image3,data.details,data.id];
+		var sql="UPDATE lost SET `lost_name`=?,`age`=?,`image`=?,`last_located`=?,`origin`=?,`catagory`=?,`agent_name`=?,`contact`=?,`uname`=? WHERE `id`=?";
+		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.uname,data.id];
 
+		
 		db.updateData(sql,param,function(result){
 			if(result==null || result.length==0)
 			{
@@ -95,7 +96,7 @@ module.exports={
 	},
 	productedit: function(data,callback)
 	{
-		var sql='SELECT * FROM product WHERE id=?';
+		var sql='SELECT * FROM lost WHERE id=?';
 		var param = [data.id];
 
 		db.getData(sql,param,function(result){

@@ -34,8 +34,8 @@ module.exports={
 	},
 
 	productInsert: function(data,callback){
-		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`, `uname`) VALUES (?,?,?,?,?,?,?,?,?)";
-		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.uname];
+		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`, `date`,`uname`) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.date,data.logged_user];
 
 		db.insertData(sql,param,function(result){
 			if(result==null || result.length==0)
@@ -51,7 +51,7 @@ module.exports={
 
 	productlist: function(data,callback)
 	{
-		var sql='SELECT * FROM lost WHERE agent_name =?';
+		var sql='SELECT * FROM lost WHERE uname =?';
 		var param=[data.username];
 		db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
@@ -63,7 +63,43 @@ module.exports={
 				callback(result);
 			}
 		});
-	},	
+	},
+
+	productupdate: function(data,callback){
+		var sql="UPDATE `lost` SET `lost_name`=?,`age`=?,`image`=?,`last_located`=?,`origin`=?,`catagory`=?,`agent_name`=?,`contact`=? WHERE `id`=?";
+		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.id];
+
+		
+		db.updateData(sql,param,function(result){
+			if(result==null || result.length==0)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(true);
+			}
+		});
+	},
+
+	productedit: function(data,callback)
+	{
+		var sql='SELECT * FROM lost WHERE id=?';
+		var param = [data.id];
+
+		db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
+	
+
 
 		broughthistory:function(data,callback)
 	{
