@@ -1,141 +1,135 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Product Details | Buy By Click</title>
+	<title>Post Details</title>
 	<% include ../partials/head %>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	body {font-family: Arial, Helvetica, sans-serif;}
+	.modal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 100px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+		background-color: #fefefe;
+		margin: auto;
+		padding: 20px;
+		border: 1px solid #888;
+		width: 20%;
+	}
+
+	/* The Close Button */
+	.close {
+		color: #aaaaaa;
+		float: right;
+		font-size: 28px;
+		font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {
+		color: #000;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+</style>
 </head>
 <body id="details">
-
-	
-<!-- 	<div class="container">
-		<div class="card">
-			<div class="container-fliud">
-				<div class="wrapper row">
-					<div class="preview col-md-6">
-					  <div class="tab-pane active" id="pic-1"><img src="https://i.imgur.com/ruU04I6.jpg" alt="Hello Moni" /></div>
-					</div>
-					<%for(var i=0;i<result.length;i++){%>
-						<div class="details col-md-6">
-							<h3 class="product-title"><%=result[i].productname%></h3>
-							<div class="rating">
-								<div class="stars">
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star checked"></span>
-									<span class="fa fa-star"></span>
-									<span class="fa fa-star"></span>
-								</div>
-							</div>
-							<p class="product-description"><%=result[i].details%></p>
-							<h4 class="price">current price: <span>$<%=result[i].price%></span></h4>
-							<h5 class="sizes">sizes:
-								<span class="size" data-toggle="tooltip" title="small">s</span>
-								<span class="size" data-toggle="tooltip" title="medium">m</span>
-								<span class="size" data-toggle="tooltip" title="large">l</span>
-								<span class="size" data-toggle="tooltip" title="xtra large">xl</span>
-							</h5>
-							<h5 class="colors">colors:
-								<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
-								<span class="color green"></span>
-								<span class="color blue"></span>
-							</h5>
-							<div class="action">
-								<a class="button" href="/index/addtocart/<%=result[i].id%>">Add to Cart</a>
-								<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
-							</div>
-						</div>
-					<%}%>
-				</div>
-			</div>
-		</div>
-	</div>
- -->
-
-
-
-
-
-
-
+	<header>
+		<% include ../partials/header %>
+	</header>
 
 
 	<div id="containerdetails">	
 		<%for(var i=0;i<result.length;i++){%>
 		<!-- Start	Product details -->
-		<div class="product-details">
+		<div class="product-detailsz">
 			<!-- 	Product Name -->
 			<h1><%=result[i].productname%></h1>
-			<!-- 		<span class="hint new">New</span> -->
-			<!-- 		<span class="hint free-shipping">Free Shipping</span> -->
-			<!-- 		the Product rating -->
-			<span class="hint-star star">
-				<i class="fa fa-star" aria-hidden="true"></i>
-				<i class="fa fa-star" aria-hidden="true"></i>
-				<i class="fa fa-star" aria-hidden="true"></i>
-				<i class="fa fa-star-half-o" aria-hidden="true"></i>
-				<i class="fa fa-star-o" aria-hidden="true"></i>
-			</span>	
-			<% if(typeof errorMessage !== 'undefined'){ %>
-				<div class="panel panel-warning">
-					<p class="text-center text-danger"><%= errorMessage.message %></p>
-				</div>
-			<% } %>
-			<form method="post"  action="/cart/addtocart/<%=result[i].id%>">
-				
-				<div class="form-group">
-					<p><strong>Available Quantity: </strong><%=result[i].quantity%></p>
-				    <label for="quantity" class="col-sm-3 control-label font">
-				        Quantity: </label>
-				    <div class="col-sm-8 col-sm-offset-1">
-				        <input type="hidden" id="proid" value="<%=result[i].id%>" name="id">
-				        <input type="text" class="form-control font" id="quantity" value="1" name="quantity">
-				    </div>
 
-				    <!-- 		Control -->
-				    <div class="control">
-				    	<!-- Start Button buying -->
-				    	<button class="btndetails button" type="submit" id='addtocart' onclick="check()">
-				    		<!-- 		the Price -->
-				    		<span class="price">BDT <%=result[i].price%></span>
-				    		<!-- 		shopping cart icon-->
-				    		<span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-				    		<!-- 		Buy Now / ADD to Cart-->
-				    		<span class="buy">Add to Cart</span>
-				    	</button>
-				    		<!-- End Button buying -->
-				    </div>
-				</div>
-			</form>		
-		</div>
-				
-			<!-- 	End	Product details   -->
-			<script>
-			function click() {
-			    if(document.getElementById("quantity").value>result[0].quantity)
-			    {
-			    	window.alert('sdhsf');
-			    }
-			}
-			</script>
-				
-			<!-- 	Start product image & Information -->
-				
-			<div class="product-image">
-				
-				<img src="https://i.gadgets360cdn.com/products/large/1519585124_635_samsung_galaxy_s9_blue.jpg" alt="Omar Dsoky">
-					
-				<!-- 	product Information-->
-				<div class="info">
-					<h2>The Description</h2>
-					<ul>
-						<li><strong>Details: </strong><%=result[i].details%></li>
-						<li><strong>Catagory: </strong><%=result[i].catagory%></li>
-					</ul>
-				</div>
+			<% if(typeof errorMessage !== 'undefined'){ %>
+			<div class="panel panel-warning">
+				<p class="text-center text-danger"><%= errorMessage.message %></p>
 			</div>
-			<!--  End product image  -->
+			<% } %>
+			
+
+			<div class="form-group" style="margin-top: -20px;">
+
+				<div class="product-image">
+
+					<img src = "https://i.kym-cdn.com/entries/icons/original/000/000/091/TrollFace.jpg">
+
+					<!-- 	product Information-->
+					<div class="info">
+						<h2><%=result[i].lost_name%></h2>
+						<ul>
+							<center><strong><%=result[i].catagory%></strong></center>
+						</ul>
+					</div>
+				</div>
+
+
+				<p><strong>Name : <%=result[i].lost_name%> </strong></p>
+				<p><strong>Catagory : <%=result[i].catagory%> </strong></p>
+				<p><strong>Age : <%=result[i].age%> </strong></p>
+				<p><strong>Last Located : <%=result[i].last_located%> </strong></p>
+				<p><strong>Origin : <%=result[i].origin%> </strong></p>
+				<p><strong>Agent Name : <%=result[i].agent_name%> </strong></p>
+				<p><strong>Posted : <%=result[i].date%> </strong></p>
+
+
+				<td><center><a href="#" id="myBtn" class="button" ">Contact</a> </center></td>
+				<td><center><a href="/index" class="button" >Back</a> </center></td>
+
+				<!-- The Modal -->
+				<div id="myModal" class="modal">
+
+					<!-- Modal content -->
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<p><%=result[i].contact%></p>
+					</div>
+
+				</div>
+
+
+
+			</div>
+			
+		</div>
+
+		<script>
+			function click() {
+				if(document.getElementById("quantity").value>result[0].quantity)
+				{
+					window.alert('sdhsf');
+				}
+			}
+		</script>
+
+		<!-- 	Start product image & Information -->
+
+		<!--  End product image  -->
 	</div>
-<%}%>
+	<%}%>
 
 
 
@@ -143,9 +137,36 @@
 
 	<hr>
 	<footer class="bg-dark text-white">
-	<% include ../partials/footer %>
+		<% include ../partials/footer %>
 	</footer>
 
-	
-  </body>
+	<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+	modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+	modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+}
+</script>
+
+</body>
 </html>

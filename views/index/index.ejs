@@ -1,17 +1,17 @@
  <!DOCTYPE html>
-<html>
-<head>
-	<title>Buy By Click</title>
-	<% include ../partials/head %>
+ <html>
+ <head>
+ 	<title>System for Lost and Found People</title>
+ 	<% include ../partials/head %>
 
-	<style>
-	img {
-    	display: block;
-    	margin-left: auto;
-    	margin-right: auto;
-	}
+ 	<style>
+ 	img {
+ 		display: block;
+ 		margin-left: auto;
+ 		margin-right: auto;
+ 	}
 
-	</style>
+ </style>
 
 </head>
 <body>
@@ -20,56 +20,56 @@
 		<% include ../partials/header %>
 	</header>
 
-	<img src="images/bg.jpg" alt="buybyclick" style="width: 51%">
+	<img src="images/bg.jpg" alt="bg" style="width: 60%">
 
 	
 
 	<center><h1>System for Lost and Found People</h1></center>
-	<a href="/user/addproduct" class="btn btn-primary">Create Post</a>
-<center>
-	<div class="container-fluid">
-		<div class="row">
-			
-			<div class="col-md-15 mainresult">				
-				<div id="wrap">
-					<div id="columns" class="columns_4">
-						<%if(typeof result!=='undefined'){%>
+	<td><center><a href="/user/addproduct" class="btn btn-primary">Create Post</a> </center></td>
+	<center>
+		<div class="container-fluid">
+			<div class="row">
+				
+				<div class="col-md-15 mainresult">				
+					<div id="wrap">
+						<div id="columns" class="columns_4">
+							<%if(typeof result!=='undefined'){%>
 							<%for(var i=0;i<result.length;i++){%>
-								
-									<a href="/index/productdetails/<%=result[i].id%>">
-										<figure>
-										  	<img src = "images/lost.jpg">
-											<figcaption><%=result[i].lost_name%></figcaption>
-											<p>Age: <%=result[i].age%></p>
-										    <span class="price">Last Located: <%=result[i].last_located%></span>
-									    	<a href="/index/productdetails/<%=result[i].id%>" class="button" type="submit">Contact</a> 
-										</figure>
-									</a>	
-								
+							
+							<a href="/index/productdetails/<%=result[i].id%>">
+								<figure>
+									<img src = "images/lost.jpg">
+									<figcaption><%=result[i].lost_name%></figcaption>
+									<p>Age: <%=result[i].age%></p>
+									<span class="price">Last Located: <%=result[i].last_located%></span>
+									<a href="/index/productdetails/<%=result[i].id%>" class="button" type="submit">Contact</a> 
+								</figure>
+							</a>	
+							
 
-								%>
+							%>
 							<%}%>
-						<%}%>
-						<% if(typeof errorMessage !== 'undefined'){ %>
-	                		<div class="panel panel-warning">
-	                			<h1 class="text-center text-danger"><span class="glyphicon glyphicon-search text-center"></span><br><%= errorMessage.message %></h1>
-	                		</div>
-	                	<% } %>
-						
+							<%}%>
+							<% if(typeof errorMessage !== 'undefined'){ %>
+							<div class="panel panel-warning">
+								<h1 class="text-center text-danger"><span class="glyphicon glyphicon-search text-center"></span><br><%= errorMessage.message %></h1>
+							</div>
+							<% } %>
+							
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="searchresult col-md-9">
-				
+				<div class="searchresult col-md-9">
+					
+				</div>
 			</div>
 		</div>
-	</div>
 
 
-	
-	<hr>
-	<footer class="bg-dark text-white">
-	<% include ../partials/footer %>
-	</footer>
-</body>	
-</html>
+		
+		<hr>
+		<footer class="bg-dark text-white">
+			<% include ../partials/footer %>
+		</footer>
+	</body>	
+	</html>

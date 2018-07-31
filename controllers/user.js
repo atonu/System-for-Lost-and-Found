@@ -139,6 +139,7 @@ router.get('/productedit/:id?',function(req,res){
 });
 router.post('/productedit/:id?',function(req,res){
 	var data={
+		id: req.params.id,
 		productname: req.body.productname,
 		price: req.body.price,
 		quantity: req.body.quantity,

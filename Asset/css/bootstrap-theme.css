@@ -655,6 +655,7 @@ pre code {
   max-width: none;
 }
 
+
 .col-1 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 8.3333333333%;
@@ -2472,6 +2473,8 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     margin-bottom: 0;
   }
 }
+
+
 
 .btn {
   display: inline-block;
