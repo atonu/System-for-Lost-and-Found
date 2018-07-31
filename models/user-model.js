@@ -103,7 +103,7 @@ module.exports={
 
 		broughthistory:function(data,callback)
 	{
-		var sql="SELECT * FROM soldproduct WHERE userid=? ORDER BY Orderdate DESC,delivery";
+		var sql="SELECT * FROM records WHERE userid=? ORDER BY Orderdate DESC,delivery";
 		var param = [data.id];
 		db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)

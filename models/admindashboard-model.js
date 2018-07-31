@@ -81,7 +81,7 @@ module.exports={
 		});
 	},
 	deliveryproduct: function(data,callback){
-		var sql="UPDATE soldproduct SET delivery='yes' WHERE id=?";
+		var sql="UPDATE records SET delivery='yes' WHERE id=?";
 		var param=[data.id];
 
 		db.updateData(sql,param,function(result){
@@ -129,8 +129,7 @@ module.exports={
 	},
 	soldpendings: function(callback)
 	{
-		var sql='SELECT * FROM soldproduct ORDER BY Orderdate DESC,delivery';
-
+		var sql='SELECT * FROM records ORDER BY Orderdate DESC,delivery';
 		db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)
 			{
