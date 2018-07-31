@@ -45,13 +45,13 @@ router.post('/useredit/:username?',function(req,res){
 	};
 	userModel.userprofileupdate(data,function(valid){
 		if(valid)
-			{
-				res.redirect('/user/user');
-			}
+		{
+			res.redirect('/user/user');
+		}
 		else
-			{
-				res.redirect('/error');
-			}
+		{
+			res.redirect('/error');
+		}
 	});
 });
 router.get('/broughthistory/:id?',function(req,res){
@@ -60,17 +60,18 @@ router.get('/broughthistory/:id?',function(req,res){
 	};
 	userModel.broughthistory(data,function(result){
 		if(result)
-			{
-				res.render('./user/broughthistory',{result:result});
-			}
+		{
+			res.render('./user/broughthistory',{result:result});
+		}
 		else
-			{
-				res.render('/error/error');
-			}
+		{
+			res.render('/error/error');
+		}
 	});
 });
 
 router.get('/addproduct',function(req,res){
+	
 	res.render('./user/addproduct');
 });
 
@@ -90,7 +91,7 @@ router.post('/addproduct',function(req,res){
 	var validator=new asyncValidator(productValidation.product);
 	validator.validate(data,function(errors,fields){
 		if(errors){
-				res.render('/user/addproduct',{errors:errors});
+			res.render('/user/addproduct',{errors:errors});
 		}
 		else
 		{
@@ -119,13 +120,13 @@ router.all('/productlist',function(req,res){
 
 	userModel.productlist(data,function(result){
 		if(result!=null)
-			{
-				res.render('./user/productlist',{result: result});
-			}
+		{
+			res.render('./user/productlist',{result: result});
+		}
 		else
-			{
-				res.render('./error/error');
-			}
+		{
+			res.render('./error/error');
+		}
 	});
 });
 
@@ -154,7 +155,7 @@ router.post('/productedit/:id?',function(req,res){
 	var validator=new asyncValidator(productValidation.product);
 	validator.validate(data,function(errors,fields){
 		if(errors){
-				res.render('/user/productedit',{errors:errors});
+			res.render('/user/productedit',{errors:errors});
 		}
 		else
 		{

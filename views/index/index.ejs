@@ -26,6 +26,7 @@
 
 	<center><h1>System for Lost and Found People</h1></center>
 	<td><center><a href="/user/addproduct" class="btn btn-primary">Create Post</a> </center></td>
+
 	<center>
 		<div class="container-fluid">
 			<div class="row">
@@ -50,6 +51,9 @@
 							%>
 							<%}%>
 							<%}%>
+
+
+
 							<% if(typeof errorMessage !== 'undefined'){ %>
 							<div class="panel panel-warning">
 								<h1 class="text-center text-danger"><span class="glyphicon glyphicon-search text-center"></span><br><%= errorMessage.message %></h1>
@@ -58,6 +62,7 @@
 							
 						</div>
 					</div>
+
 				</div>
 				<div class="searchresult col-md-9">
 					

@@ -29,6 +29,7 @@ router.all('/productdetails/:id?',function(req,res){
 	 		{
 	 			res.render('./index/productdetails',{result: result});
 	 		}
+	 	
 	 	else
 	 		{
 	 			res.render('./error/error');
