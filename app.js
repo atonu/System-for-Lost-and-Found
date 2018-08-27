@@ -41,7 +41,7 @@ app.all('*/*',function(req,res,next){
 	}
 	if(req.session.loggedUser==null)
 	{
-		res.redirect('/index');
+		res.redirect('/login');
 	}
 	else
 	{

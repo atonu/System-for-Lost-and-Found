@@ -48,7 +48,7 @@ module.exports={
 			}
 		});
 	},
-	productlist: function(callback)
+	productlist: function(data,callback)
 	{
 		var sql="SELECT * FROM lost";
 
@@ -59,6 +59,7 @@ module.exports={
 			}
 			else
 			{
+				result[10]=data;
 				callback(result);
 			}
 		});

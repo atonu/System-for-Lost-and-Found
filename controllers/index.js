@@ -2,11 +2,19 @@ var express=require('express');
 var router=express.Router();
 var index=require.main.require('./models/index');
 var dashboardModel=require.main.require('./models/admindashboard-model');
-var index = require.main.require('./models/index')
+var index = require.main.require('./models/index');
+var userModel=require.main.require('./models/user-model');
 // Request Handler
 
 router.all('/',function(req,res){
-	 dashboardModel.productlist(function(result){
+	if(req.session.loggedUser != null)
+	{
+		var data = req.session.loggedUser;	
+	}
+	else
+		var data = "Not Logged in";
+
+	 dashboardModel.productlist(data,function(result){
 	 	if(result && result!=null)
 	 		{
 	 			res.render('./index/index',{result: result});
@@ -16,6 +24,8 @@ router.all('/',function(req,res){
 	 			res.render('./error/error');
 	 		}
 	 });
+
+	 
 });
 
 
@@ -69,6 +79,8 @@ router.get('/catagorysearch/:catagory?',function(req,res){
 	 		}
 	 });
 });
+
+
 
 //Exports
 module.exports=router;
