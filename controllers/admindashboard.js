@@ -66,7 +66,12 @@ router.post('/addproduct',function(req,res){
 
 
 router.all('/productlist',function(req,res){
-	dashboardModel.productlist(function(result){
+	var data={
+		username: req.session.loggedUser
+
+	}
+
+	dashboardModel.productlist(data,function(result){
 		if(result && result!=null)
 			{
 				res.render('./admindashboard/productlist',{result: result});
@@ -147,6 +152,10 @@ router.all('/userlist',function(req,res){
 				res.render('./error/error');
 			}
 	});
+});
+
+router.get('/home',function(req,res){
+	res.render('./admindashboard/home');
 });
 
 

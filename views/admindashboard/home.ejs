@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Dashboard</title>
+	<% include ../partials/head %>
+</head>
+<body id="adminlogin">
+
+	<header>
+		<% include ../partials/adminHeader%>
+	</header>
+	<div class="panel panel-primary">
+		<a href="/logout">
+			<button class="btn-success btn pull-right">
+				Logout
+			</button>
+		</a>
+	</div>
+	<!-- <div class="panel panel-primary">
+		<a href="{{route('logout')}}">
+			<button class="btn-danger btn pull-right">
+				Logout
+			</button>
+		</a>
+	</div> -->
+
+	<!-- if you want to create login page and register page together in one page ...you have to only chnage his name...that's it...                 -->
+	<div class="container font" style="margin-top: 3%;">
+	  <div class="well">
+	  	<h2 class="text-left">
+	  		<a href="/admindashboard/addProduct">Create Post</a>
+	  	</h2>
+	  </div>
+	  <div class="well">
+	  	<h2 class="text-left">
+	  		<a href="/admindashboard/productlist">All Posts</a>
+	  	</h2>
+	  </div>
+	  <div class="well">
+	  	<h2 class="text-left">
+	  		<a href="/admindashboard/userlist">Users</a>
+	  	</h2>
+	  </div>
+	  <div class="well">
+	  	<h2 class="text-left">
+	  		<a href="#">Add Admin</a>
+	  	</h2>
+	  </div>
+	  <div class="well">
+	  	<h2 class="text-left">
+	  		<a href="#">Promotions</a>
+	  	</h2>
+	  </div>
+	  
+	</div>
+</body>
+</html>

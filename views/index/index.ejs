@@ -14,7 +14,7 @@
  </style>
 
 </head>
-<body>
+<body id="index">
 
 	
 	<header>
@@ -26,8 +26,8 @@
 
 
 
-	<img src="https://i.imgur.com/qrdYYls.jpg" alt="bg" style="width: 100%; ">
-	<img src="https://i.imgur.com/qrdYYls.jpg" alt="bg" style="width: 100%; ">
+	<img src="https://i.imgur.com/qrdYYls.jpg" alt="bg" style="width: 99%; ">
+	<img src="https://i.imgur.com/qrdYYls.jpg" alt="bg" style="width: 99%; margin-top: 10px; ">
 	
 
 	<center>
@@ -44,6 +44,7 @@
 							<a href="/index/productdetails/<%=result[i].id%>">
 								<figure>
 									<img src = "https://i.imgur.com/s0nNyme.jpg">
+									<!-- <img src = <%=result[i].image%> > -->
 									<figcaption><%=result[i].lost_name%></figcaption>
 									<p>Age: <%=result[i].age%></p>
 									<span class="price">Last Located: <%=result[i].last_located%></span>

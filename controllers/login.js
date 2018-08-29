@@ -29,7 +29,7 @@ router.post('/',function(req,res){
 				if(result)
 				{
 					req.session.loggedUser=data.username;
-					res.redirect('/user/user');
+					res.redirect('/index');
 				}
 				else
 				{
