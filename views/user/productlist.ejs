@@ -4,60 +4,56 @@
 	<title>My Posts</title>
 	<% include ../partials/head %>
 	<style>
-table {
+  table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-}
+  }
 
-td, th {
+  td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-}
+  }
 
-tr:nth-child(even) {
+  tr:nth-child(even) {
     background-color: #dddddd;
-}
+  }
 </style>
 </head>
-<body>
+<body id="login">
 
 	<header>
-		<% include ../partials/userHeader2 %>
+		<% include ../partials/userheader2%>
 	</header>
-	<div class="panel panel-primary">
-		<a href="/logout">
-			<button class="btn-success btn pull-right">
-				Logout
-			</button>
-		</a>
-	</div>
-	<h2>My Posts</h2>
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Agent Name</th>
-    <th>Catagory</th>
-    <th>Contact</th>
-    <th>Option</th>
-  </tr>
-  <%for(var i=0;i<result.length;i++){%>
-  <tr>
-    <td><%=result[i].id%></td>
-    <td><%=result[i].lost_name%></td>
-    <td><%=result[i].agent_name%></td>
-    <td><%=result[i].catagory%></td>
-    <td><%=result[i].contact%></td>
-    <td><a href="/user/productedit/<%=result[i].id%>">Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>">Delete</a></td>
-  </tr>
-  <%}%>
-  
-</table>
-	<hr>
-	<footer class="bg-dark text-white">
-	<% include ../partials/footer %>
-	</footer>
-</body>	
-</html>
+	
+    <div class="col-md-5 full-panel">
+      <div class="panel panel-primary">
+        <div class="panel-heading font" style="width: 240%">
+          <table>
+            <h2>My Posts</h2>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Agent Name</th>
+              <th>Catagory</th>
+              <th>Contact</th>
+              <th>Option</th>
+            </tr>
+            <%for(var i=0;i<result.length;i++){%>
+            <tr>
+              <td><%=result[i].id%></td>
+              <td><%=result[i].lost_name%></td>
+              <td><%=result[i].agent_name%></td>
+              <td><%=result[i].catagory%></td>
+              <td><%=result[i].contact%></td>
+              <td><a href="/user/productedit/<%=result[i].id%>">Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>">Delete</a></td>
+            </tr>
+            <%}%>
+
+          </table>
+        </div>
+      </div></div>
+      
+   </body>	
+   </html>

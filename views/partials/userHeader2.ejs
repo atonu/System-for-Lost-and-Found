@@ -1,4 +1,39 @@
-<nav class="navbar navbar-defult">
+<style>
+.dropdown-content a:hover {background-color: #ff6536;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: ff6536;}
+</style>
+
+<nav class="navbar navbar-inverse" style="width: 1670px; left: 10px; top:10px">
+<div style ="width: 200px; height: 190px">
+<div class="dropdown" style="margin-left:450px;margin-top:130px;">
+          <button class="dropbtn" style="margin-top:10px";>Post</button>
+            <div class="dropdown-content">
+              <a href="/user/addProduct">Create Post</a>
+              <a href="/user/productlist">My Posts</a>
+            
+            </div>
+        </div>
+
+        <div class="dropdown" style="margin-left:705px;top:-52px;">
+          <button class="dropbtn" style="margin-top:10px";>Login</button>
+            <div class="dropdown-content">
+              <a href="/login">Login</a>
+              <a href="/reg">Register</a>
+            
+            </div>
+        </div>
+
+<a href="/index">
+<div>
+  <img src="https://i.imgur.com/oimnaW0.png" alt="bg" style="width: 190%; margin-left: 2px; margin-top:-294px ">
+  </div>
+</a>
+
+</div>
+
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,15 +43,41 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="/index">Home</a></li>
-        <li class="active"><a href="/user/addProduct">Post<span class="sr-only">(current)</span></a></li>
     
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        
+      
+      <div style="margin-left:540px;margin-top: -20px;">
 
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+              
+      <td><a href="/index" class="button" style="width:  10%;margin-top: -30px;margin-left:20px">Home</a></td>
+      <td><a href="/user/user" class="button" style="width:  10%;margin-top: -52px;margin-left:275px">Profile</a></td>
+      <td><a href="/logout" class="button" style="width:  10%;margin-top: -51px;margin-left:392px"">Logout</a></td>
+
+      
+      </div>
+
+      <div class="searchresult col-md-9">
+          <form method="post" action="/index/search" class="navbar-form navbar-left" style="margin-left:-450px; margin-top:10px">
+            <div class="form-group">
+              <input type="text" class="form-control" id="search" name="search" placeholder="Search" required style="width: 650%;">
+            </div>
+            <button type="submit" id="submit" class="btn btn-default" style="margin-left:1350px;margin-top: -50px; width: 98px ">Search</button>
+          </form>
+        </div>
+        
+        <ul class="nav navbar-nav navbar-right" style="margin-top:-200px">
+          
+        </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

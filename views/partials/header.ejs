@@ -1,8 +1,35 @@
+<style>
+.dropdown-content a:hover {background-color: #ff6536;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: ff6536;}
+</style>
+
 <nav class="navbar navbar-inverse" style="width: 99%; left: 10px; top:10px">
 <div style ="width: 200px; height: 190px">
+<div class="dropdown" style="margin-left:450px;margin-top:130px;">
+          <button class="dropbtn" style="margin-top:10px";>Post</button>
+            <div class="dropdown-content">
+              <a href="/user/addProduct">Create Post</a>
+              <a href="/user/productlist">My Posts</a>
+            
+            </div>
+        </div>
+
+        <div class="dropdown" style="margin-left:705px;top:-52px;">
+          <button class="dropbtn" style="margin-top:10px";>Login</button>
+            <div class="dropdown-content">
+              <a href="/login">Login</a>
+              <a href="/reg">Register</a>
+            
+            </div>
+        </div>
+
 <a href="/index">
-  <img src="https://i.imgur.com/oimnaW0.png" alt="bg" style="width: 190%; margin-left: 2px; margin-top: ">
+  <img src="https://i.imgur.com/oimnaW0.png" alt="bg" style="width: 190%; margin-left: 2px; margin-top:-235px ">
 </a>
+
 </div>
 
   <div class="container-fluid">
@@ -17,41 +44,27 @@
       
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
         
-        
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/index">Home</a></li>
-            <li><a href="/user/user">Profile</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/reg">Register</a></li>
-            <li><a href="/logout">Logout</a></li>
-            
-          </ul>
-        </li>
-      </ul>
       
-      <div style="margin-left:570px">
-      <td><a href="/user/addproduct" class="button" style="width:  10%;margin-left: -130px;margin-top: -70px">Create Post</a></td>
-      <td><a href="/index" class="button" style="width:  10%;margin-top: -51px">Home</a></td>
-      <td><a href="/login" class="button" style="width:  10%;margin-top: -53px;margin-left:150px">Login</a>
-      <td><a href="/reg" class="button" style="width:  10%;margin-top: -53px;margin-left:290px">Register</a>
-      <td><a href="/user/user" class="button" style="width:  10%;margin-top: -53px;margin-left:430px">Profile</a></td>
-      <td><a href="/logout" class="button" style="width:  10%;margin-top: -53px;margin-left:570px"">Logout</a></td>
+      <div style="margin-left:540px;margin-top: -20px;">
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+              
+      <td><a href="/index" class="button" style="width:  10%;margin-top: -30px;margin-left:20px">Home</a></td>
+      <td><a href="/user/user" class="button" style="width:  10%;margin-top: -52px;margin-left:275px">Profile</a></td>
+      <td><a href="/logout" class="button" style="width:  10%;margin-top: -51px;margin-left:392px"">Logout</a></td>
 
       
       </div>
 
       <div class="searchresult col-md-9">
-          <form method="post" action="/index/search" class="navbar-form navbar-left">
+          <form method="post" action="/index/search" class="navbar-form navbar-left" style="margin-left:-450px; margin-top:10px">
             <div class="form-group">
-              <input type="text" class="form-control" id="search" name="search" placeholder="Search" required style="width: 600%;margin-top:-5px">
+              <input type="text" class="form-control" id="search" name="search" placeholder="Search" required style="width: 650%;">
             </div>
-            <button type="submit" id="submit" class="btn btn-default" style="margin-left: 1000px;margin-top: -5px; width: 98px ">Search</button>
+            <button type="submit" id="submit" class="btn btn-default" style="margin-left:1350px;margin-top: -50px; width: 98px ">Search</button>
           </form>
         </div>
         

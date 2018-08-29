@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>My Profile</title>
-	<% include ../partials/profileheader %>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
-<img src="https://i.imgur.com/eq0voLJ.jpg" alt="bg" style="width: 100%; ">
-<body id="index">
-
-
-
-	<div class="container" style=" margin :auto;margin-top:-1200px;">
+<body>
+	<div class="container">
       <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
            
@@ -20,24 +16,13 @@
    
    		<%for(var i=0;i<result.length;i++){%>
           <div class="panel panel-info">
-            
             <div class="panel-heading">
               <h3 class="panel-title"><%=result[i].name%></h3>
             </div>
-
             <div class="panel-body">
               <div class="row">
-
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://i.ytimg.com/vi/Yj7ja6BANLM/maxresdefault.jpg" class="img-circle img-responsive">
-              </div>
-
-              <span class="pull-right">
-                    <a href="/logout%>" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-log-out"></i> Logout</a> 
-              </span>
-
-
-
-                <br><br><br>
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="images/lost.jpg" class="img-circle img-responsive"> </div>
+                
                 <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
                     <dt>DEPARTMENT:</dt>
@@ -84,9 +69,9 @@
                     </tbody>
                   </table>
                   
-
-
-
+                  <a href="/user/useredit/<%=result[i].username%>" class="btn btn-primary">Edit Profile</a>
+                  <a href="/index%>" class="btn btn-primary">Home</a>
+                  <a href="/logout%>" class="btn btn-primary">Logout</a>
                   
                 </div>
               </div>
@@ -94,14 +79,10 @@
 
 
                  <div class="panel-footer">
-                        <a href="/user/productlist" class="btn btn-primary">My Posts </a>
-
+                        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
                         <span class="pull-right">
-                            <a href="https://mail.google.com/" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                                
-                            <a data-original-title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning" href="/user/useredit/<%=result[i].username%>"><i class="glyphicon glyphicon-edit"></i></a>
-
-                            <a data-original-title="Home" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" href="/index"><i class="glyphicon glyphicon-home"></i></a>
+                            <a href="/user/useredit/<%=result[i].username%>" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" href="/index"><i class="glyphicon glyphicon-remove"></i></a>
                         </span>
                     </div>
             
