@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Posts</title>
-	<% include ../partials/head %>
-	<style>
+  <title>Product List</title>
+  <% include ../partials/head %>
+  <style>
   table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -21,39 +21,44 @@
   }
 </style>
 </head>
-<body id="login">
+<body>
 
-	<header>
-		<% include ../partials/userheader2%>
-	</header>
-	
-    <div class="col-md-5 full-panel">
-      <div class="panel panel-primary">
-        <div class="panel-heading font" style="width: 240%">
-          <table>
-            <h2>My Posts</h2>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Agent Name</th>
-              <th>Catagory</th>
-              <th>Contact</th>
-              <th>Option</th>
-            </tr>
-            <%for(var i=0;i<result.length;i++){%>
-            <tr>
-              <td><%=result[i].id%></td>
-              <td><%=result[i].lost_name%></td>
-              <td><%=result[i].agent_name%></td>
-              <td><%=result[i].catagory%></td>
-              <td><%=result[i].contact%></td>
-              <td><a href="/user/productedit/<%=result[i].id%>">Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>">Delete</a></td>
-            </tr>
-            <%}%>
+  <header>
+    <% include ../partials/userHeader2%>
+  </header>
+  <div class="panel panel-primary">
+    <a>
+    </a>
+  </div>
 
-          </table>
-        </div>
-      </div></div>
-      
-   </body>	
-   </html>
+<div class="col-md-5 full-panel">
+  <div class="panel panel-primary">
+  <div class="panel-heading font" style="width: 240%">
+  <h2>Product list</h2>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Agent Name</th>
+      <th>Catagory</th>
+      <th>Contact</th>
+      <th>Option</th>
+    </tr>
+    <%for(var i=0;i<result.length;i++){%>
+    <tr>
+      <td><%=result[i].id%></td>
+      <td><%=result[i].lost_name%></td>
+      <td><%=result[i].agent_name%></td>
+      <td><%=result[i].catagory%></td>
+      <td><%=result[i].contact%></td>
+      <td><a href="/user/productedit/<%=result[i].id%>">Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>">Delete</a></td>
+    </tr>
+    <%}%>
+    
+  </table> </div></div></div>
+  <hr>
+  <footer class="bg-dark text-white">
+   <% include ../partials/footer %>
+ </footer>
+</body> 
+</html>

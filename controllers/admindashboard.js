@@ -74,6 +74,7 @@ router.all('/productlist',function(req,res){
 	dashboardModel.productlist(data,function(result){
 		if(result && result!=null)
 			{
+				// result[10] = data.username;
 				res.render('./admindashboard/productlist',{result: result});
 			}
 		else

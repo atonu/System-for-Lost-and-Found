@@ -152,25 +152,18 @@ router.post('/productedit/:id?',function(req,res){
 		date: date.format(new Date(), 'YYYY/MM/DD')
 	};
 
-	var validator=new asyncValidator(productValidation.product);
-	validator.validate(data,function(errors,fields){
-		if(errors){
-			res.render('/user/productedit',{errors:errors});
-		}
+	userModel.productupdate(data,function(valid){
+		if(valid)
+			{
+				res.redirect('/user/productlist');
+			}
 		else
-		{
-			userModel.productupdate(data,function(valid){
-				if(valid)
-				{
-					res.redirect('/user/productlist');
-				}
-				else
-				{
-					res.redirect('/error/error');
-				}
-			});
-		}
+			{
+				res.render('/error/error');
+			}
 	});
+
+
 
 
 

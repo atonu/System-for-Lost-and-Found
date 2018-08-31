@@ -59,7 +59,7 @@ module.exports={
 			}
 			else
 			{
-				result[10]=data;
+				// result[10]=data;
 				callback(result);
 			}
 		});

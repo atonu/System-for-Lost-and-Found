@@ -13,11 +13,13 @@ router.all('/',function(req,res){
 	}
 	else
 		var data = "Not Logged in";
+	var uname = data;
 
 	 dashboardModel.productlist(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result});
+	 			
+	 			res.render('./index/index',{result: result,uname});
 	 		}
 	 	else
 	 		{
@@ -34,10 +36,11 @@ router.all('/productdetails/:id?',function(req,res){
 	var data={
 		id: req.params.id
 	};
+	var uname = req.session.loggedUser;
 	 index.productdetails(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/productdetails',{result: result});
+	 			res.render('./index/productdetails',{result: result,uname});
 	 		}
 	 	
 	 	else
@@ -51,27 +54,32 @@ router.post('/search',function(req,res){
 	var data={
 		productname: req.body.search
 	};
+	var uname = req.session.loggedUser;
 	 index.searchproduct(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result});
+	 			res.render('./index/index',{result: result,uname});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname});
 	 		}
 	 });
 });
 
 router.post('/catagorysearch/:catagory?',function(req,res){
 	var data={
-		catagory: req.body.catsearch
+		catagory: req.body.catsearch,
+
 	};
+
+	var uname = req.session.loggedUser;
+
 	console.log(req.params.catagoryname);
 	 index.searchproductcatagory(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result});
+	 			res.render('./index/index',{result: result,uname});
 	 		}
 	 	else 
 	 		{
