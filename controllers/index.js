@@ -63,9 +63,9 @@ router.post('/search',function(req,res){
 	 });
 });
 
-router.get('/catagorysearch/:catagory?',function(req,res){
+router.post('/catagorysearch/:catagory?',function(req,res){
 	var data={
-		catagory: req.params.catagory
+		catagory: req.body.catsearch
 	};
 	console.log(req.params.catagoryname);
 	 index.searchproductcatagory(data,function(result){
