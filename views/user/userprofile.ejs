@@ -3,7 +3,7 @@
 
 <head>
   <title>My Profile</title>
-	<% include ../partials/profileheader %>
+  <% include ../partials/profileheader %>
 </head>
 <img src="https://i.imgur.com/eq0voLJ.jpg" alt="bg" style="width: 100%; ">
 <body id="login">
@@ -11,33 +11,33 @@
 
 
 	<div class="container" style=" margin :auto;margin-top:-1150px;">
-      <div class="row">
+    <div class="row">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-           
+       
        <br>
-      </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-   
-   		<%for(var i=0;i<result.length;i++){%>
-          <div class="panel panel-info">
-            
-            <div class="panel-heading">
-              <h3 class="panel-title"><%=result[i].name%></h3>
+     </div>
+     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+       
+       <%for(var i=0;i<result.length;i++){%>
+       <div class="panel panel-info">
+        
+        <div class="panel-heading">
+          <h3 class="panel-title"><%=result[i].name%></h3>
+        </div>
+
+        <div class="panel-body">
+          <div class="row">
+
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://i.imgur.com/libEXx4.jpg" class="img-circle img-responsive">
             </div>
 
-            <div class="panel-body">
-              <div class="row">
-
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://i.imgur.com/libEXx4.jpg" class="img-circle img-responsive">
-              </div>
-
-              <span class="pull-right">
-                    <a href="/logout%>" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-log-out"></i> Logout</a> 
-              </span>
+            <span class="pull-right">
+              <a href="/logout%>" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-log-out"></i> Logout</a> 
+            </span>
 
 
 
-                <br><br><br>
+            <br><br><br>
                 <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                   <dl>
                     <dt>DEPARTMENT:</dt>
@@ -65,9 +65,9 @@
                         <td>Date of Birth</td>
                         <td><%=result[i].id%></td>
                       </tr>
-                   
-                     
-                        <tr>
+                      
+                      
+                      <tr>
                         <td>Home Address</td>
                         <td><%=result[i].address%></td>
                       </tr>
@@ -75,41 +75,41 @@
                         <td>Email</td>
                         <td><a href="mailto:info@support.com"><%=result[i].email%></a></td>
                       </tr>
-                        <td>Phone Number</td>
-                        <td><%=result[i].phone%>
-                        </td>
-                           
-                      </tr>
-                     
-                    </tbody>
-                  </table>
-                  
+                      <td>Phone Number</td>
+                      <td><%=result[i].phone%>
+                      </td>
+                      
+                    </tr>
+                    
+                  </tbody>
+                </table>
+                
 
 
 
-                  
-                </div>
+                
               </div>
             </div>
-
-
-                 <div class="panel-footer">
-                        <a href="/user/productlist" class="btn btn-primary">My Posts </a>
-
-                        <span class="pull-right">
-                            <a href="https://mail.google.com/" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
-                                
-                            <a data-original-title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning" href="/user/useredit/<%=result[i].username%>"><i class="glyphicon glyphicon-edit"></i></a>
-
-                            <a data-original-title="Home" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" href="/index"><i class="glyphicon glyphicon-home"></i></a>
-                        </span>
-                    </div>
-            
           </div>
-          <%}%>
+
+
+          <div class="panel-footer">
+            <a href="/user/productlist" class="btn btn-primary">My Posts </a>
+
+            <span class="pull-right">
+              <a href="https://mail.google.com/" data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+              
+              <a data-original-title="Edit Profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning" href="/user/useredit/<%=result[i].username%>"><i class="glyphicon glyphicon-edit"></i></a>
+
+              <a data-original-title="Home" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger" href="/index"><i class="glyphicon glyphicon-home"></i></a>
+            </span>
+          </div>
+          
         </div>
+        <%}%>
       </div>
     </div>
+  </div>
 
 
 </body>	

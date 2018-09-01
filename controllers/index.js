@@ -67,6 +67,16 @@ router.post('/search',function(req,res){
 	 });
 });
 
+router.get('/advancesearch',function(req,res){
+	var data = req.session.loggedUser;
+	var uname = data;
+	userModel.user(data,function(result){
+		res.render('./index/advancesearch',{result: result,uname});
+	});
+	
+});
+
+
 router.post('/catagorysearch/:catagory?',function(req,res){
 	var data={
 		catagory: req.body.catsearch,
