@@ -44,7 +44,7 @@ module.exports={
 		});
 	},
 	searchproductcatagory: function(data,callback) {
-		var sql='SELECT * FROM `lost` WHERE catagory LIKE ?';
+		var sql='SELECT * FROM `lost` WHERE catagory LIKE ? ORDER BY lost.promotion DESC';
 		var param=[data.catagory];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)

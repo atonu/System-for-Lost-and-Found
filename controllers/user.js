@@ -87,6 +87,7 @@ router.post('/addproduct',function(req,res){
 		agent_name: req.body.agent_name,
 		details: req.body.details,
 		date: date.format(new Date(), 'YYYY/MM/DD'),
+		promotion: req.body.promotion,
 	};
 	var validator=new asyncValidator(productValidation.product);
 	validator.validate(data,function(errors,fields){
@@ -149,7 +150,8 @@ router.post('/productedit/:id?',function(req,res){
 		category: req.body.category,
 		agent_name: req.body.agent_name,
 		details: req.body.details,
-		date: date.format(new Date(), 'YYYY/MM/DD')
+		date: date.format(new Date(), 'YYYY/MM/DD'),
+		promotion: req.body.promotion,
 	};
 
 	userModel.productupdate(data,function(valid){

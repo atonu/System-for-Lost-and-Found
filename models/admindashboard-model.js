@@ -50,7 +50,7 @@ module.exports={
 	},
 	productlist: function(data,callback)
 	{
-		var sql="SELECT * FROM lost";
+		var sql="SELECT * FROM lost ORDER BY lost.promotion DESC ";
 
 		db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)

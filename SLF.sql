@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 08, 2018 at 08:51 PM
+-- Generation Time: Sep 01, 2018 at 12:36 AM
 -- Server version: 10.1.34-MariaDB
--- PHP Version: 7.1.19
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -69,16 +69,18 @@ CREATE TABLE `lost` (
 --
 
 INSERT INTO `lost` (`id`, `lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`, `uname`, `date`) VALUES
-(26, 'Akkas Mia', 69, 0x617364, 'Kuratoli Road, BRA', 'Rajshahi', 'lost', 'atonu', '017xxxxxxxx', '', '2018/07/31'),
+(26, 'Akkas Mia', 69, 0x617364, 'Kuratoli Road, BRA', 'Rajshahi', 'Lost', 'atonu', '017xxxxxxxx', '', '2018/07/31'),
 (28, 'Joshim Hawladar', 56, 0x33373730313935375f323130353330373139393638353037385f363637323734333831333335313437333135325f6e2e6a7067, 'mirpur,Dhaka', 'Dhaka', 'Found', 'ahmed zahin', '123', '', '2018/07/31'),
 (31, 'shajib alam', 66, 0x33373730313935375f323130353330373139393638353037385f363637323734333831333335313437333135325f6e2e6a7067, 'birulia bridge, Dhaka', 'Chittagong', 'Lost', 'Thakur', '018xxxxxxxx', '', '2018/07/31'),
 (32, 'Musa Bin Shamsher', 80, 0x33373730313935375f323130353330373139393638353037385f363637323734333831333335313437333135325f6e2e6a7067, 'Mogbazar,Dhaka', 'Jessore', 'Lost', 'Pulak Barmon', '019xxxxxxxx', '', '2018/07/31'),
 (33, 'tarukul Islam', 30, 0x33373638353230375f323038323434313137353334333332395f333533333034353536353138323936373830385f6e2e6a7067, 'Kuratoli Road, BRA', 'No idea', 'Found', 'Nishe,Nishat', '017xxxxxxxx', '', '2018/07/31'),
 (35, 'lulu boyati', 55, 0x627574742e6a7067, 'mirpur,Dhaka', 'Chittagong', 'Found', 'ahmed zahin', '017xxxxxxxx', 'atonu', '2018/07/31'),
 (36, 'TARIKUL', 24, 0x627574742e6a7067, 'Kuratoli Road, BRA', 'dhaka', 'Lost', 'atonu', '123', '', '2018/07/31'),
-(64, 'Kamal', 56, 0x7468652d656e642e706e67, 'Lost', 'Dhaka', 'Lost', 'ahmed zahin', '018xxxxxxxx', 'atonu', '2018/08/01'),
-(65, 'shovic ', 30, 0x33363237343432375f313931383738353339383136313034345f393138363437343436363733363037383834385f6e2e6a7067, 'mirpur', 'dinajpur', 'lost', 'atonu', '019xxxxx', 'atonu', '2018/08/01'),
-(66, 'abcd', 23, 0x33363237343432375f313931383738353339383136313034345f393138363437343436363733363037383834385f6e2e6a7067, 'jhigatola,Dhaka', 'dhaka', 'Found', 'Pulak Barmon', '12312', 'atonu', '2018/08/01');
+(64, 'Kamal hossain', 56, '', 'Lost', 'Dhaka', 'Lost', 'ahmed zahin', '123', 'atonu', '2018/08/01'),
+(65, 'shovic azmayn', 30, '', 'Lost', 'dinajpur', 'Lost', 'atonu', '123', 'atonu', '2018/08/01'),
+(66, 'wahid', 23, '', 'Found', 'dhaka', 'Found', 'Pulak Barmon', '123', 'atonu', '2018/08/01'),
+(69, 'testx', 123, 0x37373437353536335f31353034303632372e6a7067, 'mirpur stadium premise', 'noakhali', 'Lost', 'XYZ', '123', 'atonu', '2018/09/01'),
+(70, 'Kaber', 23, 0x37373437353536335f31353034303632372e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'Lost', 'ahmed zahin', '123', 'atonu', '2018/09/01');
 
 -- --------------------------------------------------------
 
@@ -180,7 +182,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `lost`
 --
 ALTER TABLE `lost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `records`

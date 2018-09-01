@@ -34,8 +34,8 @@ module.exports={
 	},
 
 	productInsert: function(data,callback){
-		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`, `date`,`uname`) VALUES (?,?,?,?,?,?,?,?,?,?)";
-		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.date,data.logged_user];
+		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`, `date`,`uname`,`promotion`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.date,data.logged_user,data.promotion];
 
 		db.insertData(sql,param,function(result){
 			if(result==null || result.length==0)
@@ -67,8 +67,8 @@ module.exports={
 	},
 
 	productupdate: function(data,callback){
-		var sql="UPDATE `lost` SET `lost_name`=?,`age`=?,`image`=?,`last_located`=?,`origin`=?,`catagory`=?,`agent_name`=?,`contact`=? WHERE `id`=?";
-		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.id];
+		var sql="UPDATE `lost` SET `lost_name`=?,`age`=?,`image`=?,`last_located`=?,`origin`=?,`catagory`=?,`agent_name`=?,`contact`=?,`promotion`=? WHERE `id`=?";
+		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.promotion,data.id];
 
 		
 		db.updateData(sql,param,function(result){
