@@ -30,13 +30,13 @@
  		height: 39px;
  		width: 100px;
  		text-decoration:none;
-  		text-shadow:1px 1px 3px rgba(0,0,0,0.3);
-  
+ 		text-shadow:1px 1px 3px rgba(0,0,0,0.3);
+
 
  	}
 
  	.topnav a:hover {
-  		color:#f1f2f3;
+ 		color:#f1f2f3;
  	}
 
  	.topnav a.active {
@@ -53,24 +53,24 @@
  		<% include ../partials/header %>
  	</header>
 
- 	<div class="topnav" >
- 			<a class="active" style="margin-left:30px; margin-top: 7px;" href="/index">All</a>
+ 	<div class="topnav" style="margin-top: 10px;">
+ 		<a class="active" style="margin-left:130px; margin-top: 7px;" href="/index">All</a>
 
- 			<form method="post" action="/index/catagorysearch" class="navbar-form navbar-left" >
- 				<div class="form-group">
- 					
- 				</div>
- 				<button type="submit" value="lost" id="catsearch" name="catsearch" class="Bbutton" style="width: 98px ; margin-top: -20px; margin-left: 5px;">Lost</button>
- 			</form>
+ 		<form method="post" action="/index/catagorysearch" class="navbar-form navbar-left" >
+ 			<div class="form-group">
 
- 			<form method="post" action="/index/catagorysearch" class="navbar-form navbar-left" >
- 				<div class="form-group">
- 					
- 				</div>
- 				<button type="submit" value="found" id="catsearch" name="catsearch" class="Bbutton" style="width: 98px; margin-top: -20px;margin-left: -20px; ">Found</button>
- 			</form>
+ 			</div>
+ 			<button type="submit" value="lost" id="catsearch" name="catsearch" class="Bbutton" style="width: 98px ; margin-top: -20px; margin-left: 5px;">Lost</button>
+ 		</form>
 
- 		</div>
+ 		<form method="post" action="/index/catagorysearch" class="navbar-form navbar-left" >
+ 			<div class="form-group">
+
+ 			</div>
+ 			<button type="submit" value="found" id="catsearch" name="catsearch" class="Bbutton" style="width: 98px; margin-top: -20px;margin-left: -20px; ">Found</button>
+ 		</form>
+
+ 	</div>
  	<img src="https://i.imgur.com/qrdYYls.jpg" alt="bg" style="width: 99%; margin-top: 10px; ">
  	<img src="https://i.imgur.com/qrdYYls.jpg" alt="bg" style="width: 99%; margin-top: 10px; ">
 
@@ -121,9 +121,9 @@
  			</div>
 
 
- 			<hr>
- 			<footer class="bg-dark text-white">
- 				<% include ../partials/footer %>
- 			</footer>
+ 			
  		</body>	
  		</html>
+
+
+

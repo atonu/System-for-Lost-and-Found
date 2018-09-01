@@ -3994,7 +3994,7 @@ tbody.collapse.show {
   display: block;
 }
 
-.navbar {
+.navbar { 
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;

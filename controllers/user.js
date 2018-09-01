@@ -72,7 +72,16 @@ router.get('/broughthistory/:id?',function(req,res){
 
 router.get('/addproduct',function(req,res){
 	
-	res.render('./user/addproduct');
+	// res.render('./user/addproduct',{result: uname});
+	var data={
+		username: req.params.username,
+	};
+	var uname= req.session.loggedUser;
+	userModel.user(data,function(result){
+		res.render('./user/addproduct',{result: result,uname});
+	});
+
+
 });
 
 router.post('/addproduct',function(req,res){
@@ -118,11 +127,11 @@ router.all('/productlist',function(req,res){
 
 	}
 
-
+	var uname = req.session.loggedUser;
 	userModel.productlist(data,function(result){
 		if(result!=null)
 		{
-			res.render('./user/productlist',{result: result});
+			res.render('./user/productlist',{result: result,uname});
 		}
 		else
 		{
@@ -135,8 +144,9 @@ router.get('/productedit/:id?',function(req,res){
 	var data={
 		id: req.params.id
 	};
+	var uname = req.session.loggedUser;
 	userModel.productedit(data,function(result){
-		res.render('./user/editproduct',{result:result});
+		res.render('./user/editproduct',{result:result,uname});
 	});
 });
 router.post('/productedit/:id?',function(req,res){
