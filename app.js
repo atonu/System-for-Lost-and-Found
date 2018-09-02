@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, './Asset')));
 
 
 app.all('*/*',function(req,res,next){
-	if(req.url=='/index' ||req.url=='/login' ||req.url=='/adminlogin' ||req.url=='/' ||req.url=='/reg' || req.url=='/index/productdetails')
+	if(req.url=='/index' ||req.url=='/login' ||req.url=='/adminlogin' ||req.url=='/' ||req.url=='/reg' || req.url=='/advancesearch')
 
 	{
 		next();

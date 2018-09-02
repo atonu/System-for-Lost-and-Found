@@ -35,7 +35,7 @@
   <div class="panel panel-primary">
   <div class="panel-heading font" style="width: 240%">
   <h1><strong> <center> Product list</strong></center></h1>
-  <table>
+  <table ">
     <tr>
       <th>Id</th>
       <th>Name</th>
@@ -51,7 +51,7 @@
       <td><%=result[i].agent_name%></td>
       <td><%=result[i].catagory%></td>
       <td><%=result[i].contact%></td>
-      <td><a href="/user/productedit/<%=result[i].id%>">Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>">Delete</a></td>
+      <td><a  href="/user/productedit/<%=result[i].id%>" style="color: white;" >Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>" style="color: darkred;">Delete</a></td>
     </tr>
     <%}%>
     

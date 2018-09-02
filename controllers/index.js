@@ -76,6 +76,87 @@ router.get('/advancesearch',function(req,res){
 	
 });
 
+router.post('/advancesearch',function(req,res){
+	var data={
+		max: req.body.age,
+		min: req.body.age-10,
+		lastlocated: req.body.lastlocated,
+		origin: req.body.origin,
+
+	};
+	var uname = req.session.loggedUser;
+
+if(data.max!= null){
+	index.searchage(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./index/index',{result: result,uname});
+	 		}
+	 	else 
+	 		{
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 		}
+	 });
+}
+
+if(data.origin!= null){
+	index.searchorigin(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./index/index',{result: result,uname});
+	 		}
+	 	else 
+	 		{
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 		}
+	 });
+}
+
+if(data.lastlocated != null){
+	index.searchlocation(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./index/index',{result: result,uname});
+	 		}
+	 	else 
+	 		{
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 		}
+	 });
+}
+
+});
+
+
+router.get('/locationsearch',function(req,res){
+	var data = req.session.loggedUser;
+	var uname = data;
+	userModel.user(data,function(result){
+		res.render('./index/advancesearch',{result: result,uname});
+	});
+	
+});
+
+router.post('/locationsearch',function(req,res){
+	var data={
+		lastlocated: req.body.lastlocated,
+	};
+
+	var uname = req.session.loggedUser;
+	index.searchlocation(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./index/index',{result: result,uname});
+	 		}
+	 	else 
+	 		{
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 		}
+	 });
+
+});
+
+
 
 router.post('/catagorysearch/:catagory?',function(req,res){
 	var data={
