@@ -64,6 +64,34 @@ module.exports={
 			}
 		});
 	},
+	nextpage: function(data,callback) {
+		var sql='SELECT * FROM lost WHERE id > ? LIMIT ?';
+		var param=[data.id,data.limit];
+			db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
+	prevpage: function(data,callback) {
+		var sql='SELECT * FROM lost WHERE id < ? LIMIT ?';
+		var param=[data.id,data.limit];
+			db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
 	promotions: function(callback)
 	{
 		var sql="SELECT * FROM lost ORDER BY lost.promotion DESC ";

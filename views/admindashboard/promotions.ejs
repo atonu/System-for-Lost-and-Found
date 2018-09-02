@@ -27,7 +27,11 @@
 		<% include ../partials/adminHeader%>
 	</header>
 
-	<h2>Product list</h2>
+	<h1>Promotions</h1>
+  <!-- <center><a href="/admindashboard/advancesearch" class="btn-primary" style="color: grey; " ><button> <h3>Search Post</h3></button></a></center><br><br> -->
+  <a href="/admindashboard/advancesearch"><button class="btn btn-primary pull-left">Advance Search</button></a>
+
+  <div class="panel">
   <table style="color: grey;">
     <tr>
       <th>Name</th>
@@ -35,6 +39,7 @@
       <th>Agent Name</th>
       <th>Catagory</th>
       <th>Contact</th>
+      <th>Date</th>
       <th>Option</th>
     </tr>
     <%for(var i=0;i<result.length;i++){%>
@@ -44,14 +49,13 @@
       <td><%=result[i].agent_name%></td>
       <td><%=result[i].catagory%></td>
       <td><%=result[i].contact%></td>
+      <td><%=result[i].date%></td>
       <td><a href="/admindashboard/productedit/<%=result[i].id%>">Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>">Delete</a></td>
     </tr>
     <%}%>
     
   </table>
-  <hr>
-  <footer class="bg-dark text-white">
-   <% include ../partials/footer %>
- </footer>
+  </div>
+
 </body>	
 </html>

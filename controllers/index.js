@@ -14,8 +14,13 @@ router.all('/',function(req,res){
 	else
 		var data = "Not Logged in";
 	var uname = data;
+	
+	var limit = {
+		id: 1,
+		limit: 8,
+	}
 
-	 dashboardModel.productlist(data,function(result){
+	 dashboardModel.nextpage(limit,function(result){
 	 	if(result && result!=null)
 	 		{
 	 			
@@ -66,6 +71,45 @@ router.post('/search',function(req,res){
 	 		}
 	 });
 });
+
+router.all('/nextpage/:id?',function(req,res){
+	var data={
+		id: req.params.id,
+		limit: 8,
+	};
+	var uname = req.session.loggedUser;
+	 dashboardModel.nextpage(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./index/index',{result: result,uname});
+	 		}
+	 	
+	 	else
+	 		{
+	 			res.render('./index/index',{errorMessage:{message:'No More Posts.'},result: result,uname});
+	 		}
+	 });
+});
+
+router.all('/prevpage/:id?',function(req,res){
+	var data={
+		id: req.params.id,
+		limit: 8,
+	};
+	var uname = req.session.loggedUser;
+	 dashboardModel.prevpage(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./index/index',{result: result,uname});
+	 		}
+	 	
+	 	else
+	 		{
+	 			
+	 		}
+	 });
+});
+
 
 router.get('/advancesearch',function(req,res){
 	var data = req.session.loggedUser;
@@ -158,7 +202,7 @@ router.post('/locationsearch',function(req,res){
 
 
 
-router.post('/catagorysearch/:catagory?',function(req,res){
+router.post('/catagory/:catagory?',function(req,res){
 	var data={
 		catagory: req.body.catsearch,
 

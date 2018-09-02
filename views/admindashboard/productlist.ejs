@@ -27,31 +27,37 @@
 		<% include ../partials/adminHeader%>
 	</header>
 
-	<h2>Product list</h2>
+	<strong><h1>Posts</h1></strong>
+  <a href="/admindashboard/advancesearch"><button class="btn btn-primary pull-left">Advance Search</button></a>
+  <div class="panel">
   <table style="color: grey;">
     <tr>
-      <th>Id</th>
       <th>Name</th>
-      <th>Agent Name</th>
+      <th>Age</th>
       <th>Catagory</th>
+      <th>Agent Name</th>
+      <th>Last located</th>
+      <th>Origin</th>
+      <th>Date</th>
       <th>Contact</th>
+
       <th>Option</th>
     </tr>
     <%for(var i=0;i<result.length;i++){%>
     <tr>
-      <td><%=result[i].id%></td>
       <td><%=result[i].lost_name%></td>
-      <td><%=result[i].agent_name%></td>
+      <td><%=result[i].age%></td>
       <td><%=result[i].catagory%></td>
+      <td><%=result[i].agent_name%></td>
+      <td><%=result[i].last_located%></td>
+      <td><%=result[i].origin%></td>
+      <td><%=result[i].date%></td>
       <td><%=result[i].contact%></td>
       <td><a href="/admindashboard/productedit/<%=result[i].id%>">Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>">Delete</a></td>
     </tr>
     <%}%>
     
   </table>
-  <hr>
-  <footer class="bg-dark text-white">
-   <% include ../partials/footer %>
- </footer>
+  </div>
 </body>	
 </html>
