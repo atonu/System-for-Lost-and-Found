@@ -30,8 +30,8 @@
 	<h2>Product list</h2>
   <table style="color: grey;">
     <tr>
-      <th>Id</th>
       <th>Name</th>
+      <th>Amount</th>
       <th>Agent Name</th>
       <th>Catagory</th>
       <th>Contact</th>
@@ -39,8 +39,8 @@
     </tr>
     <%for(var i=0;i<result.length;i++){%>
     <tr>
-      <td><%=result[i].id%></td>
       <td><%=result[i].lost_name%></td>
+      <td><%=result[i].promotion%></td>
       <td><%=result[i].agent_name%></td>
       <td><%=result[i].catagory%></td>
       <td><%=result[i].contact%></td>

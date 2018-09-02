@@ -4,25 +4,19 @@
 	<title>Post</title>
 	<% include ../partials/head %>
 </head>
-<body>
+<body id="adminlogin">
 
 	<header>
 		<% include ../partials/adminHeader%>
 	</header>
-	<div class="panel panel-primary">
-		<a href="/logout">
-			<button class="btn-success btn pull-right">
-				Logout
-			</button>
-		</a>
-	</div>
+
 	<!-- if you want to create login page and register page together in one page ...you have to only chnage his name...that's it...                 -->
 	<div class="container font" style="margin-top: 1%;">
 	  <div class="row">
-			<div class="col-md-5 cal-md-offset-2">
-			<h1 class="text-center text-success font"><strong>Enter Lost Person's descritions</strong></h1>
+			<div class="col-md-5 cal-md-offset-2" style="color:white">
+			<h1><strong>Enter Lost Person's descritions</strong></h1>
 			  <div class="tab-content">
-			    <div id="home" class="tab-pane fade in active">
+			    <div id="home" class="tab-pane fade in active" style="color: white;">
 
 			    	<% if(typeof errors !== 'undefined'){ %>
 			    		<div class="alert alert-danger">
@@ -73,16 +67,12 @@
 					  </div>
 
 					  <!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->
-					  <button type="submit" class="btn btn-primary btn-lg font" id="submit">Add</button>
+					  <button type="submit" class="btn btn-primary btn-lg font" style="width: 100%;" id="submit">Add</button>
 					</form>
 			    </div>
 			    </div>
 			   </div>
 	  		</div>
 		</div>
-	<hr>
-	<footer class="bg-dark text-white">
-	<% include ../partials/footer %>
-	</footer>
 </body>
 </html>

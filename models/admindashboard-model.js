@@ -50,6 +50,22 @@ module.exports={
 	},
 	productlist: function(data,callback)
 	{
+		var sql="SELECT * FROM lost ";
+
+		db.getAllData(sql,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				// result[10]=data;
+				callback(result);
+			}
+		});
+	},
+	promotions: function(callback)
+	{
 		var sql="SELECT * FROM lost ORDER BY lost.promotion DESC ";
 
 		db.getAllData(sql,function(result){
@@ -146,6 +162,49 @@ module.exports={
 		var sql='SELECT * FROM user WHERE name LIKE "'+data.username+'%"';
 
 			db.getAllData(sql,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
+	searchage: function(data,callback) {
+		var sql='SELECT * FROM `lost` WHERE age BETWEEN ? AND ?';
+		var param=[data.min,data.max];
+			db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
+
+	searchlocation: function(data,callback) {
+		var sql='SELECT * FROM `lost` WHERE last_located LIKE ?';
+		var param=[data.lastlocated];
+			db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
+	searchorigin: function(data,callback) {
+		var sql='SELECT * FROM `lost` WHERE origin LIKE ?';
+		var param=[data.origin];
+			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
 			{
 				callback(false);

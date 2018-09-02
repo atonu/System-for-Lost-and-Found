@@ -139,6 +139,60 @@ router.post('/productedit/:id?',function(req,res){
 	});
 });
 
+router.get('/advancesearch',function(req,res){
+	res.render('./admindashboard/advancesearch');
+});
+
+router.post('/advancesearch',function(req,res){
+	var data={
+		max: req.body.age,
+		min: req.body.age-10,
+		lastlocated: req.body.lastlocated,
+		origin: req.body.origin,
+
+	};
+	var uname = req.session.loggedUser;
+
+if(data.max!= null){
+	dashboardModel.searchage(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./admindashboard/productlist',{result: result,uname});
+	 		}
+	 	else 
+	 		{
+	 			res.render('./admindashboard/productlist',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 		}
+	 });
+}
+
+if(data.origin!= null){
+	dashboardModel.searchorigin(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./admindashboard/productlist',{result: result,uname});
+	 		}
+	 	else 
+	 		{
+	 			res.render('./admindashboard/productlist',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 		}
+	 });
+}
+
+if(data.lastlocated != null){
+	dashboardModel.searchlocation(data,function(result){
+	 	if(result && result!=null)
+	 		{
+	 			res.render('./admindashboard/productlist',{result: result,uname});
+	 		}
+	 	else 
+	 		{
+	 			res.render('./admindashboard/productlist',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 		}
+	 });
+}
+
+});
 
 
 
@@ -158,6 +212,24 @@ router.all('/userlist',function(req,res){
 router.get('/home',function(req,res){
 	res.render('./admindashboard/home');
 });
+
+
+router.all('/promotions',function(req,res){
+
+	dashboardModel.promotions(function(result){
+		if(result && result!=null)
+			{
+				// result[10] = data.username;
+				res.render('./admindashboard/promotions',{result: result});
+			}
+		else
+			{
+				res.render('./error/error');
+			}
+	});
+});
+
+
 
 
 //Exports
