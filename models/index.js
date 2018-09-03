@@ -31,7 +31,7 @@ module.exports={
 		});
 	},
 	searchproduct: function(data,callback) {
-		var sql="SELECT * FROM lost WHERE lost_name LIKE '" + data.productname + "%'";
+		var sql="SELECT * FROM lost WHERE lost_name LIKE '" + data.productname + "%' ";
 			db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)
 			{
@@ -44,8 +44,8 @@ module.exports={
 		});
 	},
 	searchproductcatagory: function(data,callback) {
-		var sql='SELECT * FROM `lost` WHERE catagory LIKE ? ORDER BY lost.promotion DESC';
-		var param=[data.catagory];
+		var sql='SELECT * FROM `lost` WHERE catagory LIKE ? ORDER BY lost.promotion DESC LIMIT ? OFFSET ?';
+		var param=[data.catagory,data.limit,data.id];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
 			{

@@ -9,8 +9,8 @@
  		display: block;
  		margin-left: auto;
  		margin-right: auto;
- 	}
-
+ 	
+}
 a {
     text-decoration: none;
     display: inline-block;
@@ -85,19 +85,23 @@ a {
  	<div class="topnav" style="margin-top: 10px;">
  		<a class="active" style="margin-left:35px; margin-top: 7px;" href="/index">All</a>
 
- 		<form method="post" action="/index/catagory" class="navbar-form navbar-left" >
+        <a class="active" style="margin-left:35px; margin-top: 7px;" href="/index/catagory/lost/1">Lost</a>
+
+        <a class="active" style="margin-left:35px; margin-top: 7px;" href="/index/catagory/found/1">Found</a>
+
+ 		<!-- <form method="post" action="/index/catagory/lost/1" class="navbar-form navbar-left" >
  			<div class="form-group">
 
  			</div>
  			<button type="submit" value="lost" id="catsearch" name="catsearch" class="Bbutton" style="width: 98px ; margin-top: -20px; margin-left: 5px;">Lost</button>
  		</form>
 
- 		<form method="post" action="/index/catagory" class="navbar-form navbar-left" >
+ 		<form method="post" action="/index/catagory/found/1" class="navbar-form navbar-left" >
  			<div class="form-group">
 
  			</div>
  			<button type="submit" value="found" id="catsearch" name="catsearch" class="Bbutton" style="width: 98px; margin-top: -20px;margin-left: -20px; ">Found</button>
- 		</form>
+ 		</form> -->
 
  	</div>
  	
@@ -117,17 +121,17 @@ a {
  		<div class="container-fluid" style="margin-top: -900px">
  			<div align="center">
  				<form>
+                    
 
  					<%if(result[0]!=null) {%>
  					<td> <a href="/index/page/<%=prevpage%>" class="btn btn-primary previous round" type="submit"><</a> </td>
  					<%for(var i=0;i<48;i++){%>
- 					&emsp;
+ 					&emsp; 
  					<%}%>
  					<!-- <td><a href="/index/nextpage/<%=result[result.length-1].id%>" class="btn btn-primary previous round" type="submit">></a> </td> -->
                     <td><a href="/index/page/<%=nextpage%>" class="btn btn-primary previous round" type="submit">></a> </td>
  					
-
- 					<%}%>
+                    <%}%>
 
 
  				</form>
