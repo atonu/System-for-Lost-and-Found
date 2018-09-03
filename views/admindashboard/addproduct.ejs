@@ -12,67 +12,70 @@
 
 	<!-- if you want to create login page and register page together in one page ...you have to only chnage his name...that's it...                 -->
 	<div class="container font" style="margin-top: 1%;">
-	  <div class="row">
+		<div class="row">
 			<div class="col-md-5 cal-md-offset-2" style="color:white">
-			<h1><strong>Enter Lost Person's descritions</strong></h1>
-			  <div class="tab-content">
-			    <div id="home" class="tab-pane fade in active" style="color: white;">
+				<h1><strong>Enter Lost Person's descritions</strong></h1>
+				<div class="tab-content">
+					<div id="home" class="tab-pane fade in active" style="color: white;">
 
-			    	<% if(typeof errors !== 'undefined'){ %>
-			    		<div class="alert alert-danger">
-			    		<% for(var i = 0; i < errors.length; i++){ %>
-			    			<p>*<%= errors[i].message %></p>
-			    		<% } %>
-			    		</div>
-			    	<% } %>
-					<form method="post">
-					  <div class="form-group font">
-					    <label for="productname" class="font">Person's Name:</label>
-					    <input type="text" class="form-control font" id="productname" name="productname">
-					  </div>
-					  
-					  <div class="form-group font">
-					    <label for="price" class="font">Age:</label>
-					    <input type="text" class="form-control font" id="price" name="price">
-					  </div>
-					  
-					  <div class="form-group">
-					    <label for="quantity" class="font">Image:</label>
-					    <input type="file" class="form-control font" id="quentity" name="quantity">
-					  </div>
-					  
-					  <div class="form-group">
-					    <label for="catagory" class="font">Last_located:</label>
-					    <input type="text" class="form-control font" id="catagory" name="catagory">
-					  </div>
+						<% if(typeof errors !== 'undefined'){ %>
+						<div class="alert alert-danger">
+							<% for(var i = 0; i < errors.length; i++){ %>
+							<p>*<%= errors[i].message %></p>
+							<% } %>
+						</div>
+						<% } %>
+						<form method="post">
+							<div class="form-group font">
+								<label for="productname" class="font">Person's Name:</label>
+								<input type="text" class="form-control font" id="productname" name="productname">
+							</div>
+							
+							<div class="form-group font">
+								<label for="price" class="font">Age:</label>
+								<input type="text" class="form-control font" id="price" name="price">
+							</div>
+							
+							<div class="form-group">
+								<label for="quantity" class="font">Image:</label>
+								<input type="file" class="form-control font" id="quentity" name="quantity">
+							</div>
+							
+							<div class="form-group">
+								<label for="catagory" class="font">Last_located:</label>
+								<input type="text" class="form-control font" id="catagory" name="catagory">
+							</div>
 
-					  <div class="form-group">
-					    <label for="origin" class="font">Origin:</label>
-					    <input type="text" class="form-control font" id="origin" name="origin">
-					  </div>
+							<div class="form-group">
+								<label for="origin" class="font">Origin:</label>
+								<input type="text" class="form-control font" id="origin" name="origin">
+							</div>
 
-					  <div class="form-group">
-					    <label for="category" class="font">Category:</label>
-					    <input type="text" class="form-control font" id="category" name="category">
-					  </div>
+							<div class="form-group">
+								<label for="category" class="font">Category:</label>
+								<select style="height: 35px ;color: grey;" id="category" name="category" >
+									<option value="lost">Lost</option>
+									<option value="found">Found</option>
+								</select>
+							</div>
 
-					  <div class="form-group">
-					    <label for="agent_name" class="font">Agent Name:</label>
-					    <input type="text" class="form-control font" id="agent_name" name="agent_name">
-					  </div>
+							<div class="form-group">
+								<label for="agent_name" class="font">Agent Name:</label>
+								<input type="text" class="form-control font" id="agent_name" name="agent_name">
+							</div>
 
-					  <div class="form-group">
-					    <label for="details" class="font">Contact:</label>
-					    <textarea class="form-control font" id="details" name="details"></textarea>
-					  </div>
+							<div class="form-group">
+								<label for="details" class="font">Contact:</label>
+								<textarea class="form-control font" id="details" name="details"></textarea>
+							</div>
 
-					  <!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->
-					  <button type="submit" class="btn btn-primary btn-lg font" style="width: 100%;" id="submit">Add</button>
-					</form>
-			    </div>
-			    </div>
-			   </div>
-	  		</div>
+							<!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->
+							<button type="submit" class="btn btn-primary btn-lg font" style="width: 100%;" id="submit">Add</button>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
+	</div>
 </body>
 </html>

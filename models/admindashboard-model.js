@@ -65,8 +65,22 @@ module.exports={
 		});
 	},
 	nextpage: function(data,callback) {
-		var sql='SELECT * FROM lost WHERE id > ? LIMIT ?';
-		var param=[data.id,data.limit];
+		var sql='SELECT * FROM lost ORDER BY promotion DESC LIMIT ? OFFSET ?';
+		var param=[data.limit,data.id];
+			db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
+	home: function(data,callback) {
+		var sql='SELECT * FROM lost ORDER BY promotion DESC LIMIT ?';
+		var param=[data.limit];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
 			{
@@ -79,7 +93,7 @@ module.exports={
 		});
 	},
 	prevpage: function(data,callback) {
-		var sql='SELECT * FROM lost WHERE id < ? LIMIT ?';
+		var sql='SELECT * FROM lost WHERE id < ? ORDER BY id DESC LIMIT ?';
 		var param=[data.id,data.limit];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)

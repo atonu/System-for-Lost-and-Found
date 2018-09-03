@@ -57,7 +57,12 @@
 
 									<div class="form-group">
 										<label for="category" class="font">Category:</label>
-										<input type="text" class="form-control font" id="category" name="category" value="<%=result[i].catagory%>">
+										<!-- <input type="text" class="form-control font" id="category" name="category" value="<%=result[i].catagory%>"> -->
+										<select style="height: 35px ;color: grey;" id="category" name="category" >
+											<option style="color: salmon;" value="<%=result[i].catagory%>">Current: <%=result[i].catagory%></option>
+											<option value="lost">Lost</option>
+											<option value="found">Found</option>
+										</select>
 									</div>
 
 									<div class="form-group">

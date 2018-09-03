@@ -14,17 +14,18 @@ router.all('/',function(req,res){
 	else
 		var data = "Not Logged in";
 	var uname = data;
+	var nextpage = 2;
+	var prevpage = 1;
 	
 	var limit = {
-		id: 1,
 		limit: 8,
 	}
 
-	 dashboardModel.nextpage(limit,function(result){
+	 dashboardModel.home(limit,function(result){
 	 	if(result && result!=null)
 	 		{
 	 			
-	 			res.render('./index/index',{result: result,uname});
+	 			res.render('./index/index',{result: result,uname,nextpage,prevpage});
 	 		}
 	 	else
 	 		{
@@ -72,16 +73,23 @@ router.post('/search',function(req,res){
 	 });
 });
 
-router.all('/nextpage/:id?',function(req,res){
+router.all('/page/:id?',function(req,res){
 	var data={
-		id: req.params.id,
+		id: (req.params.id-1)*8,
 		limit: 8,
 	};
 	var uname = req.session.loggedUser;
+	var prevpage = req.params.id;
+	if(prevpage>1)
+	{
+		prevpage--;
+	}
+	var nextpage = req.params.id;
+	nextpage++;
 	 dashboardModel.nextpage(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result,uname});
+	 			res.render('./index/index',{result: result,uname,nextpage,prevpage});
 	 		}
 	 	
 	 	else
@@ -91,24 +99,6 @@ router.all('/nextpage/:id?',function(req,res){
 	 });
 });
 
-router.all('/prevpage/:id?',function(req,res){
-	var data={
-		id: req.params.id,
-		limit: 8,
-	};
-	var uname = req.session.loggedUser;
-	 dashboardModel.prevpage(data,function(result){
-	 	if(result && result!=null)
-	 		{
-	 			res.render('./index/index',{result: result,uname});
-	 		}
-	 	
-	 	else
-	 		{
-	 			
-	 		}
-	 });
-});
 
 
 router.get('/advancesearch',function(req,res){
@@ -209,12 +199,14 @@ router.post('/catagory/:catagory?',function(req,res){
 	};
 
 	var uname = req.session.loggedUser;
+	var nextpage = 2;
+	var prevpage = 1;
 
 	console.log(req.params.catagoryname);
 	 index.searchproductcatagory(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result,uname});
+	 			res.render('./index/index',{result: result,uname,nextpage,prevpage});
 	 		}
 	 	else 
 	 		{
