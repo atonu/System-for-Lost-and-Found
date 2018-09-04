@@ -9,11 +9,11 @@ var userModel=require.main.require('./models/user-model');
 router.all('/',function(req,res){
 	if(req.session.loggedUser != null)
 	{
-		var data = req.session.loggedUser;	
+		var uname = req.session.loggedUser;	
 	}
 	else
-		var data = "Not Logged in";
-	var uname = data;
+		var uname = "Not Logged in";
+	
 	var nextpage = 2;
 	var prevpage = 1;
 	var nextcatpage = 2;
