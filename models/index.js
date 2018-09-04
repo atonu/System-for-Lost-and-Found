@@ -73,31 +73,41 @@ module.exports={
 	},
 
 	searchlocation: function(data,callback) {
-		var sql='SELECT * FROM `lost` WHERE last_located LIKE ?';
-		var param=[data.lastlocated];
-			db.getData(sql,param,function(result){
+		
+		var sql="SELECT * FROM lost WHERE last_located LIKE '" + data.lastlocated + "%' ";
+
+		
+			db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)
 			{
 				callback(false);
 			}
 			else
 			{
-				callback(result);	
-			}
+				callback(result);
+			}	
 		});
+
+
+
 	},
 	searchorigin: function(data,callback) {
-		var sql='SELECT * FROM `lost` WHERE origin LIKE ?';
-		var param=[data.origin];
-			db.getData(sql,param,function(result){
+		
+			var sql="SELECT * FROM lost WHERE origin LIKE '" + data.origin + "%' ";
+
+		
+			db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)
 			{
 				callback(false);
 			}
 			else
 			{
-				callback(result);	
-			}
+				callback(result);
+			}	
 		});
+
+
+
 	}
 };
