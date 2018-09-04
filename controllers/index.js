@@ -63,14 +63,15 @@ router.post('/search',function(req,res){
 		productname: req.body.search
 	};
 	var uname = req.session.loggedUser;
+	var prevpage=1,nextpage=1;
 	 index.searchproduct(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result,uname});
+	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,nextpage,prevpage});
 	 		}
 	 });
 });
@@ -143,11 +144,11 @@ if(data.origin!= null){
 	index.searchorigin(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result,uname});
+	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
 	 		}
 	 });
 }
@@ -156,11 +157,11 @@ if(data.lastlocated != null){
 	index.searchlocation(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result,uname});
+	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
 	 		}
 	 });
 }
@@ -171,8 +172,9 @@ if(data.lastlocated != null){
 router.get('/locationsearch',function(req,res){
 	var data = req.session.loggedUser;
 	var uname = data;
+	var prevpage=1,nextpage=1;
 	userModel.user(data,function(result){
-		res.render('./index/advancesearch',{result: result,uname});
+		res.render('./index/advancesearch',{result: result,uname,prevpage,nextpage});
 	});
 	
 });
@@ -183,14 +185,15 @@ router.post('/locationsearch',function(req,res){
 	};
 
 	var uname = req.session.loggedUser;
+	var prevpage=1,nextpage=1;
 	index.searchlocation(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result,uname});
+	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
 	 		}
 	 });
 
