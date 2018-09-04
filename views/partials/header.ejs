@@ -93,13 +93,7 @@
 
           <%if(uname =='Not Logged in'){%>
         
-          <button class="dropbtn" style="margin-top:-53px; margin-left:60px;">Login</button>
-            <div class="dropdown-content">
-              <a href="/login">Login</a>
-              <a href="/reg">Register</a>
-          
-            
-        </div>
+        
         <%}%>
           
           <%if(uname!='Not Logged in'){%>
@@ -110,6 +104,17 @@
           <%}%>
           
           </div>
+
+<%if(uname =='Not Logged in'){%>
+                          <div class="dropdown pull-right" style="margin-top:-120px;left: -700px;">
+                          <button class="dropbtn" >Login</button>
+                            <div class="dropdown-content">
+                              <a href="/login">Login</a>
+                              <a href="/reg">Register</a>
+                          
+                            </div>    
+                          </div>
+<%}%>
 
         </div>
 

@@ -74,24 +74,26 @@ a {
 <div class="col-md-5 full-panel">
   <div class="panel panel-primary">
   <div class="panel-heading font"  style="width: 240%; margin-top: -51px;">
-  <h1><strong> <center> Product list</strong></center></h1>
-  <table ">
+  <h1><strong> <center> My Posts</strong></center></h1>
+  <table style="color: darkblue">
     <tr>
-      <th>Id</th>
       <th>Name</th>
-      <th>Agent Name</th>
+      <th>Agent Name / Alias Name</th>
       <th>Catagory</th>
       <th>Contact</th>
+      <th>Promotion</th>
+      <th>Date Posted</th>
       <th>Option</th>
     </tr>
     <%for(var i=0;i<result.length;i++){%>
     <tr>
-      <td><%=result[i].id%></td>
-      <td><%=result[i].lost_name%></td>
-      <td><%=result[i].agent_name%></td>
-      <td><%=result[i].catagory%></td>
-      <td><%=result[i].contact%></td>
-      <td><a  href="/user/productedit/<%=result[i].id%>" style="color: white;" >Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>" style="color: darkred;">Delete</a></td>
+      <td><strong><%=result[i].lost_name%></strong></td>
+      <td><strong><%=result[i].agent_name%></strong></td>
+      <td><strong><%=result[i].catagory%></strong></td>
+      <td><strong><%=result[i].contact%></strong></td>
+      <td><strong><%=result[i].promotion%></strong></td>
+      <td><strong><%=result[i].date%></strong></td>
+      <td><strong><a  href="/user/productedit/<%=result[i].id%>" style="color: salmon;" >Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>" style="color: darkred;">Delete</a></td>
     </tr>
     <%}%>
     

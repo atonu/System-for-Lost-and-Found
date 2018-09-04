@@ -106,8 +106,10 @@ router.all('/page/:id?',function(req,res){
 router.get('/advancesearch',function(req,res){
 	var data = req.session.loggedUser;
 	var uname = data;
+	var prevpage =1;
+	var nextpage =1;
 	userModel.user(data,function(result){
-		res.render('./index/advancesearch',{result: result,uname});
+		res.render('./index/advancesearch',{result: result,uname,prevpage,nextpage});
 	});
 	
 });
@@ -121,16 +123,18 @@ router.post('/advancesearch',function(req,res){
 
 	};
 	var uname = req.session.loggedUser;
+	var prevpage =1;
+	var nextpage =1;
 
 if(data.max!= null){
 	index.searchage(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result,uname});
+	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'}});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
 	 		}
 	 });
 }
