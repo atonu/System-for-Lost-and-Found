@@ -21,17 +21,42 @@
       
     }
 
+    .dd-button {
+  display: inline-block;
+  border: 1px solid gray;
+  border-radius: 4px;
+  padding: 10px 30px 10px 20px;
+  background-color: #ffffff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+  .dd-menu {
+  
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0px;
+  height: 32px;
+  margin: 2px 0 0 0;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+  background-color: #FEFFE1;
+  list-style-type: none;
+  color: grey;
+}
+
+}
+
 
   </style>
 
-  <nav class="navbar navbar-inverse" style="width: 99%; height:105px; left: 10px; top:10px">
+  <nav class="navbar " style="width: 99%; height:105px; left: 10px; top:10px">
     
 
       <div style ="width: 200px; ">
 
         
         <a href="/index">
-          <img src="https://i.imgur.com/g5DLy80.jpg" alt="bg" style="width: 135px; margin-left: -17px;margin-top: 0;">
+          <img src="https://i.imgur.com/1Rr1Bye.png" alt="bg" style="width: 135px; margin-left: -17px;margin-top: 0;">
         </a>
         
 
@@ -68,12 +93,27 @@
         
       <div class="searchresult col-md-9" style="margin-left: 140px; margin-top:-170px;">
               <form method="post" action="/index/search" class="navbar-form navbar-left" style="margin-top: 5px">
+                
+
+
+                <select name="filter" type="submit" class="dd-menu" align="center" style="width:110px;">
+                  
+                  <option value="lost_name">Name</option>
+                  <option value="last_located">Last Located</option>
+                  <option value="origin">Hometown</option>
+                  <option value="agent_name">Agent Name</option>
+                
+
+                </select>
+
+                <!-- <input type="text" class="form-control" id="filter" name="filter" required style="width: 30%;"> -->
+
                 <div class="form-group" >
                   <input type="text" class="form-control" id="search" name="search" placeholder="Search" required style="width: 350%;">
                 </div>
-                <button type="submit" id="submit" class="button" style="margin-left:732px;margin-top: -35px; width: 98px; height:35px; ">Search</button>
+                <button type="submit" id="submit" class="Sbutton" style="margin-left:825px;margin-top: -35px; width: 98px; height:35px; ">Search</button>
 
-                <td><a href="/index/advancesearch" class="button" style="height:35px ;width:  15%;margin-top: -45px;margin-left:840px">Advance Search</a></td>
+                <td><a href="/index/advancesearch" class="Sbutton" style="height:35px ;width:  15%;margin-top: -45px;margin-left:930px">Advance Search</a></td>
 
               </form>
               </br>

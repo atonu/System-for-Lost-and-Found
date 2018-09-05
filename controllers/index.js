@@ -15,10 +15,8 @@ router.all('/',function(req,res){
 		var uname = "Not Logged in";
 	
 	var nextpage = 2;
-	var prevpage = 1;
-	var nextcatpage = 2;
-	var prevcatpage = 1;
-	
+	var prevpage = 0;
+
 	var limit = {
 		limit: 8,
 	}
@@ -60,7 +58,9 @@ router.all('/productdetails/:id?',function(req,res){
 
 router.post('/search',function(req,res){
 	var data={
-		productname: req.body.search
+		productname: req.body.search,
+		filter: req.body.filter,
+
 	};
 	var uname = req.session.loggedUser;
 	var prevpage=1,nextpage=1;
@@ -83,10 +83,8 @@ router.all('/page/:id?',function(req,res){
 	};
 	var uname = req.session.loggedUser;
 	var prevpage = req.params.id;
-	if(prevpage>1)
-	{
-		prevpage--;
-	}
+
+	prevpage--;
 	var nextpage = req.params.id;
 	nextpage++;
 	 dashboardModel.nextpage(data,function(result){
@@ -215,10 +213,7 @@ router.all('/catagory/:catagory?/:id?',function(req,res){
 	var nextpage = req.params.id;
 	nextpage++;
 	var prevpage =req.params.id;
-	if(req.params.id >1){
-		prevpage--;
-	}
-
+	prevpage--;
 	console.log(req.params.catagoryname);
 
 	if(req.params.catagory == 'lost'){
