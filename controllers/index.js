@@ -63,7 +63,7 @@ router.post('/search',function(req,res){
 
 	};
 	var uname = req.session.loggedUser;
-	var prevpage=1,nextpage=1;
+	var prevpage=0,nextpage=1;
 	 index.searchproduct(data,function(result){
 	 	if(result && result!=null)
 	 		{
