@@ -176,7 +176,7 @@ a.contentbutton:hover,button.contentbutton:hover{
 
 a.Bbutton,button.Bbutton{
   padding:10px;
-  background:#6B94C1;
+  background:;
   margin:10px;
   display:block;
   text-align:center;
@@ -185,10 +185,10 @@ a.Bbutton,button.Bbutton{
   text-decoration:none;
   text-shadow:1px 1px 3px rgba(0,0,0,0.3);
   border: none;
-  box-shadow:1px 1px 3px rgba(0,0,0,0.3);
+  box-shadow:8px 6px 6px rgba(0,0,0,0.3);
 }
 a.Bbutton:hover,button.Bbutton:hover{
-  background:#A1CFFF;
+  background:#909497;
   
   color:#f1f2f3;
 }
@@ -201,6 +201,8 @@ a.Sbutton,button.Sbutton{
   color:#fff;
   transition:all 1s linear;
   text-decoration:none;
+  position: absolute;
+  z-index: 10;
   text-shadow:1px 1px 3px rgba(0,0,0,0.3);
   border: none;
   box-shadow:1px 1px 3px rgba(0,0,0,0.3);

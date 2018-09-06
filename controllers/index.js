@@ -12,7 +12,7 @@ router.all('/',function(req,res){
 		var uname = req.session.loggedUser;	
 	}
 	else
-		var uname = "Not Logged in";
+		var uname = "Guest User";
 	
 	var nextpage = 2;
 	var prevpage = 0;
