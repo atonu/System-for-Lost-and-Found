@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 06, 2018 at 03:12 PM
+-- Generation Time: Sep 07, 2018 at 05:38 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -55,7 +55,7 @@ CREATE TABLE `lost` (
   `id` int(11) NOT NULL,
   `lost_name` varchar(100) NOT NULL,
   `age` int(8) NOT NULL,
-  `image` longblob NOT NULL,
+  `image` varchar(256) NOT NULL,
   `last_located` varchar(64) NOT NULL,
   `origin` varchar(256) DEFAULT NULL,
   `catagory` varchar(256) DEFAULT NULL,
@@ -71,47 +71,35 @@ CREATE TABLE `lost` (
 --
 
 INSERT INTO `lost` (`id`, `lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`, `uname`, `date`, `promotion`) VALUES
-(26, 'Akkas Mia', 69, 0x617364, 'Kuratoli Road, BRA', 'Rajshahi', 'Lost', 'atonu', '017xxxxxxxx', '', '2018/07/31', 0),
-(28, 'Joshim Hawladar', 56, 0x33373730313935375f323130353330373139393638353037385f363637323734333831333335313437333135325f6e2e6a7067, 'mirpur,Dhaka', 'Dhaka', 'Found', 'ahmed zahin', '123', '', '2018/07/31', 0),
-(31, 'shajib alam', 66, 0x33373730313935375f323130353330373139393638353037385f363637323734333831333335313437333135325f6e2e6a7067, 'birulia bridge, Dhaka', 'Chittagong', 'Lost', 'Thakur', '018xxxxxxxx', '', '2018/07/31', 0),
-(32, 'Musa Bin Shamsher', 80, 0x33373730313935375f323130353330373139393638353037385f363637323734333831333335313437333135325f6e2e6a7067, 'Mogbazar,Dhaka', 'Jessore', 'Lost', 'Pulak Barmon', '019xxxxxxxx', '', '2018/07/31', 0),
-(33, 'tarukul Islam', 30, 0x33373638353230375f323038323434313137353334333332395f333533333034353536353138323936373830385f6e2e6a7067, 'Kuratoli Road, BRA', 'No idea', 'Found', 'Nishe,Nishat', '017xxxxxxxx', '', '2018/07/31', 0),
-(35, 'lulu boyati', 65, '', 'Shitakundo', 'Chittagong', 'found', 'ahmed zahin', '', 'atonu', '2018/07/31', 0),
-(64, 'Kamal hossain', 56, '', 'mirpur stadium premise', 'Dhaka', 'Lost', 'ahmed zahin', '', 'atonu', '2018/08/01', 0),
-(65, 'shovic azmayn', 30, '', 'basundhara', 'dinajpur', 'Lost', 'atonu', '', 'atonu', '2018/08/01', 0),
-(66, 'wahid', 23, '', 'mirpur,Dhaka', 'dhaka', 'Found', 'Pulak Barmon', '', 'atonu', '2018/08/01', 0),
-(70, 'Kaber', 23, 0x37373437353536335f31353034303632372e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'Lost', 'ahmed zahin', '123', 'atonu', '2018/09/01', 0),
-(71, 'molla', 22, 0x64616c2e6a7067, 'momahhadpur,Dhaka', 'Feni', 'Found', 'ahmed', '019', 'atonu', '2018/09/01', 0),
-(72, 'Chandler Bing', 40, '', 'Central Perk', 'Ireland', 'Lost', 'Monica', '234', 'atonu', '2018/09/01', 100),
-(73, 'promo', 20, 0x436170747572652e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'Found', 'ahmed zahin', '123', 'atonu', '2018/09/01', 0),
-(74, 'promo with value -found', 12, '', 'shantinagar,Dhaka', 'Dhaka', 'Found', 'ahmed zahin', '123', 'atonu', '2018/09/01', 200),
-(75, 'promo with value -lost', 12, 0x6b6174686d616e64752d6f6c6431313037323031315f33332e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'Lost', 'ahmed zahin', '123', 'atonu', '2018/09/01', 400),
-(76, 'babu', 8, 0x757365722e6a7067, 'mirpur,Dhaka', 'No idea', 'lost', 'ahmed zahin', '123', 'atonu', '2018/09/02', 0),
-(77, 'abbas', 45, '', 'kalshi,Dhaka', 'noakhali', 'lost', 'kashem', '017xxxxxx', 'atonu', '2018/09/03', 0),
-(78, 'admin post test', 44, '', 'Basundhara', 'not known', 'lost', 'ariya stark', '', '', '123', 0),
-(79, 'saddam', 54, 0x6b6174686d616e64752d6f6c6431313037323031315f33332e6a7067, 'shonarga', 'notor', 'found', 'kashem', '123xxx', 'atonu', '2018/09/03', 100),
-(80, 'found page test', 52, 0x66616365732d7777772d70696e7465726573742d636f6d2e6a7067, 'Kuratoli Road, BRA', 'Dhaka', 'found', 'ahmed zahin', '132', 'atonu', '2018/09/04', 100),
-(81, 'asdasd', 12, 0x436170747572652e6a7067, 'smart phone', 'Dhaka', 'found', 'ahmed zahin', '123', 'atonu', '2018/09/05', 0),
-(82, 'irfan', 123, 0x436170747572652e6a7067, 'jhigatola,Dhaka', 'madaripur', 'lost', 'irfan', '33123123', 'atonu', '2018/09/05', 0),
-(83, 'just in case', 123, 0x436170747572652e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '1332123', 'atonu', '2018/09/05', 0),
-(84, 'adasd', 12, 0x556e7469746c65642e706e67, 'dhaka', 'Dhaka', 'found', 'ahmed zahin', '123', 'atonu', '2018/09/05', 0),
-(85, 'tarek', 1200, 0x64616c2e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '123123', 'atonu', '2018/09/05', 0),
-(86, 'a', 2, 0x66616365732d7777772d70696e7465726573742d636f6d2e6a7067, 'w', 'a', 'found', 'a', 's', 'atonu', '2018/09/05', 0),
-(87, 'a', 2, 0x66616365732d7777772d70696e7465726573742d636f6d2e6a7067, 'a', 'a', 'lost', 'a', 'a', 'atonu', '2018/09/05', 0),
-(88, 'a', 12, 0x706c65757265722e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '123', 'atonu', '2018/09/05', 0),
-(89, 'asdasd', 12, 0x706c65757265722e6a7067, 'mirpur,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '123', 'atonu', '2018/09/05', 0),
-(90, 'Huawei P9', 1200, 0x757365722e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '123', 'atonu', '2018/09/05', 0),
-(91, 'asd', 1200, 0x32313963323765376135356232626161373536363731383666613435333134302e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '123', 'atonu', '2018/09/05', 0),
-(92, 'Huawei P9', 12, 0x64616c2e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '13', 'atonu', '2018/09/05', 0),
-(93, 'asdasd', 12, 0x706c65757265722e6a7067, 'smart phone', 'Dhaka', 'found', 'ahmed zahin', '12', 'atonu', '2018/09/05', 0),
-(94, 'asd', 12, 0x706c65757265722e6a7067, '123', '123', 'lost', '123', '123', 'atonu', '2018/09/06', 0),
-(95, 'asd', 12, 0x706c65757265722e6a7067, '123', '123', 'lost', '123', '123', 'atonu', '2018/09/06', 0),
-(96, 'asd', 12, 0x706c65757265722e6a7067, '123', '123', 'lost', '123', '123', 'atonu', '2018/09/06', 0),
-(97, 'asd', 12, 0x706c65757265722e6a7067, '123', '123', 'lost', '123', '123', 'atonu', '2018/09/06', 0),
-(98, 'asd', 12, 0x706c65757265722e6a7067, '123', '123', 'lost', '123', '123', 'atonu', '2018/09/06', 0),
-(99, 'asdasd', 12, 0x32313963323765376135356232626161373536363731383666613435333134302e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '123', 'atonu', '2018/09/06', 0),
-(100, 'asdasd', 1200, 0x66616365732d7777772d70696e7465726573742d636f6d2e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '123', 'atonu', '2018/09/06', 0),
-(101, 'asdasd', 1200, 0x757365722e6a7067, 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '123', 'atonu', '2018/09/06', 0);
+(26, 'Akkas Mia', 69, '/uploads/myImage (5).jpg', 'Kuratoli Road, BRA', 'Rajshahi', 'Lost', 'atonu', '017xxxxxxxx', '', '2018/07/31', 0),
+(28, 'Joshim Hawladar', 56, '/uploads/myImage (4).jpg', 'mirpur,Dhaka', 'Dhaka', 'Found', 'ahmed zahin', '123', '', '2018/07/31', 0),
+(31, 'shajib alam', 66, '/uploads/myImage (1).jpg', 'birulia bridge, Dhaka', 'Chittagong', 'Lost', 'Thakur', '018xxxxxxxx', '', '2018/07/31', 0),
+(32, 'Aunty', 80, '/uploads/myImage (2).jpg', 'Mogbazar,Dhaka', 'Jessore', 'Lost', 'Pulak Barmon', '019xxxxxxxx', '', '2018/07/31', 0),
+(33, 'tariqul Islam', 30, '/uploads/myImage-1536300178938.jpg', 'Kuratoli Road, BRA', 'No idea', 'Found', 'Nishe,Nishat', '017xxxxxxxx', '', '2018/07/31', 0),
+(35, 'lulu boyati', 65, '/uploads/pic (4).jpg', 'Shitakundo', 'Chittagong', 'found', 'ahmed zahin', '', 'atonu', '2018/07/31', 0),
+(64, 'Kamal hossain', 56, '/uploads/pic (4).jpg', 'mirpur stadium premise', 'Dhaka', 'Lost', 'ahmed zahin', '', 'atonu', '2018/08/01', 0),
+(65, 'shovic azmayn', 30, '/uploads/pic (3).jpg', 'basundhara', 'dinajpur', 'Lost', 'atonu', '', 'atonu', '2018/08/01', 0),
+(66, 'wahid', 23, '/uploads/pic (5).jpg', 'mirpur,Dhaka', 'dhaka', 'Found', 'Pulak Barmon', '', 'atonu', '2018/08/01', 0),
+(70, 'Kaber', 23, '/uploads/myImage-1536299790639.jpg', 'jhigatola,Dhaka', 'Dhaka', 'Lost', 'ahmed zahin', '123', 'atonu', '2018/09/01', 0),
+(71, 'molla', 22, '/uploads/myImage-1536299779706.jpg', 'momahhadpur,Dhaka', 'Feni', 'Found', 'ahmed', '019', 'atonu', '2018/09/01', 0),
+(72, 'Chandler Bing', 40, '/uploads/myImage-1536300088129.jpg', 'Central Perk', 'Ireland', 'Lost', 'Monica', '234', 'atonu', '2018/09/01', 100),
+(73, 'promo', 20, '/uploads/myImage-1536298288841.jpg', 'jhigatola,Dhaka', 'Dhaka', 'Found', 'ahmed zahin', '123', 'atonu', '2018/09/01', 0),
+(74, 'promo - found', 12, '/uploads/myImage-1536299790639.jpg', 'shantinagar,Dhaka', 'Dhaka', 'Found', 'ahmed zahin', '123', 'atonu', '2018/09/01', 200),
+(75, 'Fatty', 12, '/uploads/myImage-1536298288841.jpg', 'jhigatola,Dhaka', 'Dhaka', 'found', 'ahmed zahin', '123', 'atonu', '2018/09/01', 400),
+(76, 'babu', 8, '/uploads/myImage (1).jpg', 'mirpur,Dhaka', 'No idea', 'lost', 'ahmed zahin', '123', 'atonu', '2018/09/02', 0),
+(77, 'abbas', 45, '/uploads/pic (2).jpg', 'kalshi,Dhaka', 'noakhali', 'lost', 'kashem', '017xxxxxx', 'atonu', '2018/09/03', 0),
+(78, 'admin post test', 44, '/uploads/myImage-1536299779706.jpg', 'Basundhara', 'not known', 'lost', 'ariya stark', '', '', '123', 0),
+(79, 'saddam', 54, '/uploads/myImage (3).jpg', 'shonarga', 'notor', 'found', 'kashem', '123xxx', 'atonu', '2018/09/03', 100),
+(80, 'Fatima', 52, '/uploads/pic (1).jpg', 'Kuratoli Road, BRA', 'Dhaka', 'found', 'ahmed zahin', '132', 'atonu', '2018/09/04', 100),
+(82, 'irfan', 123, '/uploads/pic (5).jpg', 'jhigatola,Dhaka', 'madaripur', 'lost', 'irfan', '33123123', 'atonu', '2018/09/05', 0),
+(83, 'just in case', 123, '/uploads/myImage-1536298288841.jpg', 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '1332123', 'atonu', '2018/09/05', 0),
+(85, 'tarek', 1200, '/uploads/pic (2).jpg', 'jhigatola,Dhaka', 'Dhaka', 'lost', 'ahmed zahin', '123123', 'atonu', '2018/09/05', 0),
+(102, 'Ahmed', 23, '/uploads/pic (4).jpg', 'Dhaka', 'Dhaka', 'lost', 'Ahmed', '019xxxxxxxx', 'atonu', '2018/09/07', 0),
+(103, 'Geysun', 22, '/uploads/myImage-1536297566053.jpg', 'Wolf Pack HQ', 'Dhaka', 'lost', 'XYZ', '017xxxxxxxxx', 'atonu', '2018/09/07', 400),
+(104, 'Punki', 22, '/uploads/myImage-1536297967209.jpg', 'Wolf Pack HQ', 'Dhaka', 'found', 'Fatty', '017xxxxxxxx', 'atonu', '2018/09/07', 400),
+(105, 'Single', 50, '/uploads/myImage-1536298093851.jpg', 'Wolf Pack HQ', 'No idea', 'lost', 'ahmed zahin', '123123123', 'atonu', '2018/09/07', 400),
+(106, 'Sobec', 23, '/uploads/myImage-1536298123458.jpg', 'Wolf Pack HQ', 'No idea', 'lost', 'ahmed zahin', '', 'atonu', '2018/09/07', 400),
+(107, 'Promo - lost', 23, '/uploads/myImage-1536299779706.jpg', 'Wolf Pack HQ', 'Dhaka', 'lost', 'WPfan69', '123123', 'atonu', '2018/09/07', 400);
 
 -- --------------------------------------------------------
 
@@ -213,7 +201,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `lost`
 --
 ALTER TABLE `lost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `records`

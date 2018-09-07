@@ -91,7 +91,7 @@
         
         <!-- Collect the nav links, forms, and other content for toggling -->
         
-      <div class="searchresult col-md-9" style="margin-left: 140px; margin-top:-170px;">
+      <div class="searchresult col-md-9" style="margin-left: 115px; margin-top:-170px;">
               <form method="post" action="/index/search" class="navbar-form navbar-left" style="margin-top: 5px">
                 
 
@@ -138,15 +138,15 @@
           
           <%if(uname!='Guest'){%>
           
-          <td><a href="/user/user" class="button" style="width: 140px;margin-top: -52px;margin-left:55px">Profile</a></td>
-          <td><a href="/logout" class="button" style="width:  140px;margin-top: -53px;margin-left:210px"">Logout</a></td>
+          <td><a href="/user/user" class="button" style="width: 140px;margin-top: -52px;margin-left:60px">Profile</a></td>
+          <td><a href="/logout" class="button" style="width:  140px;margin-top: -53px;margin-left:220px"">Logout</a></td>
           
           <%}%>
           
           </div>
 
 <%if(uname =='Guest'){%>
-                          <div class="dropdown pull-right" style="margin-top:-120px;left: -700px;">
+                          <div class="dropdown pull-right" style="position:absolute; margin-top:-52px;left: 490px;">
                           <button class="dropbtn" >Login</button>
                             <div class="dropdown-content">
                               <a href="/login">Login</a>

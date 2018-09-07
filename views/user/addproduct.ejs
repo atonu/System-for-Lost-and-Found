@@ -68,16 +68,31 @@ div.container {
 
 
 
-	
-	<!-- if you want to create login page and register page together in one page ...you have to only chnage his name...that's it...                 -->
-	
-	<div class="container font">
-		<div class="row">
-			<div class="col-md-5 full-panel">
-				<div class="panel panel-primary" style="width: 240%;margin-top: -50px">
-					<div class="panel-heading font" style="width: 100%; margin: auto;">
 
-						<h1 ><strong>Enter Lost Person's descritions</strong></h1>
+
+
+	
+		<div class="row" style="margin-left:200px;">
+
+			<div class="col-md-5 full-panel">
+				<div class="panel panel-primary" style="width: 200%;; margin-top: -50px">
+					<div class="panel-heading font" style="width: 101%; margin: auto;">
+					<center><form action="/user/upload" id="picUploader" method="POST" enctype="multipart/form-data">
+									<h1 ><strong>Enter Lost Person's descritions</strong></h1>
+							        <label class="font">Image</label>
+							        <input class="btn btn-primary" name="myImage" type="file">
+							        <button class="Submitbutton">Add To Form</button>
+							      	<br>
+							      	
+
+							      	<div class="polaroid" style="width: 260px; height:260px;">
+							      	  <img src ="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png" style="width:250px;height:250px">
+							      	  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img" style="margin-top:-250px;width:250px;height:250px">
+							      	  
+							      	</div>
+							    </form> </center>
+
+						
 						<div class="tab-content">
 							<div id="home" class="tab-pane fade in active">
 
@@ -91,25 +106,8 @@ div.container {
 
 								<div class="container"
 								<img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
-
-								
-
-								
-    
 							    
-							    <form action="/user/upload" method="POST" enctype="multipart/form-data">
-
-							        <h1>Image</h1>
-							        <input class="btn btn-primary" name="myImage" type="file">
-							      	<button class ="Bbutton" type="submit" class="btn">Upload</button>
-							      	
-
-							      	<div class="polaroid" style="width: 260px; height:260px;">
-							      	  <img src ="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png" style="width:250px;height:250px">
-							      	  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img" style="margin-top:-250px;width:250px;height:250px">
-							      	  
-							      	</div>
-							    </form> 
+							    
     
 							    </div>
 							    <br><br>
@@ -248,7 +246,7 @@ div.container {
 											</div>
 											
 										
-									</div>
+									</div></div>
 
 									<!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->
 									<center>

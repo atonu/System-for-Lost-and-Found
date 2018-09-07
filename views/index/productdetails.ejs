@@ -118,8 +118,15 @@ div.polaroid {
 				<p><strong>Posted : <%=result[i].date%> </strong></p>
 
 
-				<td><center><a href="#" id="myBtn" style="margin-top:90px" class="contentbutton" ">Contact</a> </center></td>
-				<td><center><a href="/index" class="contentbutton" >Back</a> </center></td>
+				<td><center><a id="myBtn" style="margin-top:90px; width:97%" class="contentbutton" ">Contact</a> </center></td>
+
+				<button class="contentbutton" onclick="goBack()" style="width:97%">Back</button>
+
+                <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
 
 				<!-- The Modal -->
 				<div id="myModal" class="modal">
@@ -138,18 +145,7 @@ div.polaroid {
 			
 		</div>
 
-		<script>
-			function click() {
-				if(document.getElementById("quantity").value>result[0].quantity)
-				{
-					window.alert('sdhsf');
-				}
-			}
-		</script>
-
-		<!-- 	Start product image & Information -->
-
-		<!--  End product image  -->
+		
 	</div>
 	<%}%>
 

@@ -1,4 +1,7 @@
 var express=require('express');
+const multer = require('multer');
+const ejs = require('ejs');
+const path = require('path');
 var asyncValidator=require('async-validator');
 var router=express.Router();
 var dashboardModel=require.main.require('./models/admindashboard-model');
@@ -8,20 +11,73 @@ registrationValidation=require.main.require('./Validation_rule/registration_vali
 var date = require('date-and-time');
 // Request Handler
 
-// router.get('/user',function(req,res){
-// 	dashboardModel.userlist(function(result){
-// 		if(result && result!=null)
-// 			{
-// 				console.log({result: result});
-// 				res.render('./dashboard/index',{result: result});
-// 			}
-// 		else
-// 			{
-// 				res.redirect('/error/error');
-// 			}
-// 	});
+// Request Handler
+//Exports
+// Set The Storage Engine
+const storage = multer.diskStorage({
+	destination: './public/uploads/',
+	filename: function(req, file, cb){
+		cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+	}
+});
 
-// });
+// Init Upload
+const upload = multer({
+	storage: storage,
+	limits:{fileSize: 1000000},
+	fileFilter: function(req, file, cb){
+		checkFileType(file, cb);
+	}
+}).single('myImage');
+
+// Check File Type
+function checkFileType(file, cb){
+// Allowed ext
+const filetypes = /jpeg|jpg|png|gif/;
+// Check ext
+const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+// Check mime
+const mimetype = filetypes.test(file.mimetype);
+
+if(mimetype && extname){
+	return cb(null,true);
+} else {
+	cb('Error: Images Only!');
+}
+}
+
+// Init app
+const app = express();
+
+// EJS
+app.set('view engine', 'ejs');
+
+// Public Folder
+app.use(express.static('./public'));
+
+router.post('/upload', function(req, res) {
+
+			upload(req, res, (err) => {
+				if(err){
+					res.render('./index/index', {
+						msg: err
+					});
+				}
+
+				else{
+					var uname = req.session.loggedUser;
+					
+						var file;
+					{file = `/uploads/${req.file.filename}`}
+					res.render('./admindashboard/addproduct',{
+						uname,file,
+						
+					});
+				}
+
+			});
+			
+		});
 
 
 router.get('/addproduct',function(req,res){

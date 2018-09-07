@@ -42,7 +42,7 @@ a {
     .topnav {
         overflow: hidden;
         background-color: #333;
-        width: 30%;
+        width: 31%;
         height: 55px;
         margin: auto;
     }
@@ -84,7 +84,7 @@ a {
     </header>
 
     <div class="topnav" style="margin-top: 100px;">
-        <a class="Bbutton" style="margin-left:17px; margin-top: 7px;" href="/index">All</a>
+        <a class="Bbutton" style="margin-left:10px; margin-top: 7px;" href="/index">All</a>
 
         <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/lost/1">Lost</a>
 
@@ -96,8 +96,7 @@ a {
 
 
 
-
-       <img src="https://i.imgur.com/N6Z3Rh0.jpg" alt="bg" style="width: 100%; height: 970px; margin-top:5px; ">
+    <img src="https://i.imgur.com/N6Z3Rh0.jpg" alt="bg" style="width: 100%; height: 1005px; margin-top:5px; ">
     
         
 
@@ -105,7 +104,7 @@ a {
 
 
 
-        <div class="container-fluid" style="margin-top: -900px; height: 1000px" >
+        <div class="container-fluid" style="margin-top: -935px; height: 1000px" >
             <div align="center">
                 <form>
 
@@ -145,9 +144,10 @@ a {
                                     <figure>
                                         <img src = "<%=result[i].image%>">
                                         <span>
-                                        <figcaption><%=result[i].lost_name%></figcaption>
+                                       <h3><%=result[i].lost_name%></h3>
                                         <p>Age: <%=result[i].age%></p>
-                                        <span class="price">Last Located: <%=result[i].last_located%></span>
+                                        <span class="price">Last Located:</span>
+                                        <p><%=result[i].last_located%></p>
                                         </span>
                                         <a href="/index/productdetails/<%=result[i].id%>" class="contentbutton" type="submit">Contact</a> 
                                     </figure>
