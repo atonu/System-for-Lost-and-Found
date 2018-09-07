@@ -7,12 +7,12 @@ var userModel=require.main.require('./models/user-model');
 // Request Handler
 
 router.all('/',function(req,res){
-	if(req.session.loggedUser != null)
+	if(req.session.loggedUser == null)
 	{
-		var uname = req.session.loggedUser;	
+		req.session.loggedUser="Guest";
 	}
-	else
-		var uname = "Guest User";
+	
+	var uname = req.session.loggedUser;
 	
 	var nextpage = 2;
 	var prevpage = 0;

@@ -9,6 +9,7 @@
  		display: block;
  		margin-left: auto;
  		margin-right: auto;
+ 		border-radius:8px;
  	
 }
 a {
@@ -16,6 +17,16 @@ a {
     display: inline-block;
     padding: 8px 16px;
 }
+
+div.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius:8px;
+  padding:4px;
+  background-image: url("img_tree.gif"), url("paper.gif");
+}
+
+
 
 	body {font-family: Arial, Helvetica, sans-serif;}
 	.modal {
@@ -65,7 +76,7 @@ a {
 	</header>
 
 
-	<div id="containerdetails">	
+	<div id="containerdetails" style="height:400px">	
 		<%for(var i=0;i<result.length;i++){%>
 		<!-- Start	Product details -->
 		<div class="product-detailsz">
@@ -83,14 +94,17 @@ a {
 
 				<div class="product-image">
 
-					<img src = "https://i.kym-cdn.com/entries/icons/original/000/000/091/TrollFace.jpg">
+					<div class="polaroid" style="width: 260px; height:260px;">
+							      	  <img src="<%=result[i].image%>" class="responsive-img" style="width:250px;height:250px">
+							      	  
+					</div>
 
 					<!-- 	product Information-->
 					<div class="info">
-						<h2><%=result[i].lost_name%></h2>
-						<ul>
+						<h2><img src="<%=result[i].image%>" class="responsive-img" style="width:250px;height:250px"></h2>
+						
 							<center><strong><%=result[i].catagory%></strong></center>
-						</ul>
+						
 					</div>
 				</div>
 
@@ -104,7 +118,7 @@ a {
 				<p><strong>Posted : <%=result[i].date%> </strong></p>
 
 
-				<td><center><a href="#" id="myBtn" class="contentbutton" ">Contact</a> </center></td>
+				<td><center><a href="#" id="myBtn" style="margin-top:90px" class="contentbutton" ">Contact</a> </center></td>
 				<td><center><a href="/index" class="contentbutton" >Back</a> </center></td>
 
 				<!-- The Modal -->

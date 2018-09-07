@@ -7,6 +7,7 @@ loginValidation=require.main.require('./Validation_rule/login_validation');
 // Request Handler
 
 router.get('/',function(req,res){
+	
 	res.render('./login/index');
 });
 

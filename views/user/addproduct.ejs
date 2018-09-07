@@ -3,12 +3,13 @@
 <head>
 	<title>Add Product</title>
 	<% include ../partials/head %>
-
+	 
 	<style>
  	img {
  		display: block;
  		margin-left: auto;
  		margin-right: auto;
+ 		border-radius:8px;
  	
 }
 a {
@@ -16,6 +17,22 @@ a {
     display: inline-block;
     padding: 8px 16px;
 }
+
+div.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius:8px;
+  padding:4px;
+  background-image: url("img_tree.gif"), url("paper.gif");
+}
+
+div.container {
+  text-align: center;
+  background-image: url("img_tree.gif"), url("paper.gif");
+
+  
+}
+
 
 /*a:hover {
     background-color: #ddd;
@@ -49,15 +66,18 @@ a {
 		<% include ../partials/header%>
 	</header>
 
+
+
 	
 	<!-- if you want to create login page and register page together in one page ...you have to only chnage his name...that's it...                 -->
+	
 	<div class="container font">
 		<div class="row">
 			<div class="col-md-5 full-panel">
 				<div class="panel panel-primary" style="width: 240%;margin-top: -50px">
 					<div class="panel-heading font" style="width: 100%; margin: auto;">
 
-						<h1 ><center><strong>Enter Lost Person's descritions</strong></center></h1>
+						<h1 ><strong>Enter Lost Person's descritions</strong></h1>
 						<div class="tab-content">
 							<div id="home" class="tab-pane fade in active">
 
@@ -68,30 +88,56 @@ a {
 									<% } %>
 								</div>
 								<% } %>
-								<form method="post">
+
+								<div class="container"
+								<img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
+
+								
+
+								
+    
+							    
+							    <form action="/user/upload" method="POST" enctype="multipart/form-data">
+
+							        <h1>Image</h1>
+							        <input class="btn btn-primary" name="myImage" type="file">
+							      	<button class ="Bbutton" type="submit" class="btn">Upload</button>
+							      	
+
+							      	<div class="polaroid" style="width: 260px; height:260px;">
+							      	  <img src ="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png" style="width:250px;height:250px">
+							      	  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img" style="margin-top:-250px;width:250px;height:250px">
+							      	  
+							      	</div>
+							    </form> 
+    
+							    </div>
+							    <br><br>
+								<form method="post" action="/user/addproduct">
+
 									<div class="form-group font">
 										<label for="productname" class="font">Person's Name:</label>
-										<input type="text" class="form-control font" id="productname" name="productname">
+										<input type="text" required class="form-control font" id="productname" name="productname">
 									</div>
 
 									<div class="form-group font">
 										<label for="price" class="font">Age:</label>
-										<input type="text" class="form-control font" id="price" name="price">
+										<input type="text" required class="form-control font" id="price" name="price">
 									</div>
 
 									<div class="form-group">
 										<label for="quantity" class="font">Image:</label>
-										<input type="file" class="form-control font" id="quentity" name="quantity">
+										<input type="text" value="<%= typeof file != 'undefined' ? file : '' %>"  class="form-control font" id="quentity" name="quantity">
 									</div>
 
 									<div class="form-group">
 										<label for="catagory" class="font">Last_located:</label>
-										<input type="text" class="form-control font" id="catagory" name="catagory">
+										<input type="text" required class="form-control font" id="catagory" name="catagory">
 									</div>
 
 									<div class="form-group">
 										<label for="origin" class="font">Origin:</label>
-										<input type="text" class="form-control font" id="origin" name="origin">
+										<input type="text" required class="form-control font" id="origin" name="origin">
 									</div>
 
 									<div class="form-group">
@@ -103,12 +149,12 @@ a {
 									</div>
 
 									<div class="form-group">
-										<label for="agent_name" class="font">Agent Name:</label>
+										<label for="agent_name" required class="font">Agent Name:</label>
 										<input type="text" class="form-control font" id="agent_name" name="agent_name">
 									</div>
 
 									<div class="form-group">
-										<label for="details" class="font">Contact:</label>
+										<label for="details" required class="font">Contact:</label>
 										<textarea class="form-control font" id="details" name="details"></textarea>
 									</div>
 
@@ -201,12 +247,12 @@ a {
 												</div>
 											</div>
 											
-										</div>
+										
 									</div>
 
 									<!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->
 									<center>
-										<button type="submit" class="btn btn-primary btn-lg font" style="width:30%" id="submit">Add</button>
+										<button type="submit" class="btn btn-primary btn-lg font" style="width:30%" id="submit">Create</button>
 									</center>
 								</form>
 							</div>
@@ -214,4 +260,4 @@ a {
 					</div>
 				</div>
 			</div></div></div>
-		</body></html>
+

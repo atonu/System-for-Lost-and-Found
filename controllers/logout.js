@@ -8,7 +8,7 @@ router.get('/',function(req,res){
 	 req.session.destroy(function(){
      // cannot access session here 
    });
-	 res.redirect('./index');
+	 res.redirect('/index');
 
 
 

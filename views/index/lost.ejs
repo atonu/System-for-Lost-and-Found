@@ -140,8 +140,7 @@ a {
                                 <%if(typeof result!=='undefined'){%>
                                 <%for(var i=0;i<result.length;i++){%>
                                     <figure>
-                                        <img src = "https://i.imgur.com/s0nNyme.jpg">
-                                        <!-- <img src = <%=result[i].image%> > -->
+                                        <img src = "<%=result[i].image%>">
                                         <span>
                                         <figcaption><%=result[i].lost_name%></figcaption>
                                         <p>Age: <%=result[i].age%></p>
