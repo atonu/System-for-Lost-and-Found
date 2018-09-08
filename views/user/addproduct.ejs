@@ -77,9 +77,10 @@ div.container {
 			<div class="col-md-5 full-panel">
 				<div class="panel panel-primary" style="width: 200%;; margin-top: -50px">
 					<div class="panel-heading font" style="width: 101%; margin: auto;">
-					<center><form action="/user/upload/upload" id="picUploader" method="POST" enctype="multipart/form-data">
+					<center><form action="/user/upload" id="picUploader" method="POST" enctype="multipart/form-data">
 									<h1 ><strong>Enter Lost Person's descriptions</strong></h1>
 							        <label class="font">Image</label>
+							        <%= typeof msg != 'undefined' ? msg : '' %>
 							        <input class="btn btn-primary" name="myImage" type="file">
 							        <button class="Submitbutton">Add To Form</button>
 							      	<br>

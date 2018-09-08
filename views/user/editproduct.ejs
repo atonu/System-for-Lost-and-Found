@@ -49,19 +49,20 @@ div.container {
 				<div class="panel panel-primary" style="width: 240%">
 					<div class="panel-heading font" style="width: 100%; margin-top:-2px;">
 						<h1><strong> <center>Edit Post</center></strong></h1>
-
-						<center><form action="/user/upload/edit" id="picUploader" method="POST" enctype="multipart/form-data">
 						<%for(var i=0;i<result.length;i++){%>
+						<center><form action="/user/edit/<%=result[i].id%>" id="picUploader" method="POST" enctype="multipart/form-data">
+						
 									
 							        <label class="font">Image</label>
+							        <%= typeof msg != 'undefined' ? msg : '' %>
 							        <input class="btn btn-primary" name="myImage" type="file">
 							        <button class="Submitbutton">Add To Form</button>
 							      	<br>
 							      	
 
 							      	<div class="polaroid" style="width: 260px; height:260px;">
-							      	  <img src ="<%=result[i].image%>" style="width:250px;height:250px">
-							      	  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img" style="margin-top:-250px;width:250px;height:250px">
+
+							      		<img src="<%= result[i].image%>" class="responsive-img" style="width:250px;height:250px">
 							      	  
 							      	</div>
 							    </form> </center>
@@ -76,7 +77,7 @@ div.container {
 									<% } %>
 								</div>
 								<% } %>
-								<form method="post">
+								<form method="post" action="/user/addproduct">
 									
 									<div class="form-group font">
 										<label for="productname" class="font">Person's Name:</label>

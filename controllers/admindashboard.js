@@ -58,26 +58,81 @@ app.use(express.static('./public'));
 router.post('/upload', function(req, res) {
 
 			upload(req, res, (err) => {
+				var uname = req.session.loggedUser;
 				if(err){
-					res.render('./index/index', {
-						msg: err
+					res.render('./admindashboard/addproduct', {
+						msg: err,uname,
 					});
 				}
 
-				else{
-					var uname = req.session.loggedUser;
-					
-						var file;
-					{file = `/uploads/${req.file.filename}`}
-					res.render('./admindashboard/addproduct',{
-						uname,file,
-						
-					});
-				}
+				else {
+				      if(req.file == undefined){
+				        res.render('./admindashboard/addproduct', {
+				          msg: 'Error: No File Selected!',
+				          uname,
+				        });
+				      } else {
+				        var uname = req.session.loggedUser;
+				        					
+	    						var file;
+	    					file = `/uploads/${req.file.filename}`
+	    					res.render('./admindashboard/addproduct',{
+	    						uname,file,
+	    						
+	    					});
+				      }
+				  }
 
 			});
 			
 		});
+
+
+		router.post('/edit/:id?', function(req, res) {
+
+			upload(req, res, (err) => {
+				var uname = req.session.loggedUser;
+				
+						var data={
+							id: req.params.id
+						};
+
+						dashboardModel.productedit(data,function(result){
+
+					if(err){
+					res.render('./admindashboard/editproduct', {
+						msg: err,uname,result:result,
+					});
+				}
+
+				else {
+
+
+				      if(req.file == undefined){
+				        res.render('./admindashboard/editproduct', {
+				          msg: 'Error: No File Selected!',
+				          uname,
+				          result:result,
+				        });
+				      } else {
+				        var uname = req.session.loggedUser;
+				        					
+	    					var file;
+	    					file = `/uploads/${req.file.filename}`;
+	    					result[0].image= file;
+	    					res.render('./admindashboard/editproduct',{
+	    						uname,file,result:result,
+	    						
+	    					});
+				      }
+
+				    };
+				  });
+
+			});
+			
+		});
+		
 
 
 router.get('/addproduct',function(req,res){

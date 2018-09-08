@@ -128,25 +128,79 @@ router.post('/useredit/:username?',function(req,res){
 
 
 
-		router.post('/upload/:id?', function(req, res) {
+		router.post('/upload', function(req, res) {
 
 			upload(req, res, (err) => {
+				var uname = req.session.loggedUser;
 				if(err){
-					res.render('./index/index', {
-						msg: err
+					res.render('./user/addproduct', {
+						msg: err,uname,
 					});
 				}
 
-				else{
-					var uname = req.session.loggedUser;
-					
-						var file;
-					{file = `/uploads/${req.file.filename}`}
-					res.render('./user/addproduct',{
-						uname,file,
-						
-					});
-				}
+				else {
+				      if(req.file == undefined){
+				        res.render('./user/addproduct', {
+				          msg: 'Error: No File Selected!',
+				          uname,
+				        });
+				      } else {
+				        var uname = req.session.loggedUser;
+				        					
+	    						var file;
+	    					file = `/uploads/${req.file.filename}`
+	    					res.render('./user/addproduct',{
+	    						uname,file,
+	    						
+	    					});
+				      }
+				  }
+
+			});
+			
+		});
+
+
+		router.post('/edit/:id?', function(req, res) {
+
+			upload(req, res, (err) => {
+				var uname = req.session.loggedUser;
+				
+						var data={
+							id: req.params.id
+						};
+
+						userModel.productedit(data,function(result){
+
+							if(err){
+							res.render('./user/editproduct', {
+								msg: err,uname,result:result,
+							});
+						}
+
+						else {
+
+
+						      if(req.file == undefined){
+						        res.render('./user/editproduct', {
+						          msg: 'Error: No File Selected!',
+						          uname,
+						          result:result,
+						        });
+						      } else {
+						        var uname = req.session.loggedUser;
+						        					
+			    					var file;
+			    					file = `/uploads/${req.file.filename}`;
+			    					result[0].image= file;
+			    					res.render('./user/editproduct',{
+			    						uname,file,result:result,
+			    						
+			    					});
+						      }
+
+						    };
+						  });
 
 			});
 			
@@ -227,46 +281,46 @@ router.post('/useredit/:username?',function(req,res){
 						}
 							});
 
-								router.get('/productedit/:id?',function(req,res){
-									var data={
-										id: req.params.id
-									};
-									var uname = req.session.loggedUser;
-									userModel.productedit(data,function(result){
-										res.render('./user/editproduct',{result:result,uname});
-									});
-								});
-								router.post('/productedit/:id?',function(req,res){
-									var data={
-										id: req.params.id,
-										productname: req.body.productname,
-										price: req.body.price,
-										quantity: req.body.quantity,
-										catagory: req.body.catagory,
-										origin: req.body.origin,
-										category: req.body.category,
-										agent_name: req.body.agent_name,
-										details: req.body.details,
-										date: date.format(new Date(), 'YYYY/MM/DD'),
-										promotion: req.body.promotion,
-									};
+					router.get('/productedit/:id?',function(req,res){
+						var data={
+							id: req.params.id
+						};
+						var uname = req.session.loggedUser;
+						userModel.productedit(data,function(result){
+							res.render('./user/editproduct',{result:result,uname});
+						});
+					});
+					router.post('/productedit/:id?',function(req,res){
+						var data={
+							id: req.params.id,
+							productname: req.body.productname,
+							price: req.body.price,
+							quantity: req.body.quantity,
+							catagory: req.body.catagory,
+							origin: req.body.origin,
+							category: req.body.category,
+							agent_name: req.body.agent_name,
+							details: req.body.details,
+							date: date.format(new Date(), 'YYYY/MM/DD'),
+							promotion: req.body.promotion,
+						};
 
-									userModel.productupdate(data,function(valid){
-										if(valid)
-										{
-											res.redirect('/user/productlist',{file: `uploads/${req.file.filename}`});
-										}
-										else
-										{
-											res.render('/error/error');
-										}
-									});
-
-
+						userModel.productupdate(data,function(valid){
+							if(valid)
+							{
+								res.redirect('/user/productlist',{file: `uploads/${req.file.filename}`});
+							}
+							else
+							{
+								res.render('/error/error');
+							}
+						});
 
 
 
-										});
+
+
+							});
 
 											router.all('/user',function(req,res){
 												var data={
