@@ -77,8 +77,8 @@ div.container {
 			<div class="col-md-5 full-panel">
 				<div class="panel panel-primary" style="width: 200%;; margin-top: -50px">
 					<div class="panel-heading font" style="width: 101%; margin: auto;">
-					<center><form action="/user/upload" id="picUploader" method="POST" enctype="multipart/form-data">
-									<h1 ><strong>Enter Lost Person's descritions</strong></h1>
+					<center><form action="/user/upload/upload" id="picUploader" method="POST" enctype="multipart/form-data">
+									<h1 ><strong>Enter Lost Person's descriptions</strong></h1>
 							        <label class="font">Image</label>
 							        <input class="btn btn-primary" name="myImage" type="file">
 							        <button class="Submitbutton">Add To Form</button>
@@ -86,7 +86,7 @@ div.container {
 							      	
 
 							      	<div class="polaroid" style="width: 260px; height:260px;">
-							      	  <img src ="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png" style="width:250px;height:250px">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:250px;height:250px">
 							      	  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img" style="margin-top:-250px;width:250px;height:250px">
 							      	  
 							      	</div>

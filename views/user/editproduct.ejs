@@ -3,8 +3,39 @@
 <head>
 	<title>Add Product </title>
 	<% include ../partials/head %>
+
+	<style>
+ 	img {
+ 		display: block;
+ 		margin-left: auto;
+ 		margin-right: auto;
+ 		border-radius:8px;
+ 	
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+div.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius:8px;
+  padding:4px;
+  background-image: url("img_tree.gif"), url("paper.gif");
+}
+
+div.container {
+  text-align: center;
+  background-image: url("img_tree.gif"), url("paper.gif");
+
+  
+}
+
+</style>
 </head>
-<body id="login">
+<body id="index">
 
 	<header>
 		<% include ../partials/header%>
@@ -16,8 +47,25 @@
 
 			<div class="col-md-5 full-panel">
 				<div class="panel panel-primary" style="width: 240%">
-					<div class="panel-heading font" style="width: 100%; margin: auto;">
+					<div class="panel-heading font" style="width: 100%; margin-top:-2px;">
 						<h1><strong> <center>Edit Post</center></strong></h1>
+
+						<center><form action="/user/upload/edit" id="picUploader" method="POST" enctype="multipart/form-data">
+						<%for(var i=0;i<result.length;i++){%>
+									
+							        <label class="font">Image</label>
+							        <input class="btn btn-primary" name="myImage" type="file">
+							        <button class="Submitbutton">Add To Form</button>
+							      	<br>
+							      	
+
+							      	<div class="polaroid" style="width: 260px; height:260px;">
+							      	  <img src ="<%=result[i].image%>" style="width:250px;height:250px">
+							      	  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img" style="margin-top:-250px;width:250px;height:250px">
+							      	  
+							      	</div>
+							    </form> </center>
+
 						<div class="tab-content">
 							<div id="home" class="tab-pane fade in active">
 
@@ -29,7 +77,7 @@
 								</div>
 								<% } %>
 								<form method="post">
-									<%for(var i=0;i<result.length;i++){%>
+									
 									<div class="form-group font">
 										<label for="productname" class="font">Person's Name:</label>
 										<input type="text" class="form-control font" id="productname" name="productname" value="<%=result[i].lost_name%>">
@@ -42,7 +90,7 @@
 
 									<div class="form-group">
 										<label for="quantity" class="font">Image:</label>
-										<input type="file" class="form-control font" id="quentity" name="quantity" value="<%=result[i].quantity%>">
+										<input type="text" value="<%=result[i].image%>"  class="form-control font" id="quentity" name="quantity">
 									</div>
 
 									<div class="form-group">
@@ -177,9 +225,5 @@
 					</div></div></div>
 				</div>
 			</div>
-			<hr>
-			<footer class="bg-dark text-white">
-				<% include ../partials/footer %>
-			</footer>
 		</body>
 		</html>

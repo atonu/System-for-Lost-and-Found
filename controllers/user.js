@@ -128,7 +128,7 @@ router.post('/useredit/:username?',function(req,res){
 
 
 
-		router.post('/upload', function(req, res) {
+		router.post('/upload/:id?', function(req, res) {
 
 			upload(req, res, (err) => {
 				if(err){
@@ -165,12 +165,17 @@ router.post('/useredit/:username?',function(req,res){
 
 			var test =   req.body.test;
 			var prevpage=0,nextpage=1;
+			var image=req.body.quantity;
 
+			if(image.length < 1){
+				image = "https://i.imgur.com/S58Jnn6.jpg";	
+			}
+	
 
 			var data={
 				productname: req.body.productname,
 				price: req.body.price,
-				quantity: req.body.quantity,
+				quantity: image,
 				logged_user: req.session.loggedUser,
 				catagory: req.body.catagory,
 				origin: req.body.origin,
