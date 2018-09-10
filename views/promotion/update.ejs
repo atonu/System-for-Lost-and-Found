@@ -82,6 +82,7 @@ div.container {
 						<h2>&nbsp<strong>Promote Post!</strong></h2>
 						<form method="post" action="/user/pay">
 							<div style="margin-left:350px;">
+							<input type="hidden" value="<%=postID%>" name="productID">
 							<select id="promotion" name="promotion" class="form-control font" style="width: 100%; margin-top:-10px">
 								<option value="1">80/- BDT</option>
 								<option value="3">240/- BDT</option>
