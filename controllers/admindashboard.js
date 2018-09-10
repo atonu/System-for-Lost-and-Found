@@ -209,7 +209,7 @@ router.post('/productdelete/:id?',function(req,res){
 	dashboardModel.productdelete(data,function(valid){
 		if(valid)
 			{
-				res.redirect('/admindashboard/productlist');
+				res.redirect('/user/productlist');
 			}
 		else
 			{

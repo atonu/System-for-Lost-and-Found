@@ -116,13 +116,14 @@ a {
                     
 
  					<%if(result[0]!=null) {%>
-                        <%if(prevpage!=0){%>
+                        <%if(prevpage!=0 ){%>
  					<a href="/index/page/<%=prevpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:-605px;margin-top:-40px"><</a>
  					<%}%>
                     <br>
- 					<!-- <td><a href="/index/nextpage/<%=result[result.length-1].id%>" class="btn btn-primary previous round" type="submit">></a> </td> -->
+ 					<%if(nextpage!=0 ){%>
                     <a href="/index/page/<%=nextpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:570px; margin-top: -60px">></a>
  					
+                    <%}%>
                     <%}%>
 
 

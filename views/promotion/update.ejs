@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Product</title>
+	<% include ../partials/head %>
+	 
+	<style>
+ 	img {
+ 		display: block;
+ 		margin-left: auto;
+ 		margin-right: auto;
+ 		border-radius:8px;
+ 	
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+div.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius:8px;
+  padding:4px;
+  background-image: url("img_tree.gif"), url("paper.gif");
+}
+
+div.container {
+  text-align: center;
+  background-image: url("img_tree.gif"), url("paper.gif");
+
+  
+}
+
+
+/*a:hover {
+    background-color: #ddd;
+    color: black;
+}*/
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.next {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+.zoom{
+	height:40px;
+	width:100px;
+}
+
+.white{
+	color: lightblue;
+}
+
+
+
+ 		
+ 	</style>
+</head>
+<body id="index">
+
+	<header>
+		<% include ../partials/header%>
+	</header>
+
+	<div class="row" style="margin-left:500px;width:1200px;">
+	<br><br>
+	
+	<div class="col-md-5 full-panel">
+				<div class="panel " style="width: 120%;height:165px; margin-top: -50px">
+					<div class="panel-heading font" style="width: 101%; margin: auto;">
+						<h2>&nbsp<strong>Promote Post!</strong></h2>
+						<form method="post" action="/user/pay">
+							<div style="margin-left:350px;">
+							<select id="promotion" name="promotion" class="form-control font" style="width: 100%; margin-top:-10px">
+								<option value="1">80/- BDT</option>
+								<option value="3">240/- BDT</option>
+							</select>
+							<br>
+							<button class="btn btn-primary" style="width:100%" type="submit">Pay</button>
+							</div>
+							<img src ="https://i.imgur.com/RGtcsxQ.png" style="width:45%;margin-left:0px;margin-top:-80px">
+						</form>
+						<center><button class="button pull-center" style="width:90px;margin-top: 20px;" onclick="goBack()">Back</button>
+					</div></div></div></div>
+				
+					
+		 				<script>
+		 					function goBack() {
+		 						window.history.back();
+		 					}
+		 				</script></center>
+
+				</div></div></div></div>
+				</body>

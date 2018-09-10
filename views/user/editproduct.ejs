@@ -42,12 +42,12 @@ div.container {
 	</header>
 
 	<!-- if you want to create login page and register page together in one page ...you have to only chnage his name...that's it...                 -->
-	<div class="container font" style="margin-top: 1%;">
-		<div class="row">
+	
+		<div class="row" style="margin-left:500px;">
 
 			<div class="col-md-5 full-panel">
-				<div class="panel panel-primary" style="width: 240%">
-					<div class="panel-heading font" style="width: 100%; margin-top:-2px;">
+				<div class="panel panel-primary" style="width: 130%">
+					<div class="panel-heading font" style="width: 100%; margin-top:-50px;">
 						<h1><strong> <center>Edit Post</center></strong></h1>
 						<%for(var i=0;i<result.length;i++){%>
 						<center><form action="/user/edit/<%=result[i].id%>" id="picUploader" method="POST" enctype="multipart/form-data">
@@ -66,6 +66,7 @@ div.container {
 							      	  
 							      	</div>
 							    </form> </center>
+							    <br><br>
 
 						<div class="tab-content">
 							<div id="home" class="tab-pane fade in active">
@@ -77,7 +78,8 @@ div.container {
 									<% } %>
 								</div>
 								<% } %>
-								<form method="post" action="/user/addproduct">
+								<form method="post" action="/user/productedit/<%=result[i].id%>">
+
 									
 									<div class="form-group font">
 										<label for="productname" class="font">Person's Name:</label>
@@ -100,13 +102,14 @@ div.container {
 									</div>
 
 									<div class="form-group">
-										<label for="origin" class="font">Origin:</label>
+										<label for="origin" class="font">Hometown / Origin:</label>
 										<input type="text" class="form-control font" id="origin" name="origin" value="<%=result[i].origin%>">
 									</div>
 
 									<div class="form-group">
 										<label for="category" class="font">Category:</label>
 										<!-- <input type="text" class="form-control font" id="category" name="category" value="<%=result[i].catagory%>"> -->
+										<br>
 										<select style="height: 35px ;color: grey;" id="category" name="category" >
 											<option style="color: salmon;" value="<%=result[i].catagory%>">Current: <%=result[i].catagory%></option>
 											<option value="lost">Lost</option>
@@ -121,106 +124,29 @@ div.container {
 
 									<div class="form-group">
 										<label for="details" class="font">Contact:</label>
-										<textarea class="form-control font" id="details" name="details" value="<%=result[i].contact%>"></textarea>
+										<input type="text" class="form-control font" id="contact" name="details" value="<%=result[i].contact%>"></textarea>
 									</div>
+
+
+									<div class="form-group">
+										<input type="hidden" class="form-control font" id="" name="promotion" value="<%=result[i].promotion%>"></textarea>
+										<center><label><h4>Promotion: <%=result[i].promotion%><h4></label></center>
+									</div>
+
+
 									<%}%>
 
-									<!--SHIPPING METHOD END-->
-									<!--CREDIT CART PAYMENT-->
-									<div class="panel panel-info">
-										<div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
-										<div class="panel-body">
-											<div class="form-group">
-												<div class="col-md-12"><strong>Card Type:</strong></div>
-												<div class="col-md-12">
-													<select id="promotion" name="promotion" class="form-control" style="margin: auto; width: 20%">
-														<option value="0">None</option>
-														<option value="100">100/- BDT</option>
-														<option value="200">200/- BDT</option>
-														<option value="400">400/- BDT</option>
-													</select>
-												</div>
-											</div>
-
-											<div class="form-group">
-												<div class="col-md-12"><strong>Card Type:</strong></div>
-												<div class="col-md-12">
-													<select id="CreditCardType" name="CreditCardType" class="form-control">
-														<option value="5">-Card Type-</option>
-														<option value="5">Visa</option>
-														<option value="6">MasterCard</option>
-														<option value="7">American Express</option>
-														<option value="8">Discover</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="col-md-12"><strong>Credit Card Number:</strong></div>
-												<div class="col-md-12"><input type="text" class="form-control" name="car_number" value="Credit Card Number:" /></div>
-											</div>
-											<div class="form-group">
-												<div class="col-md-12"><strong>Card CVV:</strong></div>
-												<div class="col-md-12"><input type="text" class="form-control" name="car_code" value="Card CVV:" /></div>
-											</div>
-											<div class="form-group">
-												<div class="col-md-12">
-													<strong>Expiration Date</strong>
-												</div>
-												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-													<select class="form-control" name="month">
-														<option value="">Month</option>
-														<option value="01">01</option>
-														<option value="02">02</option>
-														<option value="03">03</option>
-														<option value="04">04</option>
-														<option value="05">05</option>
-														<option value="06">06</option>
-														<option value="07">07</option>
-														<option value="08">08</option>
-														<option value="09">09</option>
-														<option value="10">10</option>
-														<option value="11">11</option>
-														<option value="12">12</option>
-													</select>
-												</div>
-												<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-													<select class="form-control" name="year">
-														<option value="">Year</option>
-														<option value="2018">2018</option>
-														<option value="2019">2019</option>
-														<option value="2020">2020</option>
-														<option value="2021">2021</option>
-														<option value="2022">2022</option>
-														<option value="2023">2023</option>
-														<option value="2024">2024</option>
-														<option value="2025">2025</option>
-														<option value="2025">2026</option>
-														<option value="2025">2027</option>
-														<option value="2025">2028</option>
-													</select>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="col-md-12">
-													<span>Pay secure using your credit card.</span>
-												</div>
-												<div class="col-md-12">
-													<ul class="cards">
-														<li class="visa hand">Visa</li>
-														<li class="mastercard hand">MasterCard</li>
-														<li class="amex hand">Amex</li>
-													</ul>
-													<div class="clearfix"></div>
-												</div>
-											</div>
-
-										</div>
-									</div>
+									
 
 									<!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->
-									<center><button type="submit" class="btn btn-primary btn-lg font" style="width: 30%" id="submit">Save</button>
+									<center><button type="submit" class="btn btn-primary btn-lg font" style="width: 30%;margin-top:30px;" id="submit">Update</button>
 									</center>
 								</form>
+							
+									<form action="/user/promotion/<%=result[0].id%>" method="post">
+										<center><button type="submit" class="btn btn-primary btn-lg font" style="width: 30%;margin-top:-170px;" >Update Promotion</button></center>
+									</form>
+									</center>
 							</div>
 						</div>
 					</div></div></div>

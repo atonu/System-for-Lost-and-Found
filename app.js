@@ -44,10 +44,18 @@ app.all('*/*',function(req,res,next){
 		next();
 		return;
 	}
-	if(req.session.loggedUser==null)
-	{
-		res.redirect('/login');
-	}
+	// if(req.session.loggedUser==null)
+	// {
+	// 	res.redirect('/login');
+    
+	// }
+
+  if(req.session.loggedUser == null)
+  {
+    req.session.loggedUser="Guest";
+    res.send("Server Restarted. Refresh page to continue");
+  }
+
 	else
 	{
 		next();

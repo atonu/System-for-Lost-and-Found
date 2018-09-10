@@ -63,7 +63,7 @@ router.post('/search',function(req,res){
 
 	};
 	var uname = req.session.loggedUser;
-	var prevpage=0,nextpage=1;
+	var prevpage=0,nextpage=0;
 	 index.searchproduct(data,function(result){
 	 	if(result && result!=null)
 	 		{
@@ -105,8 +105,8 @@ router.all('/page/:id?',function(req,res){
 router.get('/advancesearch',function(req,res){
 	var data = req.session.loggedUser;
 	var uname = data;
-	var prevpage =1;
-	var nextpage =1;
+	var prevpage =0;
+	var nextpage =0;
 	userModel.user(data,function(result){
 		res.render('./index/advancesearch',{result: result,uname,prevpage,nextpage});
 	});
@@ -122,8 +122,8 @@ router.post('/advancesearch',function(req,res){
 
 	};
 	var uname = req.session.loggedUser;
-	var prevpage =1;
-	var nextpage =1;
+	var prevpage =0;
+	var nextpage =0;
 
 if(data.max!= null){
 	index.searchage(data,function(result){
