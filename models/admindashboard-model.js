@@ -65,7 +65,7 @@ module.exports={
 		});
 	},
 	nextpage: function(data,callback) {
-		var sql='SELECT * FROM lost ORDER BY promotion DESC LIMIT ? OFFSET ?';
+		var sql='SELECT * FROM lost ORDER BY promotion DESC,id DESC LIMIT ? OFFSET ?';
 		var param=[data.limit,data.id];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)

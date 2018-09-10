@@ -65,33 +65,38 @@ div.container {
 	<header>
 		<% include ../partials/header%>
 	</header>
-
-
-
-
-
-
 	
 		<div class="row" style="margin-left:500px;">
 
 			<div class="col-md-5 full-panel">
-				<div class="panel panel-primary" style="width: 130%">
-					<div class="panel-heading font" style="width: 100%; margin-top:-50px;">
+				<div class="panel panel-primary" style="width: 640px;">
+					<div class="panel-heading font" style="width: 101%; margin-top:-50px;">
 					<center><form action="/user/upload" id="picUploader" method="POST" enctype="multipart/form-data">
 									<h1 ><strong>Enter Lost Person's descriptions</strong></h1>
 							        <label class="font">Image</label>
 							        <%= typeof msg != 'undefined' ? msg : '' %>
 							        <input class="btn btn-primary" name="myImage" type="file">
+							        <input class="btn btn-primary" name="myImage2" type="file">
+							        <input class="btn btn-primary" name="myImage3" type="file">
 							        <button class="Submitbutton">Add To Form</button>
-							      	<br>
 							      	
-
-							      	<div class="polaroid" style="width: 260px; height:260px;">
-							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:250px;height:250px">
-							      	  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img" style="margin-top:-250px;width:250px;height:250px">
-							      	  
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:180px;height:180px">
+							      	  <img src="<%= typeof file1 != 'undefined' ? file1 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
 							      	</div>
+
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute;margin-left:210px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:180px;height:180px">
+							      	  <img src="<%= typeof file2 != 'undefined' ? file2 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	</div>
+
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute;margin-left:420px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:180px;height:180px">
+							      	  <img src="<%= typeof file3 != 'undefined' ? file3 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	</div>
+
 							    </form> </center>
+							    <br><br><br><br><br><br><br><br><br>
 
 						
 						<div class="tab-content">
@@ -126,7 +131,9 @@ div.container {
 
 									<div class="form-group">
 										<label for="quantity" class="font">Image:</label>
-										<input type="text" value="<%= typeof file != 'undefined' ? file : '' %>"  class="form-control font" id="quentity" name="quantity">
+										<input type="text" value="<%= typeof file1 != 'undefined' ? file1 : '' %>"  class="form-control font" id="Image1" name="Image1" style="width:200px">
+										<input type="text" value="<%= typeof file2 != 'undefined' ? file2 : '' %>"  class="form-control font" id="Image2" name="Image2" style="width:200px;margin-left:210px;margin-top: -34px">
+										<input type="text" value="<%= typeof file3 != 'undefined' ? file3 : '' %>"  class="form-control font" id="Image3" name="Image3" style="width:200px;margin-left:420px;margin-top: -34px";>
 									</div>
 
 									<div class="form-group">
@@ -148,20 +155,18 @@ div.container {
 									</div>
 
 									<div class="form-group">
-										<label for="agent_name" required class="font">Agent Name:</label>
-										<input type="text" class="form-control font" id="agent_name" name="agent_name">
+										<label for="agent_name" class="font">Agent Name:</label>
+										<input type="text" required class="form-control font" id="agent_name" name="agent_name">
 									</div>
 
 									<div class="form-group">
-										<label for="details" required class="font">Contact:</label>
-										<input type="text" class="form-control font" id="contact" name="details">
+										<label for="details" class="font">Contact:</label>
+										<input type="text" required class="form-control font" id="contact" name="details">
 									</div>
 
 									<div class="form-group">
 										<input type="hidden" class="form-control font" id="promotion" value="0" name="promotion">
 									</div>
-
-
 
 									<center>
 										<button type="submit" class="btn btn-primary btn-lg font" style="width:30%" id="submit">Next</button>

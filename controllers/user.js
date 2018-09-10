@@ -31,7 +31,7 @@ const upload = multer({
 	fileFilter: function(req, file, cb){
 		checkFileType(file, cb);
 	}
-}).single('myImage');
+}).any();
 
 // Check File Type
 function checkFileType(file, cb){
@@ -238,7 +238,7 @@ router.post('/upload', function(req, res) {
 		}
 
 		else {
-			if(req.file == undefined){
+			if(req.files[0].filename == undefined && req.files[1].filename == undefined && req.files[2].filename == undefined){
 				res.render('./user/addproduct', {
 					msg: 'Error: No File Selected!',
 					uname,
@@ -246,10 +246,12 @@ router.post('/upload', function(req, res) {
 			} else {
 				var uname = req.session.loggedUser;
 
-				var file;
-				file = `/uploads/${req.file.filename}`
+				var file1,file2,file3;
+				file1 = `/uploads/${req.files[0].filename}`;
+				file2 = `/uploads/${req.files[1].filename}`;
+				file3 = `/uploads/${req.files[2].filename}`;
 				res.render('./user/addproduct',{
-					uname,file,
+					uname,file1,file2,file3,
 
 				});
 			}
@@ -347,15 +349,17 @@ router.post('/addproduct',function(req,res){
 router.all('/createpost',function(req,res){
 
 	var uname = req.session.loggedUser;
-	var image=req.body.quantity;
+	var image1=req.body.Image1;
+	var image2=req.body.Image2;
+	var image3=req.body.Image3;
 
-	if(image.length < 1){
-		image = "https://i.imgur.com/S58Jnn6.jpg";	
-	}
 	var data={
 		productname: req.body.productname,
 		price: req.body.price,
-		quantity: image,
+		img1: image1,
+		img2: image2,
+		img3: image3,
+		
 		logged_user: req.session.loggedUser,
 		catagory: req.body.catagory,
 		origin: req.body.origin,
@@ -370,40 +374,40 @@ router.all('/createpost',function(req,res){
 		if(valid)
 		{
 			var uname = req.session.loggedUser;
-	var image=req.body.quantity;
+			var image1=req.body.Image1;
+			var image2=req.body.Image2;
+			var image3=req.body.Image3;
 
-	if(image.length < 1){
-		image = "https://i.imgur.com/S58Jnn6.jpg";	
-	}
-	var data={
-		productname: req.body.productname,
-		price: req.body.price,
-		quantity: image,
-		logged_user: req.session.loggedUser,
-		catagory: req.body.catagory,
-		origin: req.body.origin,
-		category: req.body.category,
-		agent_name: req.body.agent_name,
-		details: req.body.details,
-		date: date.format(new Date(), 'YYYY/MM/DD'),
-		promotion: req.body.promotion,
-		username: req.session.loggedUser,
-	};
+			var data={
+				productname: req.body.productname,
+				price: req.body.price,
+				quantity: image1,
+				img2: image2,
+				img3: image3,
+				username: req.session.loggedUser,
+				catagory: req.body.catagory,
+				origin: req.body.origin,
+				category: req.body.category,
+				agent_name: req.body.agent_name,
+				details: req.body.details,
+				date: date.format(new Date(), 'YYYY/MM/DD'),
+				promotion: req.body.promotion,
+			};
 
-			userModel.productlist(data,function(result){
-				if(result!=null){
-					res.render('./promotion/promotion',{result:result,data,uname});
-				}
-				else{
-					res.redirect('/error/error');
-				}
+					userModel.productlist(data,function(result){
+						if(result!=null){
+							res.render('./promotion/promotion',{result:result,data,uname});
+						}
+						else{
+							res.redirect('/error/error');
+						}
 
-			});
+					});
 			
 		}
 		else
 		{
-			res.redirect('/error/error');
+			res.redirect('/index');
 		}
 	});
 

@@ -34,8 +34,8 @@ module.exports={
 	},
 
 	productInsert: function(data,callback){
-		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`, `date`,`uname`,`promotion`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-		var param=[data.productname,data.price,data.quantity,data.catagory,data.origin,data.category,data.agent_name,data.details,data.date,data.logged_user,data.promotion];
+		var sql="INSERT INTO `lost`(`lost_name`, `age`, `image`, `image2`, `image3`, `last_located`, `origin`, `catagory`, `agent_name`, `contact`, `date`,`uname`,`promotion`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		var param=[data.productname,data.price,data.img1,data.img2,data.img3,data.catagory,data.origin,data.category,data.agent_name,data.details,data.date,data.logged_user,data.promotion];
 
 		db.insertData(sql,param,function(result){
 			if(result==null || result.length==0)
