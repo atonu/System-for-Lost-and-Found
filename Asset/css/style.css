@@ -21,11 +21,11 @@
   background-size: cover;
 }
 #adminlogin { 
-  background: url(../images/blueCover.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background: url(../images/nikhojCoverAdmin.jpg) no-repeat center center fixed; 
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
 }
 .panel-default {
 opacity: 0.9;
@@ -202,7 +202,7 @@ a.Sbutton,button.Sbutton{
   transition:all 1s linear;
   text-decoration:none;
   position: absolute;
-  z-index: 10;
+  z-index: 1;
   text-shadow:1px 1px 3px rgba(0,0,0,0.3);
   border: none;
   box-shadow:1px 1px 3px rgba(0,0,0,0.3);

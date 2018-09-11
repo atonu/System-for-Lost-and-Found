@@ -53,31 +53,41 @@ div.polaroid {
 		<div class="row">
 			<div class="col-md-5 cal-md-offset-2" style="color:white">
 				<h1><strong>Enter Lost Person's descritions</strong></h1>
-				<div class="container" style="margin-left:80px;">
+				<div class="container" style="margin-left:-30px;">
 															    
-							    <form action="/admindashboard/upload" method="POST" enctype="multipart/form-data">
+							   
+ 								<form action="/admindashboard/upload"  id="picUploader" method="POST" enctype="multipart/form-data">
 
-							        <br>
-							        <label>Image</label>
+							        <label class="font">Image</label>
 							        <%= typeof msg != 'undefined' ? msg : '' %>
-							        
-							        <input  name="myImage" type="file" class="btn-primary" style="width:255px;">
-							      	<button style="margin-left:80px;" class="Submitbutton">Add To Form</button>
-							      	<br>
+							        <input class="btn " name="myImage" type="file">
+							        <input class="btn" name="myImage2" type="file">
+							        <input class="btn" name="myImage3" type="file">
+							        <button class="Submitbutton">Add To Form</button>
+							        <br>
 							      	
-
-							      	<div class="polaroid" style="width: 260px; height:260px;">
-							      	  <img src ="http://www.personalbrandingblog.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640-300x300.png" style="width:250px;height:250px">
-							      	  <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img" style="margin-top:-250px;width:250px;height:250px">
-							      	  
+							      	<div class="polaroid" style="width: 140px; height:140px;position:absolute;margin-left:20px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:130px;height:130px">
+							      	  <img src="<%= typeof file1 != 'undefined' ? file1 : '' %>" class="responsive-img" style="margin-top:-130px;width:130px;height:130px">
 							      	</div>
+
+							      	<div class="polaroid" style="width: 140px; height:140px;position:absolute;margin-left:170px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:130px;height:130px">
+							      	  <img src="<%= typeof file2 != 'undefined' ? file2 : '' %>" class="responsive-img" style="margin-top:-130px;width:130px;height:130px">
+							      	</div>
+
+							      	<div class="polaroid" style="width: 140px; height:140px;position:absolute;margin-left:320px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:130px;height:130px">
+							      	  <img src="<%= typeof file3 != 'undefined' ? file3 : '' %>" class="responsive-img" style="margin-top:-130px;width:130px;height:130px">
+							      	</div>
+
 							    </form>
     
 							    </div> 
 				
 							    <br><br>
 				<div class="tab-content">
-					<div id="home" class="tab-pane fade in active" style="color: white;">
+					<div id="home" class="tab-pane fade in active" style="margin-top:130px;color: white;">
 
 						<% if(typeof errors !== 'undefined'){ %>
 						<div class="alert alert-danger">
@@ -108,6 +118,9 @@ div.polaroid {
 								<label for="catagory" class="font">Last_located:</label>
 								<input type="text" class="form-control font" id="catagory" name="catagory">
 							</div>
+							<a href="javascript:void(0);" type="button" class="button" style="margin-left:357px; margin-top:-49px;width:100px;height:34px;"
+											 NAME="My Window Name"  title=" My title here "
+											 onClick=window.open("https://maps.google.com","Ratting","width=900,height=470,0,status=0,");>Maps</a>
 
 							<div class="form-group">
 								<label for="origin" class="font">Origin:</label>
@@ -129,7 +142,16 @@ div.polaroid {
 
 							<div class="form-group">
 								<label for="details" class="font">Contact:</label>
-								<textarea class="form-control font" id="details" name="details"></textarea>
+								<input type="text" class="form-control font" id="" name="details">
+							</div>
+
+							<div class="form-group">
+								<label for="promotion" class="font">Promotion:</label>
+								<select style="height: 35px ;color: grey;" id="promotion" name="promotion" >
+									<option value="0">None</option>
+									<option value="1">80/- BDT</option>
+									<option value="found3">240/- BDT</option>
+								</select>
 							</div>
 
 							<!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->

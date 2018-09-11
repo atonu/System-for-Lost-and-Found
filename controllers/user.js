@@ -91,7 +91,7 @@ router.post('/pay', function(req, res){
 				"currency": "USD",
 				"total": req.body.promotion,
 			},
-			"description": "Hat for the best team ever"
+			"description": "MissingBase Post"
 		}]
 	};
 
@@ -238,7 +238,7 @@ router.post('/upload', function(req, res) {
 		}
 
 		else {
-			if(req.files[0].filename == undefined && req.files[1].filename == undefined && req.files[2].filename == undefined){
+			if(req.files[0] == undefined && req.files[1] == undefined && req.files[2] == undefined ){
 				res.render('./user/addproduct', {
 					msg: 'Error: No File Selected!',
 					uname,
@@ -246,10 +246,25 @@ router.post('/upload', function(req, res) {
 			} else {
 				var uname = req.session.loggedUser;
 
-				var file1,file2,file3;
-				file1 = `/uploads/${req.files[0].filename}`;
-				file2 = `/uploads/${req.files[1].filename}`;
-				file3 = `/uploads/${req.files[2].filename}`;
+				var file1,file2=null,file3=null;
+				// file1 = `/uploads/${req.files[0].filename}`;
+				// file2 = `/uploads/${req.files[1].filename}`;
+				// file3 = `/uploads/${req.files[2].filename}`;
+
+				if(req.files[0]!=undefined){	
+					file1 = `/uploads/${req.files[0].filename}`;
+				}
+				else{
+					file1="https://i.imgur.com/S58Jnn6.jpg";
+				}
+				if(req.files[1]!=undefined){	
+					file2 = `/uploads/${req.files[1].filename}`;
+				}
+
+				if(req.files[2]!=undefined){	
+					file3 = `/uploads/${req.files[2].filename}`;
+				}
+
 				res.render('./user/addproduct',{
 					uname,file1,file2,file3,
 
@@ -352,6 +367,16 @@ router.all('/createpost',function(req,res){
 	var image1=req.body.Image1;
 	var image2=req.body.Image2;
 	var image3=req.body.Image3;
+	
+			if(image1.length <1){
+				image1 ="https://i.imgur.com/S58Jnn6.jpg";
+			}
+			if(image2.length <1){
+				image2 =null;
+			}
+			if(image3.length <1){
+				image3 =null;
+			}
 
 	var data={
 		productname: req.body.productname,
@@ -377,6 +402,17 @@ router.all('/createpost',function(req,res){
 			var image1=req.body.Image1;
 			var image2=req.body.Image2;
 			var image3=req.body.Image3;
+			
+			if(image1.length <1){
+				image1 ="https://i.imgur.com/S58Jnn6.jpg"
+			}
+			if(image2.length <1){
+				image2 ="https://i.imgur.com/S58Jnn6.jpg"
+			}
+			if(image3.length <1){
+				image3 ="https://i.imgur.com/S58Jnn6.jpg"
+			}
+
 
 			var data={
 				productname: req.body.productname,

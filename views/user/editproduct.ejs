@@ -50,23 +50,36 @@ div.container {
 					<div class="panel-heading font" style="width: 100%; margin-top:-50px;">
 						<h1><strong> <center>Edit Post</center></strong></h1>
 						<%for(var i=0;i<result.length;i++){%>
-						<center><form action="/user/edit/<%=result[i].id%>" id="picUploader" method="POST" enctype="multipart/form-data">
-						
-									
+						<center><form action="/user/upload" id="picUploader" method="POST" enctype="multipart/form-data">
+									<h1 ><strong>Enter Lost Person's descriptions</strong></h1>
 							        <label class="font">Image</label>
 							        <%= typeof msg != 'undefined' ? msg : '' %>
 							        <input class="btn btn-primary" name="myImage" type="file">
+							        <input class="btn btn-primary" name="myImage2" type="file">
+							        <input class="btn btn-primary" name="myImage3" type="file">
 							        <button class="Submitbutton">Add To Form</button>
-							      	<br>
 							      	
-
-							      	<div class="polaroid" style="width: 260px; height:260px;">
-
-							      		<img src="<%= result[i].image%>" class="responsive-img" style="width:250px;height:250px">
-							      	  
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:180px;height:180px">
+							      	  <img src="<%=result[i].image%>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	  <img src="<%= typeof file1 != 'undefined' ? file1 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
 							      	</div>
+
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute;margin-left:210px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:180px;height:180px">
+							      	  <img src="<%=result[i].image2%>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	  <img src="<%= typeof file2 != 'undefined' ? file2 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	</div>
+
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute;margin-left:420px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:180px;height:180px">
+							      	  <img src="<%=result[i].image3%>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	  <img src="<%= typeof file3 != 'undefined' ? file3 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	</div>
+
 							    </form> </center>
-							    <br><br>
+
+							    <br><br><br><br><br><br><br><br><br><br><br>
 
 						<div class="tab-content">
 							<div id="home" class="tab-pane fade in active">

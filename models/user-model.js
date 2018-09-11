@@ -51,7 +51,7 @@ module.exports={
 
 	productlist: function(data,callback)
 	{
-		var sql='SELECT * FROM lost WHERE uname =?';
+		var sql='SELECT * FROM lost WHERE uname =? ORDER BY id DESC';
 		var param=[data.username];
 		db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
