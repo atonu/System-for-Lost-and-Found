@@ -57,10 +57,15 @@ module.exports={
 			}
 		});
 	},
-	searchage: function(data,callback) {
-		var sql='SELECT * FROM `lost` WHERE age BETWEEN ? AND ?';
-		var param=[data.min,data.max];
-			db.getData(sql,param,function(result){
+	advancesearch: function(data,callback) {
+		// var sql="SELECT * FROM lost WHERE lost_name LIKE '"+data.lost_name+
+		// "%'and last_located LIKE '"+data.last_located+"%' and origin LIKE '"
+		// +data.origin+"%' "
+		// +data.sqlend+";"
+
+			var sql = "SELECT * FROM `lost` WHERE lost_name LIKE '"+data.lost_name+"%' AND origin LIKE '"+data.origin+"%' AND last_located LIKE '"+data.last_located+"%'"+data.sqlend
+				
+			db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)
 			{
 				callback(false);

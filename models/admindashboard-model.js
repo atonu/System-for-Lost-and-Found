@@ -79,7 +79,7 @@ module.exports={
 		});
 	},
 	home: function(data,callback) {
-		var sql='SELECT * FROM lost ORDER BY promotion DESC LIMIT ?';
+		var sql='SELECT * FROM lost ORDER BY promotion DESC,id DESC LIMIT ?';
 		var param=[data.limit];
 			db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)

@@ -114,19 +114,32 @@ router.get('/advancesearch',function(req,res){
 });
 
 router.post('/advancesearch',function(req,res){
-	var data={
-		max: req.body.age,
-		min: req.body.age-10,
-		lastlocated: req.body.lastlocated,
-		origin: req.body.origin,
-
-	};
 	var uname = req.session.loggedUser;
 	var prevpage =0;
 	var nextpage =0;
 
-if(data.max!= null){
-	index.searchage(data,function(result){
+	var max= req.body.age;
+	var min= req.body.age-10;
+	var sqlend="";
+
+	if(max!=0){
+		sqlend = "and age between '"+min+"' and '"+max+"';"
+	}
+
+	var data={
+		lost_name: req.body.lost_name,
+		sqlend,	
+		last_located: req.body.last_located,
+		origin: req.body.origin,
+	};
+
+	if(req.body.age==0 && req.body.lost_name.length < 1 && req.body.last_located.length < 1 && req.body.origin.length < 1)
+	{
+		data.sqlend = " and id < 1";
+	}
+
+
+	index.advancesearch(data,function(result){
 	 	if(result && result!=null)
 	 		{
 	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
@@ -136,7 +149,6 @@ if(data.max!= null){
 	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
 	 		}
 	 });
-}
 
 if(data.origin!= null){
 	index.searchorigin(data,function(result){
