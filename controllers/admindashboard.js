@@ -28,7 +28,7 @@ const upload = multer({
 	fileFilter: function(req, file, cb){
 		checkFileType(file, cb);
 	}
-}).single('myImage');
+}).any();
 
 // Check File Type
 function checkFileType(file, cb){
@@ -57,82 +57,111 @@ app.use(express.static('./public'));
 
 router.post('/upload', function(req, res) {
 
-			upload(req, res, (err) => {
+	upload(req, res, (err) => {
+		var uname = req.session.loggedUser;
+		if(err){
+			res.render('./admindashboard/addproduct', {
+				msg: err,uname,
+			});
+		}
+
+		else {
+			if(req.files[0] == undefined && req.files[1] == undefined && req.files[2] == undefined ){
+				res.render('./admindashboard/addproduct', {
+					msg: 'Error: No File Selected!',
+					uname,
+				});
+			} else {
 				var uname = req.session.loggedUser;
-				if(err){
-					res.render('./admindashboard/addproduct', {
-						msg: err,uname,
-					});
+
+				var file1,file2=null,file3=null;
+
+				if(req.files[0]!=undefined){	
+					file1 = `/uploads/${req.files[0].filename}`;
+				}
+				else{
+					file1="https://i.imgur.com/S58Jnn6.jpg";
+				}
+				if(req.files[1]!=undefined){	
+					file2 = `/uploads/${req.files[1].filename}`;
 				}
 
-				else {
-				      if(req.file == undefined){
-				        res.render('./admindashboard/addproduct', {
-				          msg: 'Error: No File Selected!',
-				          uname,
-				        });
-				      } else {
-				        var uname = req.session.loggedUser;
-				        					
-	    						var file;
-	    					file = `/uploads/${req.file.filename}`
-	    					res.render('./admindashboard/addproduct',{
-	    						uname,file,
-	    						
-	    					});
-				      }
-				  }
-
-			});
-			
-		});
-
-
-		router.post('/edit/:id?', function(req, res) {
-
-			upload(req, res, (err) => {
-				var uname = req.session.loggedUser;
-				
-						var data={
-							id: req.params.id
-						};
-
-						dashboardModel.productedit(data,function(result){
-
-					if(err){
-					res.render('./admindashboard/editproduct', {
-						msg: err,uname,result:result,
-					});
+				if(req.files[2]!=undefined){	
+					file3 = `/uploads/${req.files[2].filename}`;
 				}
 
-				else {
+				res.render('./admindashboard/addproduct',{
+					uname,file1,file2,file3,
+
+				});
+			}
+		}
+
+	});
+
+});
 
 
-				      if(req.file == undefined){
-				        res.render('./admindashboard/editproduct', {
-				          msg: 'Error: No File Selected!',
-				          uname,
-				          result:result,
-				        });
-				      } else {
-				        var uname = req.session.loggedUser;
-				        					
-	    					var file;
-	    					file = `/uploads/${req.file.filename}`;
-	    					result[0].image= file;
-	    					res.render('./admindashboard/editproduct',{
-	    						uname,file,result:result,
-	    						
-	    					});
-				      }
+router.post('/edit/:id?', function(req, res) {
 
-				    };
-				  });
+	upload(req, res, (err) => {
+		var uname = req.session.loggedUser;
 
-			});
-			
+		var data={
+			id: req.params.id
+		};
+
+		dashboardModel.productedit(data,function(result){
+
+			if(err){
+				res.render('./admindashboard/editproduct', {
+					msg: err,uname,result:result,
+				});
+			}
+
+			else {
+
+
+				if(req.files[0] == undefined && req.files[1] == undefined && req.files[2] == undefined ){
+				res.render('./admindashboard/editproduct', {
+					msg: 'Error: No File Selected!',
+					uname,
+					result:result,
+				});
+			} else {
+				var uname = req.session.loggedUser;
+
+				var file1,file2=null,file3=null;
+				// file1 = `/uploads/${req.files[0].filename}`;
+				// file2 = `/uploads/${req.files[1].filename}`;
+				// file3 = `/uploads/${req.files[2].filename}`;
+
+				if(req.files[0]!=undefined){	
+					file1 = `/uploads/${req.files[0].filename}`;
+				}
+				else{
+					file1="https://i.imgur.com/S58Jnn6.jpg";
+				}
+				if(req.files[1]!=undefined){	
+					file2 = `/uploads/${req.files[1].filename}`;
+				}
+
+				if(req.files[2]!=undefined){	
+					file3 = `/uploads/${req.files[2].filename}`;
+				}
+
+				res.render('./admindashboard/editproduct',{
+					uname,file1,file2,file3,result:result,
+
+				});
+			}
+
+			}
 		});
-		
+
+	});
+
+});
 
 
 router.get('/addproduct',function(req,res){

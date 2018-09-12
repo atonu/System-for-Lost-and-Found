@@ -297,25 +297,41 @@ router.post('/edit/:id?', function(req, res) {
 			else {
 
 
-				if(req.file == undefined){
-					res.render('./user/editproduct', {
-						msg: 'Error: No File Selected!',
-						uname,
-						result:result,
-					});
-				} else {
-					var uname = req.session.loggedUser;
+				if(req.files[0] == undefined && req.files[1] == undefined && req.files[2] == undefined ){
+				res.render('./user/editproduct', {
+					msg: 'Error: No File Selected!',
+					uname,
+					result:result,
+				});
+			} else {
+				var uname = req.session.loggedUser;
 
-					var file;
-					file = `/uploads/${req.file.filename}`;
-					result[0].image= file;
-					res.render('./user/editproduct',{
-						uname,file,result:result,
+				var file1,file2=null,file3=null;
+				// file1 = `/uploads/${req.files[0].filename}`;
+				// file2 = `/uploads/${req.files[1].filename}`;
+				// file3 = `/uploads/${req.files[2].filename}`;
 
-					});
+				if(req.files[0]!=undefined){	
+					file1 = `/uploads/${req.files[0].filename}`;
+				}
+				else{
+					file1="https://i.imgur.com/S58Jnn6.jpg";
+				}
+				if(req.files[1]!=undefined){	
+					file2 = `/uploads/${req.files[1].filename}`;
 				}
 
-			};
+				if(req.files[2]!=undefined){	
+					file3 = `/uploads/${req.files[2].filename}`;
+				}
+
+				res.render('./user/editproduct',{
+					uname,file1,file2,file3,result:result,
+
+				});
+			}
+
+			}
 		});
 
 	});

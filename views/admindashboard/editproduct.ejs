@@ -3,6 +3,38 @@
 <head>
 	<title>Edit Post</title>
 	<% include ../partials/head %>
+
+	<style>
+ 	img {
+ 		display: block;
+ 		margin-left: auto;
+ 		margin-right: auto;
+ 		border-radius:8px;
+ 	
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+div.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius:8px;
+  padding:4px;
+  background-image: url("img_tree.gif"), url("paper.gif");
+}
+
+div.container {
+  
+  background-image: url("img_tree.gif"), url("paper.gif");
+
+  
+}
+
+</style>
+
 </head>
 <body id="adminlogin">
 
@@ -16,19 +48,38 @@
 			<div class="col-md-5 cal-md-offset-2" style="color: white">
 				<h1><strong>Edit Post</strong></h1>
 				<%for(var i=0;i<result.length;i++){%>
-				<center><form action="/admindashboard/edit/<%=result[i].id%>" method="POST" enctype="multipart/form-data">
+				<form action="/admindashboard/edit/<%=result[i].id%>" id="picUploader" method="POST" enctype="multipart/form-data">
+									<h1 ><strong>Enter Lost Person's descriptions</strong></h1>
 							        <label class="font">Image</label>
 							        <%= typeof msg != 'undefined' ? msg : '' %>
-							        <input class="btn btn-primary" name="myImage" type="file">
-							        <button class="Submitbutton">Update To Form</button>
-							      	<br>
+							        <input  name="myImage" type="file">
+							        <br>
+							        <input  name="myImage2" type="file">
+							        <br>
+							        <input  name="myImage3" type="file">
+							        <br>
+							        <button class="Submitbutton">Add To Form</button>
+							        <br>
 							      	
-
-							      	<div class="polaroid" style="width: 260px; height:260px;">
-							      	  <img src ="<%=result[i].image%>" style="width:250px;height:250px">
-							      	  
+							      	<div class="polaroid" style="width: 140px; height:140px;position:absolute; margin-left:20px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:130px;height:130px">
+							      	  <img src="<%=result[i].image%>" class="responsive-img" style="margin-top:-130px;width:130px;height:130px">
+							      	  <img src="<%= typeof file1 != 'undefined' ? file1 : '' %>" class="responsive-img" style="margin-top:-130px;width:130px;height:130px">
 							      	</div>
-							    </form> </center>
+
+							      	<div class="polaroid" style="width: 140px; height:140px;position:absolute;margin-left:170px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:130px;height:130px">
+							      	  <img src="<%=result[i].image2%>" class="responsive-img" style="margin-top:-130px;width:130px;height:130px">
+							      	  <img src="<%= typeof file2 != 'undefined' ? file2 : '' %>" class="responsive-img" style="margin-top:-130px;width:130px;height:130px">
+							      	</div>
+
+							      	<div class="polaroid" style="width: 140px; height:140px;position:absolute;margin-left:320px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:130px;height:130px">
+							      	  <img src="<%=result[i].image3%>" class="responsive-img" style="margin-top:-130px;width:130px;height:130px">
+							      	  <img src="<%= typeof file3 != 'undefined' ? file3 : '' %>" class="responsive-img" style="margin-top:-130px;width:130px;height:130px">
+							      	</div>
+
+							    </form> <br><br><br><br><br><br><br><br><br><br><br>
 				<div class="tab-content">
 					<div id="home" class="tab-pane fade in active">
 
@@ -83,8 +134,20 @@
 
 							<div class="form-group">
 								<label for="details" class="font">Contact:</label>
-								<textarea class="form-control font" id="details" name="details" value="<%=result[i].contact%>"></textarea>
+								<input type="text" class="form-control font"  name="details" value="<%=result[i].contact%>">
 							</div>
+
+							<div class="form-group">
+								<label for="promotion"  class="font">Promotion:</label>
+
+								<select style="height: 35px ;color: grey;" id="promotion" name="promotion" >
+									<option style="color: salmon;" value="<%=result[i].promotion%>">Current: <%=result[i].promotion%></option>
+									<option value="lost">80/- BDT</option>
+									<option value="found">240/- BDT</option>
+								</select>
+							</div>
+
+
 							<%}%>
 							<!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->
 							<button type="submit" class="btn btn-primary btn-lg font" style="width: 100%" id="submit">Save</button>

@@ -50,7 +50,7 @@ div.container {
 					<div class="panel-heading font" style="width: 100%; margin-top:-50px;">
 						<h1><strong> <center>Edit Post</center></strong></h1>
 						<%for(var i=0;i<result.length;i++){%>
-						<center><form action="/user/upload" id="picUploader" method="POST" enctype="multipart/form-data">
+						<center><form action="/user/edit/<%=result[i].id%>" id="picUploader" method="POST" enctype="multipart/form-data">
 									<h1 ><strong>Enter Lost Person's descriptions</strong></h1>
 							        <label class="font">Image</label>
 							        <%= typeof msg != 'undefined' ? msg : '' %>
