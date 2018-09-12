@@ -200,6 +200,21 @@ module.exports={
 			}
 		});
 	},
+	searchproduct: function(data,callback) {
+		var sql="SELECT * FROM "+data.table+" WHERE "+data.filter+" LIKE '"+data.lost_name+"%'";
+		// var sql ="SELECT * FROM ? WHERE ? LIKE ?";
+		// var param=[data.table,data.filter,data.productname];
+			db.getAllData(sql,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);
+			}	
+		});
+	},
 	searchuser: function(data,callback) {
 		var sql='SELECT * FROM user WHERE name LIKE "'+data.username+'%"';
 

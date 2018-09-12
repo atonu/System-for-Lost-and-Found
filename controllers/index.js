@@ -150,31 +150,6 @@ router.post('/advancesearch',function(req,res){
 	 		}
 	 });
 
-if(data.origin!= null){
-	index.searchorigin(data,function(result){
-	 	if(result && result!=null)
-	 		{
-	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
-	 		}
-	 	else 
-	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
-	 		}
-	 });
-}
-
-if(data.lastlocated != null){
-	index.searchlocation(data,function(result){
-	 	if(result && result!=null)
-	 		{
-	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
-	 		}
-	 	else 
-	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
-	 		}
-	 });
-}
 
 });
 
