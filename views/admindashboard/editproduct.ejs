@@ -96,7 +96,7 @@ div.polaroid {
 							<% } %>
 						</div>
 						<% } %>
-						<form method="post" action="admindashboard/addproduct">
+						<form method="post" action="/admindashboard/productedit/<%=result[i].id%>">
 							
 							<div class="form-group font">
 								<label for="productname" class="font">Person's Name:</label>
@@ -110,7 +110,23 @@ div.polaroid {
 
 							<div class="form-group">
 										<label for="quantity" class="font">Image:</label>
-										<input type="text" value="<%=result[i].image%>"  class="form-control font" id="quentity" name="quantity">
+										<% var img1 =typeof file1 != 'undefined' ? file1 : '' %>
+										<% var img2 =typeof file2 != 'undefined' ? file2 : '' %>
+										<% var img3 =typeof file3 != 'undefined' ? file3 : '' %>
+
+										<%if(img1==undefined){img1=result[i].image}%>
+										<%if(img2==undefined){img2=result[i].image2}%>
+										<%if(img3==undefined){img3=result[i].image3}%>
+
+										<%if(img1.length<1){img1=result[i].image}%>
+										<%if(img2.length<1){img2=result[i].image2}%>
+										<%if(img3.length<1){img3=result[i].image3}%>
+
+
+										<input type="text" value="<%=img1%>"  class="form-control font" id="Image1" name="Image1" style="width:200px">
+										<input type="text" value="<%=img2%>"  class="form-control font" id="Image2" name="Image2" style="width:200px;margin-left:210px;margin-top: -34px">
+
+										<input type="text" value="<%=img3%>"  class="form-control font" id="Image3" name="Image3" style="width:200px;margin-left:420px;margin-top: -34px";>
 									</div>
 
 							<div class="form-group">

@@ -172,7 +172,9 @@ router.post('/addproduct',function(req,res){
 	var data={
 		productname: req.body.productname,
 		price: req.body.price,
-		quantity: req.body.quantity,
+		image1: req.body.Image1,
+		image2: req.body.Image2,
+		image3: req.body.Image3,
 		catagory: req.body.catagory,
 		origin: req.body.origin,
 		category: req.body.category,
@@ -180,28 +182,20 @@ router.post('/addproduct',function(req,res){
 		details: req.body.details,
 		date: date.format(new Date(), 'YYYY/MM/DD')
 	};
-	var validator=new asyncValidator(productValidation.product);
-	validator.validate(data,function(errors,fields){
-		if(errors){
-				res.render('/admindashboard/addproduct',{errors:errors});
-		}
-		else
-		{
-			dashboardModel.productInsert(data,function(valid){
-				if(valid)
-				{
-					res.redirect('/admindashboard/productlist');
-				}
-				else
-				{
-					res.redirect('/error/error');
-				}
-			});
-		}
+	
+		
+		dashboardModel.productInsert(data,function(valid){
+			if(valid)
+			{
+				res.redirect('/admindashboard/productlist');
+			}
+			else
+			{
+				res.redirect('/error/error');
+			}
+		});
+		
 	});
-
-});
-
 
 
 
@@ -259,7 +253,9 @@ router.post('/productedit/:id?',function(req,res){
 		id: req.params.id,
 		productname: req.body.productname,
 		price: req.body.price,
-		quantity: req.body.quantity,
+		image1: req.body.Image1,
+		image2: req.body.Image2,
+		image3: req.body.Image3,
 		catagory: req.body.catagory,
 		origin: req.body.origin,
 		category: req.body.category,
