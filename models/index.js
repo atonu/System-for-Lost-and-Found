@@ -31,7 +31,7 @@ module.exports={
 		});
 	},
 	searchproduct: function(data,callback) {
-		var sql="SELECT * FROM lost WHERE "+data.filter+" LIKE '" + data.productname + "%' ";
+		var sql="SELECT * FROM lost WHERE "+data.filter+" LIKE '" + data.productname + "%' ORDER BY id DESC";
 			db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)
 			{

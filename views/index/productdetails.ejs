@@ -167,9 +167,9 @@ div.polaroid {
   top: 0;
 }
 
-img {
-  margin-bottom: -4px;
-}
+// img {
+//   margin-bottom: -4px;
+// }
 
 .caption-container {
   text-align: center;
@@ -198,7 +198,6 @@ img.hover-shadow {
 </style>
 </head>
 <body id="details">
-	
 	<header>
 		<% include ../partials/header %>
 	</header>
@@ -222,12 +221,15 @@ img.hover-shadow {
 
 			<div class="containerdetails pull-right" style="margin-right:70px;">
 				<h3><strong>Name : <%=result[i].lost_name%> </strong></h3>
-				<p><strong>Catagory : <%=result[i].catagory%> </strong></p>
+				<p><h4 style="color:#F54040"><strong><%=result[i].catagory%></h4></strong></p>
 				<p><strong>Age : <%=result[i].age%> </strong></p>
 				<p><strong>Last Located : <%=result[i].last_located%> </strong></p>
 				<p><strong>Origin : <%=result[i].origin%> </strong></p>
 				<p><strong>Agent Name : <%=result[i].agent_name%> </strong></p>
 				<p><strong>Posted : <%=result[i].date%> </strong></p>
+				<%if(result[i].reward>0){%>
+				<h3 style="color:#83AE80">Reward: <%=result[i].reward%>/-BDT</h3>
+				<%}%>
 			</div>
 			<br><br><br><br><br><br><br><br><br><br>
 				<center><a id="myContactBtn" style="margin-top:190px; width:97%" class="contentbutton" ">Contact</a> </center>

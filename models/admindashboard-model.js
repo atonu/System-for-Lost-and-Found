@@ -108,7 +108,7 @@ module.exports={
 	},
 	promotions: function(callback)
 	{
-		var sql="SELECT * FROM lost ORDER BY lost.promotion DESC ";
+		var sql="SELECT * FROM lost WHERE promotion > 0 ORDER BY promotion DESC ";
 
 		db.getAllData(sql,function(result){
 			if(result.length==0 || result==null)

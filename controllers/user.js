@@ -409,6 +409,7 @@ router.all('/createpost',function(req,res){
 		details: req.body.details,
 		date: date.format(new Date(), 'YYYY/MM/DD'),
 		promotion: req.body.promotion,
+		reward: req.body.reward,
 	};
 
 	userModel.productInsert(data,function(valid){
@@ -506,7 +507,9 @@ router.post('/productedit/:id?',function(req,res){
 		id: req.params.id,
 		productname: req.body.productname,
 		price: req.body.price,
-		quantity: req.body.quantity,
+		image: req.body.Image1,
+		image2: req.body.Image2,
+		image3: req.body.Image3,
 		catagory: req.body.catagory,
 		origin: req.body.origin,
 		category: req.body.category,
@@ -514,6 +517,7 @@ router.post('/productedit/:id?',function(req,res){
 		details: req.body.details,
 		date: date.format(new Date(), 'YYYY/MM/DD'),
 		promotion: req.body.promotion,
+		reward: req.body.reward,
 	};
 
 	userModel.productupdate(data,function(valid){
