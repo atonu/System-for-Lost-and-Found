@@ -169,10 +169,15 @@ router.get('/addproduct',function(req,res){
 });
 
 router.post('/addproduct',function(req,res){
+	var Image1 = req.body.Image1;
+	if(Image1.length<1){
+		Image1="https://i.imgur.com/S58Jnn6.jpg";
+	}
+
 	var data={
 		productname: req.body.productname,
 		price: req.body.price,
-		image1: req.body.Image1,
+		image1: Image1,
 		image2: req.body.Image2,
 		image3: req.body.Image3,
 		catagory: req.body.catagory,
@@ -227,12 +232,12 @@ router.get('/productdelete/:id?',function(req,res){
 });
 router.post('/productdelete/:id?',function(req,res){
 	var data={
-		id:req.body.id
+		id:req.params.id
 	};
 	dashboardModel.productdelete(data,function(valid){
 		if(valid)
 			{
-				res.redirect('/user/productlist');
+				res.redirect('/admindashboard/productlist');
 			}
 		else
 			{
@@ -249,11 +254,16 @@ router.get('/productedit/:id?',function(req,res){
 	});
 });
 router.post('/productedit/:id?',function(req,res){
+	var Image1 = req.body.Image1;
+	if(Image1.length<1){
+		Image1="https://i.imgur.com/S58Jnn6.jpg";
+	}
+
 	var data={
 		id: req.params.id,
 		productname: req.body.productname,
 		price: req.body.price,
-		image1: req.body.Image1,
+		image1: Image1,
 		image2: req.body.Image2,
 		image3: req.body.Image3,
 		catagory: req.body.catagory,
