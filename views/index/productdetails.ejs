@@ -305,6 +305,11 @@ span.onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	if (event.target == contactModal) {
+		document.getElementById('contactModal').style.display = "none";
+	}
+	}
 
 </script>
 

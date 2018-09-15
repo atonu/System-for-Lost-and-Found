@@ -49,6 +49,23 @@ module.exports={
 		});
 	},
 
+	deleteAccount:function(data,callback)
+	{
+		var sql='DELETE FROM user WHERE id=?';
+		var param = [data.accID];
+
+		db.deleteData(sql,param,function(valid){
+			if(valid)
+			{
+				callback(true);
+			}
+			else
+			{
+				callback(false);	
+			}
+		});
+	},
+
 	productlist: function(data,callback)
 	{
 		var sql='SELECT * FROM lost WHERE uname =? ORDER BY id DESC';

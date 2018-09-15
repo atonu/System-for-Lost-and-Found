@@ -4,6 +4,7 @@ const ejs = require('ejs');
 const path = require('path');
 var asyncValidator=require('async-validator');
 var router=express.Router();
+var userModel=require.main.require('./models/user-model');
 var dashboardModel=require.main.require('./models/admindashboard-model');
 var index=require.main.require('./models/index');
 productValidation=require.main.require('./Validation_rule/product_validation');
@@ -230,6 +231,31 @@ router.get('/productdelete/:id?',function(req,res){
 			res.render('./admindashboard/deleteproduct',data);
 		}
 });
+router.get('/deleteUser/:id?',function(req,res){
+	var data={
+		id: req.params.id	
+	};
+		{
+			res.render('./admindashboard/deleteUser',data);
+		}
+});
+router.post('/deleteUser',function(req,res){
+	var data={
+		accID: req.body.id,	
+	};
+		userModel.deleteAccount(data,function(valid){
+		if(valid){
+			res.redirect('/admindashboard/userlist');
+
+		}
+		else
+		{
+			res.redirect('/admindashboard/userlist');
+		}
+		
+	});
+});
+
 router.post('/productdelete/:id?',function(req,res){
 	var data={
 		id:req.params.id

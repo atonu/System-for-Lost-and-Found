@@ -189,13 +189,49 @@ router.post('/useredit/:username?',function(req,res){
 });
 
 router.get('/productdelete/:id?',function(req,res){
-	var data={
-		id: req.params.id	
+	
+		var data={
+		id: req.params.id,
+		uname: req.session.loggedUser,
 	};
-		{
+	var uname = req.session.loggedUser;
+	userModel.productedit(data,function(result){
+		if(result.length>0){
 			res.render('./admindashboard/deleteproduct',data);
 		}
+		else
+		{
+			res.redirect('/index');
+		}
+		
+	});
+
+
+
 });
+
+router.post('/deleteAccount',function(req,res){
+	
+		var data={
+		accID: req.body.accID,
+	};
+	var uname = req.session.loggedUser;
+	userModel.deleteAccount(data,function(valid){
+		if(valid){
+			res.redirect('/logout');
+
+		}
+		else
+		{
+			res.redirect('/user/user');
+		}
+		
+	});
+
+
+
+});
+
 router.post('/productdelete/:id?',function(req,res){
 	var data={
 		id:req.params.id

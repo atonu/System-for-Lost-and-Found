@@ -102,12 +102,18 @@ a {
   <div class="box" style="width: 200px;height:40px; margin:auto">
   <h1><strong> <center> My Posts</strong></center></h1>
   </div>
+
+  <%if(result==0){%>
+      <center><h1 style="color:#FA7A7A">You Currently Have No Posts.</h1></center>
+      <%}%>
+
   
                       <div class="col-md-15 mainresult">        
                         <div id="wrap">
                         <div id="columns" class="columns_1" style="margin-left:-60px">
                             <%if(typeof result!=='undefined'){%>
                               <%for(var i=0;i<result.length;i++){%>
+
                                 <div>
                                 <figure style="width:1200px;height:183px">
                                 <img src = "<%=result[i].image%>" class="pull-left" style="width:150px">
