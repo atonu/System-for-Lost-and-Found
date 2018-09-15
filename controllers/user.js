@@ -521,11 +521,19 @@ router.all('/productlist',function(req,res){
 
 router.get('/productedit/:id?',function(req,res){
 	var data={
-		id: req.params.id
+		id: req.params.id,
+		uname: req.session.loggedUser,
 	};
 	var uname = req.session.loggedUser;
 	userModel.productedit(data,function(result){
-		res.render('./user/editproduct',{result:result,uname});
+		if(result.length>0){
+			res.render('./user/editproduct',{result:result,uname});
+		}
+		else
+		{
+			res.redirect('/index');
+		}
+		
 	});
 });
 router.post('/productedit/:id?',function(req,res){

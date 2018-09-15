@@ -102,8 +102,8 @@ module.exports={
 	},
 	productedit: function(data,callback)
 	{
-		var sql='SELECT * FROM lost WHERE id=?';
-		var param = [data.id];
+		var sql="SELECT * FROM lost WHERE id=? and uname like ?";
+		var param = [data.id,data.uname];
 
 		db.getData(sql,param,function(result){
 			if(result.length==0 || result==null)
