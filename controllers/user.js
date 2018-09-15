@@ -187,6 +187,32 @@ router.post('/useredit/:username?',function(req,res){
 		}
 	});
 });
+
+router.get('/productdelete/:id?',function(req,res){
+	var data={
+		id: req.params.id	
+	};
+		{
+			res.render('./admindashboard/deleteproduct',data);
+		}
+});
+router.post('/productdelete/:id?',function(req,res){
+	var data={
+		id:req.params.id
+	};
+	dashboardModel.productdelete(data,function(valid){
+		if(valid)
+			{
+				res.redirect('/user/productlist');
+			}
+		else
+			{
+				res.render('/error/error');
+			}
+	});
+});
+
+
 router.get('/broughthistory/:id?',function(req,res){
 	var data={
 		id: req.params.id,

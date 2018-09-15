@@ -71,7 +71,7 @@ a {
     </a>
   </div>
  -->
-<div class="col-md-5 full-panel">
+<!--<div class="col-md-5 full-panel">
   <div class="panel panel-primary">
   <div class="panel-heading font"  style="width: 240%; margin-top: -51px;">
   <h1><strong> <center> My Posts</strong></center></h1>
@@ -97,7 +97,68 @@ a {
     </tr>
     <%}%>
     
-  </table> </div></div></div>
+
+  </table></div></div></div>-->
+  <div class="box" style="width: 200px;height:40px; margin:auto">
+  <h1><strong> <center> My Posts</strong></center></h1>
+  </div>
+  
+                      <div class="col-md-15 mainresult">        
+                        <div id="wrap">
+                        <div id="columns" class="columns_1" style="margin-left:-60px">
+                            <%if(typeof result!=='undefined'){%>
+                              <%for(var i=0;i<result.length;i++){%>
+                                <div>
+                                <figure style="width:1200px;height:183px">
+                                <img src = "<%=result[i].image%>" class="pull-left" style="width:150px">
+                                <!--<span class="pull-right">
+                                <h3><%=result[i].lost_name%></h3>
+                                <p>Age: <%=result[i].age%></p>
+
+                                        <%if(result[i].reward>0){%>
+                                          <h4 style="color:#83AE80">Reward: <%=result[i].reward%>/-BDT</h4>
+                                        <%}%>
+                                        <%if(result[i].reward==0){%>
+                                          <h4><br></h4>
+                                        <%}%>
+
+                                <span class="price">Last Located:</span>
+                                        <p><%=result[i].last_located%></p>
+                                </p>
+                                </span>-->
+                                <div style="margin-left:160px">
+                                  <h3><%=result[i].lost_name%></h3>
+                                  <h4 style="color:#F54040"><%=result[i].catagory%></h4>
+                                </div>
+                                  <div align="center" style="margin-top:-60px;">
+                                    <h4>Agent Name: <%=result[i].agent_name%></h4>
+                                    <h4>Contact: <%=result[i].contact%></h4>
+                                    <h4>Promotion: <%=result[i].promotion%></h4>
+                                    <h4>Date: <%=result[i].date%></h4>
+
+                                  </div>
+
+                                <a href="/user/productdelete/<%=result[i].id%>" style="margin-top:-25px;margin-left:-5px" class="contentbutton pull-right glyphicon glyphicon-trash" type="submit"></a> 
+                                 <a href="/user/productedit/<%=result[i].id%>" style="margin-top:-25px;" class="button glyphicon glyphicon-edit pull-right" type="submit">Edit</a>
+                              </figure>
+                              </div>
+                                            
+                            <%}%>
+                            <%}%>
+
+
+
+                            <% if(typeof errorMessage !== 'undefined'){ %>
+                                            <br><div class="whitebg" style="margin-left:-400px;position:absolute;"></div>
+                                            <div >
+                                            <br>
+                                                <h1 class="text-center text-danger"><span class="glyphicon glyphicon-search text-center"></span><br><%= errorMessage.message %></h1>
+                                            </div>
+                                            <% } %>
+
+                          </div></div></div>
+
+
   
 </body> 
 </html>
