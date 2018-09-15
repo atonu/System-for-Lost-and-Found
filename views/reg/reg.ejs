@@ -9,6 +9,7 @@
  		display: block;
  		margin-left: auto;
  		margin-right: auto;
+ 		border-radius:8px;
  	
 }
 a {
@@ -17,6 +18,20 @@ a {
     padding: 8px 16px;
 }
 
+div.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius:8px;
+  padding:4px;
+  background-image: url("img_tree.gif"), url("paper.gif");
+}
+
+div.container {
+  
+  background-image: url("img_tree.gif"), url("paper.gif");
+
+  
+}
 	</style>
 </head>
 
@@ -36,11 +51,11 @@ a {
     </div>
     </nav>
 
-	<img src="images/nikhojCoverLarge.jpg" alt="bg" style="width: 99%; margin-left:auto; margin-top: 42px">
+	<img src="https://i.imgur.com/wE5SMxs.jpg" alt="bg" style="position:absolute; width: 99%; margin-left:auto; margin-top: 42px">
 <body id="index">
 	
 
-	<div class="container font" style="margin-top: -860px;width: 71%">
+	<div class="container font" style="margin-top: 10px;width: 1400px">
 	  <div class="row">
 			<div class="col-md-5 full-panel">
 				<div class="panel panel-primary">
@@ -55,7 +70,23 @@ a {
 			    		<% } %>
 			    		</div>
 			    	<% } %>
-					<form method="post" > <center>
+
+			    	<center><form action="/reg/upload" id="picUploader" method="POST" enctype="multipart/form-data">
+							        <%= typeof msg != 'undefined' ? msg : '' %>
+							      	
+							      	<div class="polaroid" style="margin-top:0px;width: 190px; height:190px;position:absolute">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style=" width:180px;height:180px">
+							      	  <img src="<%= typeof file1 != 'undefined' ? file1 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	</div>
+
+							      	<input style="margin-top:210px" class="btn btn-primary pull-left" name="myImage" type="file">
+							        <button style="position:absolute;margin-left:300px;margin-top:205px" class="Submitbutton pull-left">Add To Form</button>
+
+
+							    </form> </center>
+
+					<br><br><br><br><br><br><br><br><br><br><br><br>
+					<form method="post" >
 					  <div class="form-group font">
 					    <label for="FullName" class="font">Full Name</label>
 					    <input type="text" class="form-control font" id="name" name="name">
@@ -95,7 +126,7 @@ a {
 					  <!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->
 					  <center> <button type="submit" class="btn btn-primary btn-lg font submit" id="submit">Submit</button></center>
 					  <button type="submit" class=" pull-right btn-link font"><a href="www.google.com">Forget password</a></button>
-					  </center>
+					 
 					</form>
 					<br/><br/>
 			    </div>

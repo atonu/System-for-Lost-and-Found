@@ -4,6 +4,35 @@
 <head>
   <title>Edit Profile</title>
   <% include ../partials/head %>
+  <style>
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:8px;
+  
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+div.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius:8px;
+  padding:4px;
+  background-image: url("img_tree.gif"), url("paper.gif");
+}
+
+div.container {
+  
+  background-image: url("img_tree.gif"), url("paper.gif");
+
+  
+}
+  </style>
 </head>
 <body>
 
@@ -11,7 +40,22 @@
     <div class="container font" style="margin-top: 1%;">
       <div class="row">
         <div class="col-md-5 cal-md-offset-2">
-        <h1 class="text-center text-success font"><strong>Profile Edit</strong></h1>
+              <center><form action="/reg/upload" id="picUploader" method="POST" enctype="multipart/form-data">
+                    <h1 ><strong>Edit Profile</strong></h1>
+                        <label class="font">Image</label>
+                        <%= typeof msg != 'undefined' ? msg : '' %>
+                        <input style="margin-left:200px"name="myImage" type="file">
+                        <button style="margin-left:160px" class="Submitbutton">Add To Form</button>
+                        
+                        <div class="polaroid" style="margin-top:-100px;width: 190px; height:190px;position:absolute">
+                          <img src ="https://i.imgur.com/S58Jnn6.jpg" style=" width:180px;height:180px">
+                          <img src ="<%=result[0].image%>" style=" width:180px;height:180px;margin-top:-180px">
+
+                          <img src="<%= typeof file1 != 'undefined' ? file1 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+                        </div>
+
+                    </form> </center><br><br><br><br>
+        <br><br>
           <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
 
@@ -45,8 +89,10 @@
                   </div>
               <%}%>
               <!-- <input type="submit" class="btn btn-primary btn-lg font" value="Submit"> -->
+              <a class="btn btn-primary" href="/user/user">Back</a>
               <button type="submit" class="btn btn-primary btn-lg font" id="submit">Update</button>
             </form>
+
             </div>
             </div>
            </div>

@@ -345,7 +345,8 @@ router.post('/edit/:id?', function(req, res) {
 		var uname = req.session.loggedUser;
 
 		var data={
-			id: req.params.id
+			id: req.params.id,
+			uname,
 		};
 
 		userModel.productedit(data,function(result){
