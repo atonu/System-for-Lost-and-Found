@@ -257,13 +257,13 @@ img.hover-shadow {
 				<div class="row pull-left" style="width: 100px;margin-top:-520px;margin: auto;margin-left:10px;">
 				<h4 style="color: darksalmon;text-align:center;margin-top:-540px">Photos</h4>
 <br><br>
-				  <% if( result[i].image3 != null){ %>
+				  <% if( result[i].image3 != null && result[i].image3.length >0){ %>
 				  <div class="column">
 				    <img src="<%=result[i].image3%>" style="width:250px;" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
 				  </div><br><br>
 				  <%}%>
 
-				  <% if( result[i].image2 != null){ %>
+				  <% if( result[i].image2 != null && result[i].image2.length >0 ){ %>
 				  <div class="column">
 				    <img src="<%=result[i].image2%>" style="width:250px" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
 				  </div><br><br>

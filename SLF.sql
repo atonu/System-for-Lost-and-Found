@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2018 at 03:15 PM
+-- Generation Time: Sep 16, 2018 at 09:22 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -79,7 +79,7 @@ INSERT INTO `lost` (`id`, `lost_name`, `age`, `image`, `image2`, `image3`, `last
 (31, 'shajib alam', 66, '/uploads/myImage (1).jpg', NULL, NULL, 'birulia bridge, Dhaka', 'Chittagong', 'Lost', 'Thakur', '018xxxxxxxx', '', '2018/07/31', 0, 0),
 (32, 'Aunty', 80, '/uploads/myImage (2).jpg', NULL, NULL, 'Mogbazar,Dhaka', 'Jessore', 'Lost', 'Pulak Barmon', '019xxxxxxxx', '', '2018/07/31', 0, 0),
 (33, 'tariqul Islam', 30, '/uploads/myImage-1536300178938.jpg', NULL, NULL, 'Kuratoli Road, BRA', 'No idea', 'Found', 'Nishe,Nishat', '017xxxxxxxx', '', '2018/07/31', 0, 0),
-(35, 'lulu boyati', 65, '/uploads/pic (4).jpg', NULL, NULL, 'Shitakundo', 'Chittagong', 'Found', 'ahmed zahin', '017xxxxxxxx', 'atonu', '2018/07/31', 0, 0),
+(35, 'lulu boyati', 65, '/uploads/myImage-1536967050689.jpg', '/uploads/myImage2-1536967050718.jpg', '/uploads/myImage3-1536967050723.jpg', 'Found', 'Chittagong', 'Found', 'ahmed zahin', '017xxxxxxxx', 'atonu', '2018/07/31', 0, 0),
 (64, 'Kamal hossain', 56, '/uploads/pic (4).jpg', NULL, NULL, 'mirpur stadium premise', 'Dhaka', 'Lost', 'ahmed zahin', '017xxxxxxxx', 'atonu', '2018/08/01', 0, 0),
 (65, 'shovic azmayn', 30, '/uploads/pic (3).jpg', NULL, NULL, 'basundhara', 'dinajpur', 'Lost', 'atonu', '019xxxx', 'atonu', '2018/08/01', 0, 0),
 (66, 'wahid', 23, '/uploads/pic (5).jpg', NULL, NULL, 'mirpur,Dhaka', 'dhaka', 'Found', 'Pulak Barmon', '123', 'atonu', '2018/08/01', 0, 0),
@@ -93,10 +93,10 @@ INSERT INTO `lost` (`id`, `lost_name`, `age`, `image`, `image2`, `image3`, `last
 (78, 'admin post test', 44, '/uploads/myImage-1536299779706.jpg', NULL, NULL, 'Basundhara', 'not known', 'Lost', 'ariya stark', '', '', '123', 0, 0),
 (79, 'saddam', 54, '/uploads/myImage (3).jpg', NULL, NULL, 'shonarga', 'notor', 'Found', 'kashem', '123xxx', 'atonu', '2018/09/03', 80, 0),
 (80, 'Fatima', 52, '/uploads/pic (1).jpg', NULL, NULL, 'Kuratoli Road, BRA', 'Dhaka', 'Found', 'ahmed zahin', '132', 'atonu', '2018/09/04', 80, 0),
-(82, 'irfan', 123, '/uploads/pic (5).jpg', NULL, NULL, 'jhigatola,Dhaka', 'madaripur', 'Lost', 'irfan', '33123123', 'atonu', '2018/09/05', 80, 0),
+(82, 'Erlich Bachman', 38, '/uploads/myImage-1537081815813.jpg', '/uploads/myImage2-1537081815841.jpg', '/uploads/myImage3-1537081815846.jpg', 'Shanghai,China', 'California', 'Lost', 'David Belson', '33123123', 'atonu', '2018/09/05', 80, 0),
 (83, 'just in case', 123, '/uploads/myImage-1536298288841.jpg', NULL, NULL, 'jhigatola,Dhaka', 'Dhaka', 'Lost', 'ahmed zahin', '1332123', 'atonu', '2018/09/05', 0, 0),
-(85, 'tarek', 1200, '/uploads/pic (2).jpg', NULL, NULL, 'jhigatola,Dhaka', 'Dhaka', 'Lost', 'ahmed zahin', '123123', 'atonu', '2018/09/05', 80, 1000),
-(102, 'Ahmed', 23, '/uploads/pic (4).jpg', NULL, NULL, 'Dhaka', 'Dhaka', 'Lost', 'Ahmed', '019xxxxxxxx', 'atonu', '2018/09/07', 80, 0),
+(85, 'Elliot Alderson', 30, '/uploads/myImage-1537081963914.jpg', NULL, NULL, 'Steel Mountain', 'New York', 'Lost', 'Darlene Alderson', '123123', 'atonu', '2018/09/05', 80, 10000),
+(102, 'Ned Stark', 56, '/uploads/myImage-1537081683435.jpg', NULL, NULL, 'Kings Landing', 'Winterfell,Westoros', 'Lost', 'catelyn stark', 'three eyed raven', 'atonu', '2018/09/07', 80, 0),
 (103, 'Xisan', 22, '/uploads/myImage-1536297566053.jpg', NULL, NULL, 'Wolf Pack HQ', 'Dhaka', 'Lost', 'XYZ', '017xxxxxxxxx', 'atonu', '2018/09/07', 240, 5000),
 (104, 'Inan', 22, '/uploads/myImage-1536297967209.jpg', '/uploads/myImage-1536297566053.jpg', NULL, 'Wolf Pack HQ', 'Dhaka', 'Found', 'Fatty', '017xxxxxxxx', 'atonu', '2018/09/07', 240, 0),
 (105, 'Adib', 50, '/uploads/myImage-1536298093851.jpg', '/uploads/myImage-1536297566053.jpg', '/uploads/myImage-1536298288841.jpg', 'Wolf Pack HQ', 'No idea', 'Lost', 'ahmed zahin', '123123123', 'atonu', '2018/09/07', 240, 10000),
@@ -110,11 +110,10 @@ INSERT INTO `lost` (`id`, `lost_name`, `age`, `image`, `image2`, `image3`, `last
 (122, 'hridi', 19, '/uploads/myImage-1536928452606.jpg', '/uploads/myImage2-1536928452607.jpg', NULL, 'UIU permanent campus', 'No idea', 'Lost', 'Punk Inan', '019xxx', 'atonu', '2018/09/09', 0, 0),
 (133, 'wahid', 23, '/uploads/pic (5).jpg', NULL, NULL, 'mirpur,Dhaka', 'dhaka', 'Found', 'Pulak Barmon', '019xxxx', 'atonu', '2018/09/10', 0, 0),
 (134, 'Shovic', 23, '/uploads/myImage-1536298123458.jpg', NULL, NULL, 'Wolf Pack HQ', 'No idea', 'Lost', 'ahmed zahin', '017xxxxxxxx', 'atonu', '2018/09/10', 0, 0),
-(135, 'Promo - lost', 23, '', NULL, NULL, 'Wolf Pack HQ', 'Dhaka', 'Lost', 'WPfan69', '123123', 'atonu', '2018/09/10', 0, 0),
-(136, 'wahid', 23, '/uploads/pic (5).jpg', NULL, NULL, 'mirpur,Dhaka', 'dhaka', 'Found', 'Pulak Barmon', '016xxxx', 'atonu', '2018/09/10', 0, 0),
+(135, 'Promo - lost', 23, '/uploads/myImage-1536967890586.jpg', '/uploads/myImage2-1536967890590.jpg', '/uploads/myImage3-1536967890593.jpg', 'Lost', 'Dhaka', 'Lost', 'WPfan69', '123123', 'atonu', '2018/09/10', 0, 0),
+(136, 'Erlich', 44, '/uploads/myImage3-1537037627890.jpg', '/uploads/myImage2-1537037627887.jpg', '/uploads/myImage3-1537037627890.jpg', 'China', 'California', 'lost', 'Gavin Belson', '016xxxx', 'atonu', '2018/09/10', 0, 0),
 (302, 'wolf pack', 30, '/uploads/myImage-1536927464196.jpg', '/uploads/myImage2-1536927464196.jpg', '/uploads/myImage3-1536927464198.jpg', 'dhaka', 'Dhaka', 'Lost', 'ahmed zahin', '017xxxxxxxx', 'atonu', '2018/09/11', 0, 0),
-(307, 'demo', 22, '/uploads/myImage-1536625949447.jpg', '/uploads/myImage2-1536625949452.jpg', '/uploads/myImage3-1536625949453.jpg', 'jhigatola,Dhaka', 'dhaka', 'Lost', 'ahmed zahin', '019xxx', 'atonu', '2018/09/11', 0, 0),
-(308, 'Lost Kid', 10, '/uploads/myImage-1536929032222.jpg', '/uploads/myImage2-1536929032224.jpg', NULL, 'Shewra', 'Unknown', 'lost', 'ahmed zahin', '123', 'atonu', '2018/09/14', 0, 1000);
+(315, 'ahmed test', 22, '/uploads/myImage-1537037562757.jpg', NULL, NULL, 'mirpur stadium premise', 'noakhali', 'lost', 'mr.X', '019xxxx', 'ahmed', '2018/09/16', 0, 1000);
 
 -- --------------------------------------------------------
 
@@ -158,17 +157,20 @@ CREATE TABLE `user` (
   `email` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
   `phone` varchar(16) NOT NULL,
-  `address` varchar(256) NOT NULL
+  `address` varchar(256) NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `phone`, `address`) VALUES
-(35, 'ahmed zahin', 'atonu', 'atonu.zahin@gmail.com', 'sha1$68ffcd67$1$b8058d3765425ce61d5bf27fb1fc07f58eb902f3', '01760605684', '161/4 Ahmed Nagar,Mirpur 1,Dhaka'),
-(36, 'ahmed zahin', 'atonu1', 'atonu.zahin1@gmail.com', 'sha1$cf8c60b8$1$df8d727b565d9d60123f5b336fc738642ee2ca7e', '01760605684', '161/4 Ahmed Nagar,Mirpur 1,Dhaka'),
-(37, 'edit test', 'test', 'test@gmail.com', 'sha1$ec0b5a25$1$dd98f46c1b2d3e38376b6076fa49a43c3f27d490', '01912312312', 'basha');
+INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `phone`, `address`, `image`) VALUES
+(35, 'ahmed zahin', 'atonu', 'atonu.zahin@gmail.com', 'sha1$68ffcd67$1$b8058d3765425ce61d5bf27fb1fc07f58eb902f3', '01760605684', '161/4 Ahmed Nagar,Mirpur 1,Dhaka', '/uploads/myImage-1537081526105.png'),
+(36, 'ahmed zahin', 'atonu1', 'atonu.zahin1@gmail.com', 'sha1$cf8c60b8$1$df8d727b565d9d60123f5b336fc738642ee2ca7e', '01760605684', '161/4 Ahmed Nagar,Mirpur 1,Dhaka', ''),
+(37, 'edit test', 'test', 'test@gmail.com', 'sha1$ec0b5a25$1$dd98f46c1b2d3e38376b6076fa49a43c3f27d490', '01912312312', 'basha', ''),
+(42, 'ahmed', 'ahmed', 'ahmed@gmail.com', 'sha1$6712999a$1$d4b2e97afff05cb9d35b8d549246638ef7f6f4f0', '01933123456', '161/4 Ahmed Nagar,Mirpur 1,Dhaka', ''),
+(43, 'atonu other', 'atonured', 'atonured@gmail.com', 'sha1$22fac612$1$da130333bacb3c9fe942852eba3099048653d40d', '01912312312', '161/4 Ahmed Nagar,Mirpur 1,Dhaka', '/uploads/myImage-1537080803632.jpg');
 
 --
 -- Indexes for dumped tables
@@ -216,7 +218,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `lost`
 --
 ALTER TABLE `lost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=309;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=316;
 
 --
 -- AUTO_INCREMENT for table `records`
@@ -228,7 +230,7 @@ ALTER TABLE `records`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
