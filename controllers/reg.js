@@ -4,6 +4,7 @@ const ejs = require('ejs');
 const path = require('path');
 var asyncValidator=require('async-validator');
 var router=express.Router();
+var userModel=require.main.require('./models/user-model');
 regModel=require.main.require('./models/reg-model');
 regValidation=require.main.require('./Validation_rule/registration_validation');
 
@@ -81,6 +82,59 @@ router.post('/upload', function(req, res) {
 });
 
 
+router.post('/edit/:id?', function(req, res) {
+
+	upload(req, res, (err) => {
+		var uname = req.session.loggedUser;
+
+		var data={
+			id: req.params.id,
+			uname,
+		};
+
+		userModel.getUserRow(data,function(result){
+
+			if(err){
+				res.render('./user/userprofile', {
+					msg: err,uname,result:result,
+				});
+			}
+
+			else {
+
+
+				if(req.files[0] == undefined){
+				res.render('./index', {
+					msg: 'Error: No File Selected!',
+					uname,
+					result:result,
+				});
+			} else {
+
+				var file1 =null;
+					file1 = `/uploads/${req.files[0].filename}`;
+				
+				if(req.files[0].length<1){	
+					file1="https://i.imgur.com/S58Jnn6.jpg";
+				}
+
+				res.render('./user/editprofile',{
+					uname,file1,result:result,
+
+				});
+			}
+
+			}
+		});
+
+	});
+
+});
+
+
+
+
+
 // Request Handler
 
 router.get('/',function(req,res){
@@ -93,6 +147,7 @@ router.post('/',function(req,res){
 		name: req.body.name,
 		username: req.body.username,
 		email: req.body.email,
+		image: req.body.Image1,
 		phone: req.body.phone,
 		password: req.body.password,
 		address: req.body.address
@@ -117,7 +172,7 @@ router.post('/',function(req,res){
 				{
 					if(valid)
 					{
-						res.redirect('./login');
+						res.redirect('/login');
 					}
 					else
 					{

@@ -2,9 +2,9 @@ var db=require('./db');
 var passwordHash=require('password-hash');
 
 var validateUser=function(data,callback){
-var sql="INSERT INTO `user`(`name`, `username`, `email`, `phone`, `password`, `address`) VALUES (?,?,?,?,?,?)";
+var sql="INSERT INTO `user`(`name`, `username`, `email`, `phone`, `password`, `address`, `image`) VALUES (?,?,?,?,?,?,?)";
 
-var param=[data.name,data.username,data.email,data.phone,passwordHash.generate(data.password),data.address];
+var param=[data.name,data.username,data.email,data.phone,passwordHash.generate(data.password),data.address,data.image];
 db.insertData(sql,param,function(result){
 	if(result==null || result.length==0)
 	{
@@ -16,5 +16,6 @@ db.insertData(sql,param,function(result){
 	}
 });
 }
+
 
 module.exports.validateUser=validateUser;

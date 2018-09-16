@@ -174,7 +174,8 @@ router.post('/useredit/:username?',function(req,res){
 		name: req.body.name,
 		email: req.body.email,
 		phone: req.body.phone,
-		address: req.body.address
+		address: req.body.address,
+		image: req.body.Image1,
 	};
 	userModel.userprofileupdate(data,function(valid){
 		if(valid)

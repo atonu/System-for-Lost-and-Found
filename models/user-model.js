@@ -133,6 +133,23 @@ module.exports={
 			}
 		});
 	},
+
+	getUserRow: function(data,callback)
+	{
+		var sql="SELECT * FROM user WHERE id=?";
+		var param = [data.id,];
+
+		db.getData(sql,param,function(result){
+			if(result.length==0 || result==null)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(result);	
+			}
+		});
+	},
 	
 
 
@@ -152,8 +169,8 @@ module.exports={
 		});
 	},
 	userprofileupdate : function(data,callback){
-		var sql="UPDATE `user` SET `name`=?,`email`=?,`phone`=?,`address`=? WHERE `username`=?";
-		var param=[data.name,data.email,data.phone,data.address,data.username];
+		var sql="UPDATE `user` SET `name`=?,`email`=?,`phone`=?,`address`=?,`image`=? WHERE `username`=?";
+		var param=[data.name,data.email,data.phone,data.address,data.image,data.username];
 
 		db.updateData(sql,param,function(result){
 			if(result==null || result.length==0)

@@ -86,7 +86,7 @@ div.container {
 							    </form> </center>
 
 					<br><br><br><br><br><br><br><br><br><br><br><br>
-					<form method="post" >
+					<form method="post" action="/reg/">
 					  <div class="form-group font">
 					    <label for="FullName" class="font">Full Name</label>
 					    <input type="text" class="form-control font" id="name" name="name">
@@ -103,6 +103,11 @@ div.container {
 					    <input type="email" class="form-control font" id="email" name="email">
 					    <p id='emailalart' class="hidden">Email address already registred.Try with new Email</p>
 					  </div>
+
+					  <div class="form-group">
+						<label for="Image" class="font">Image:</label>
+						<input type="text" value="<%= typeof file1 != 'undefined' ? file1 : '' %>"  class="form-control font" placeholder="Image Link" id="Image1" name="Image1" style="width:200px">
+					</div>
 					  
 					  <div class="form-group">
 					    <label for="phone" class="font">Phone no:</label>
