@@ -493,8 +493,6 @@ router.all('/createpost',function(req,res){
 			if(image3.length <1){
 				image3 ="https://i.imgur.com/S58Jnn6.jpg"
 			}
-
-
 			var data={
 				productname: req.body.productname,
 				price: req.body.price,
@@ -511,15 +509,25 @@ router.all('/createpost',function(req,res){
 				promotion: req.body.promotion,
 			};
 
-					userModel.productlist(data,function(result){
-						if(result!=null){
-							res.render('./promotion/promotion',{result:result,data,uname});
-						}
-						else{
-							res.redirect('/error/error');
-						}
+			userModel.submitRecord(data,function(valid){
+				if(valid)
+				{
+						userModel.productlist(data,function(result){
+							if(result!=null){
+								res.render('./promotion/promotion',{result:result,data,uname});
+							}
+							else{
+								res.redirect('/error/error');
+							}
+		
+						});
+				}
+				else{
+					res.redirect('/index');
+				}
+			});
 
-					});
+			
 			
 		}
 		else
@@ -548,6 +556,31 @@ router.all('/productlist',function(req,res){
 			if(result!=null)
 			{
 				res.render('./user/productlist',{result: result,uname});
+			}
+			else
+			{
+				res.render('./error/error');
+			}
+		});
+	}
+});
+
+router.get('/history',function(req,res){
+
+	var data={
+		username: req.session.loggedUser
+	}
+
+	var uname = req.session.loggedUser;
+	if (uname =="Guest") {
+		res.redirect('/login');
+	}
+
+	else{
+		userModel.history(data,function(result){
+			if(result!=null)
+			{
+				res.render('./user/history',{result: result,uname});
 			}
 			else
 			{
