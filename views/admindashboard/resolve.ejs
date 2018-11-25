@@ -17,12 +17,19 @@
 			<div class="col-md-5 full-panel" style="margin-left: 400px;">
 				<div class="panel panel-primary" style="width: 500px;height:100px; margin-top: -40px">
 					<div class="panel-heading font" style="width: 500px; margin: auto;">
-						<h2>Delete Post: <%= result[0].lost_name%></h2>
+						<h2>Resolve Post: <%=result[0].lost_name%></h2>
 						<p>Post ID: <%= data.id %></p>
-						<a style="color:azure" href="/user/resolve/<%=data.id%>"><h4>Issue resolved? Click Here.</h4></a>
 						<form method="post">
-						<center><button class="contentbutton" style="width:50%;margin-left:10px" type="submit">Delete</button></center>
+							<label><h3>Resolved With</h3></label> <br>
+							<input type="text" class="form-control font" name="contacted_with"><br>
+							<label><h3>Contact</h3></label><br>
+							<input type="text" class="form-control font"  name="contact"><br>
+							<center><button class="button" style="width:50%;margin-left:10px" type="submit">Save</button></center>
 							<input type="Hidden" name="id" value="<%= data.id%>">
+							<input type="Hidden" name="lost_name" id="lost_name" value="<%= result[0].lost_name%>">
+							<input type="Hidden" name="catagory" id="catagory" value="<%= result[0].catagory%>">
+							
+
 						</form>
 						<center><button class="button" style="width:50%;margin-left:10px;" onclick="goBack()">Back</button>
 		 				<script>

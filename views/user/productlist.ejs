@@ -103,7 +103,7 @@ a {
   <h1><strong> <center> My Posts</strong></center></h1>
   </div>
 
-  <a class="button" style="width:100px;margin: auto; margin-top: 20px;" href="/user/history">History</a>
+  <a class="Bbutton" style="width:100px;margin: auto; margin-top: 30px;" href="/user/history"><h4>History</h4></a>
 
   <%if(result==0){%>
       <center><h1 style="color:#FA7A7A">You Currently Have No Posts.</h1></center>
@@ -147,6 +147,7 @@ a {
                                   </div>
 
                                 <a href="/user/productdelete/<%=result[i].id%>" style="margin-top:-25px;margin-left:-5px" class="contentbutton pull-right glyphicon glyphicon-trash" type="submit"></a> 
+                                 <a href="/user/resolve/<%=result[i].id%>" style="margin-top:-25px;" class="button glyphicon glyphicon-ok pull-right" type="submit">Resolve</a>
                                  <a href="/user/productedit/<%=result[i].id%>" style="margin-top:-25px;" class="button glyphicon glyphicon-edit pull-right" type="submit">Edit</a>
                               </figure>
                               </div>

@@ -198,7 +198,7 @@ router.get('/productdelete/:id?',function(req,res){
 	var uname = req.session.loggedUser;
 	userModel.productedit(data,function(result){
 		if(result.length>0){
-			res.render('./admindashboard/deleteproduct',data);
+			res.render('./admindashboard/deleteproduct',{result: result,data});
 		}
 		else
 		{
@@ -210,6 +210,64 @@ router.get('/productdelete/:id?',function(req,res){
 
 
 });
+
+router.get('/resolve/:id?',function(req,res){
+	
+	var data={
+	id: req.params.id,
+	uname: req.session.loggedUser,
+};
+var uname = req.session.loggedUser;
+userModel.productedit(data,function(result){
+	if(result.length>0){
+		res.render('./admindashboard/resolve',{result: result,data});
+	}
+	else
+	{
+		res.redirect('/index');
+	}
+	
+});
+
+
+
+});
+
+router.post('/resolve/:id?',function(req,res){
+	
+	var data={
+		id: req.params.id,
+		productname: req.body.lost_name,
+		username: req.session.loggedUser,
+		catagory: req.body.catagory,
+		date: date.format(new Date(), 'YYYY/MM/DD'),
+		contacted_with: req.body.contacted_with,
+		contact: req.body.contact
+	};
+
+	dashboardModel.resolve(data,function(valid){
+		if(valid)
+			{
+				dashboardModel.productdelete(data,function(valid){
+					if(valid)
+						{
+							res.redirect('/index');
+							
+						}
+					else
+						{
+							res.render('/error/error');
+						}
+				});
+			}
+		else
+			{
+				res.render('/error/error');
+			}
+	});
+});
+
+
 
 router.post('/deleteAccount',function(req,res){
 	
@@ -667,4 +725,3 @@ router.post('/promotion/:id?',function(req,res){
 });
 
 module.exports=router;
-

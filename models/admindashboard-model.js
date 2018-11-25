@@ -32,6 +32,24 @@ module.exports={
 			}
 		});
 	},
+	resolve: function(data,callback){
+		var sql="UPDATE `records` SET `lost_name`=?, `uname`=?, `category`=?, `date`=?, `contacted_with`=?, `contact`=? WHERE `id`=?";
+
+		// var sql="UPDATE `lost` SET `lost_name`=?,`age`=?,`image`=?,`image2`=?,`image3`=?,`last_located`=?,`origin`=?,`catagory`=?,`agent_name`=?,`contact`=? WHERE `id`=?";
+
+		var param=[data.productname,data.username,data.catagory,data.date,data.contacted_with,data.contact,data.id];
+
+		db.insertData(sql,param,function(result){
+			if(result==null || result.length==0)
+			{
+				callback(false);
+			}
+			else
+			{
+				callback(true);
+			}
+		});
+	},
 	adminInsert: function(data,callback)
 	{
 		var sql="INSERT INTO `admin`(`name`, `username`, `email`, `password`, `gender`, `dob`, `nid`, `presentaddress`, `parmanentaddress`) VALUES (?,?,?,?,?,?,?,?,?)";
