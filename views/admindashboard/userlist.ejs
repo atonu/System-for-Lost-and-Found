@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User List</title>
+  <% include ../partials/head %>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body id="adminlogin">
+<header>
+    <% include ../partials/adminHeader %>
+</header>
+
+<h1>User list</h1>
+
+<table style="color: grey;" class="panel">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Option</th>
+  </tr>
+  <%for(var i=0;i<result.length;i++){%>
+  <tr>
+    <td><%=result[i].id%></td>
+    <td><%=result[i].name%></td>
+    <td><%=result[i].email%></td>
+    <td><a href="/admindashboard/deleteUser/<%=result[i].id%>">Delete</a></td>
+  </tr>
+  <%}%>
+  
+</table>
+
+</body>
+</html>

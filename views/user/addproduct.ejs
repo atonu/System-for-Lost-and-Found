@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Product</title>
+	<% include ../partials/head %>
+	 
+	<style>
+ 	img {
+ 		display: block;
+ 		margin-left: auto;
+ 		margin-right: auto;
+ 		border-radius:8px;
+ 	
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+div.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius:8px;
+  padding:4px;
+  background-image: url("img_tree.gif"), url("paper.gif");
+}
+
+div.container {
+  text-align: center;
+  background-image: url("img_tree.gif"), url("paper.gif");
+
+  
+}
+
+
+/*a:hover {
+    background-color: #ddd;
+    color: black;
+}*/
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.next {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+
+
+ 		
+
+ 		
+ 	</style>
+</head>
+<body id="index">
+
+	<header>
+		<% include ../partials/header%>
+	</header>
+	
+		<div class="row" style="margin-left:500px;">
+
+			<div class="col-md-5 full-panel">
+				<div class="panel panel-primary" style="width: 640px;margin-left:-160px">
+					<div class="panel-heading font" style="width: 101%; margin-top:-50px;">
+					<center><form action="/user/upload" id="picUploader" method="POST" enctype="multipart/form-data">
+									<h1 ><strong>Enter Lost Person's descriptions</strong></h1>
+							        <label class="font">Image</label>
+							        <%= typeof msg != 'undefined' ? msg : '' %>
+							        <input class="btn btn-primary" name="myImage" type="file">
+							        <input class="btn btn-primary" name="myImage2" type="file">
+							        <input class="btn btn-primary" name="myImage3" type="file">
+							        <button class="Submitbutton">Add To Form</button>
+							      	
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:180px;height:180px">
+							      	  <img src="<%= typeof file1 != 'undefined' ? file1 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	</div>
+
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute;margin-left:210px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:180px;height:180px">
+							      	  <img src="<%= typeof file2 != 'undefined' ? file2 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	</div>
+
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute;margin-left:420px;">
+							      	  <img src ="https://i.imgur.com/S58Jnn6.jpg" style="width:180px;height:180px">
+							      	  <img src="<%= typeof file3 != 'undefined' ? file3 : '' %>" class="responsive-img" style="margin-top:-180px;width:180px;height:180px">
+							      	</div>
+
+							    </form> </center>
+							    <br><br><br><br><br><br><br><br><br>
+
+						
+						<div class="tab-content">
+							<div id="home" class="tab-pane fade in active">
+
+								<% if(typeof errors !== 'undefined'){ %>
+								<div class="alert alert-danger">
+									<% for(var i = 0; i < errors.length; i++){ %>
+									<p>*<%= errors[i].message %></p>
+									<% } %>
+								</div>
+								<% } %>
+
+								<div class="container"
+								<img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img">
+							    
+							    
+    
+							    </div>
+							    <br><br>
+								<form method="post" action="/user/createpost">
+
+									<div class="form-group font">
+										<label for="productname" class="font">Person's Name:</label>
+										<input type="text" required class="form-control font" placeholder="Missing Person's Name" id="productname" name="productname">
+									</div>
+
+									<div class="form-group font">
+										<label for="price" class="font">Age:</label>
+										<input type="text" class="form-control font" placeholder="Age" id="price" name="price">
+									</div>
+
+									<div class="form-group">
+										<label for="quantity" class="font">Image:</label>
+										<input type="text" value="<%= typeof file1 != 'undefined' ? file1 : '' %>"  class="form-control font" placeholder="Link 1" id="Image1" name="Image1" style="width:200px">
+										<input type="text" value="<%= typeof file2 != 'undefined' ? file2 : '' %>"  class="form-control font" placeholder="Link 2" id="Image2" name="Image2" style="width:200px;margin-left:210px;margin-top: -34px">
+										<input type="text" value="<%= typeof file3 != 'undefined' ? file3 : '' %>"  class="form-control font" placeholder="Link 3" id="Image3" name="Image3" style="width:200px;margin-left:420px;margin-top: -34px";>
+									</div>
+
+									<div class="form-group">
+										<label for="catagory" class="font">Last Located:</label>
+										<input type="text" required placeholder="Last Seen / Current Locatation" class="form-control font" id="catagory" name="catagory">
+									</div>
+											<a href="javascript:void(0);" type="button" class="button" style="margin-left:514px; margin-top:-50px;width:100px;height:37px;"
+											 NAME="My Window Name"  title=" My title here "
+											 onClick=window.open("https://maps.google.com","Ratting","width=900,height=470,0,status=0,");>Maps</a>
+
+
+									<div class="form-group">
+										<label for="origin" class="font">Hometown / Origin:</label>
+										<input type="text" placeholder="Hometown" class="form-control font" id="origin" name="origin">
+									</div>
+
+									<div class="form-group">
+										<label for="category" class="font">Category:</label> <br>
+										<select style="height: 35px ;color: grey;" id="category" name="category" >
+											<option value="lost">Lost</option>
+											<option value="found">Found</option>
+										</select>
+									</div>
+
+									<div class="form-group">
+										<label for="agent_name" class="font">Agent Name:</label>
+										<input type="text" required placeholder="Agent Name / Alias Name" class="form-control font" id="agent_name" name="agent_name">
+									</div>
+
+									<div class="form-group">
+										<label for="details" class="font">Contact:</label>
+										<input type="text" placeholder="Phone Number" required class="form-control font" id="contact" name="details">
+									</div>
+
+									<div class="form-group">
+										<label for="reward" class="font">Reward:</label>
+										<input type="text" placeholder="Optional" class="form-control font" id="reward" name="reward">
+									</div>
+
+									<div class="form-group">
+										<input type="hidden" class="form-control font" id="promotion" value="0" name="promotion">
+									</div>
+
+									<center>
+										<button type="submit" class="btn btn-primary btn-lg font" style="width:30%" id="submit">Next</button>
+									</center>
+								</form>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div></div></div>

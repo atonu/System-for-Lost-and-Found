@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Product List</title>
+	<% include ../partials/head %>
+	<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+</head>
+<body id="adminlogin">
+
+	<header>
+		<% include ../partials/adminHeader%>
+	</header>
+
+	<strong><h1>Posts</h1></strong>
+  <a href="/admindashboard/advancesearch"><button class="btn btn-primary pull-left">Advance Search</button></a>
+  <div class="panel">
+  <table style="color: grey;">
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Catagory</th>
+      <th>Agent Name</th>
+      <th>Last located</th>
+      <th>Origin</th>
+      <th>Date</th>
+      <th>Contact</th>
+
+      <th>Option</th>
+    </tr>
+    <%for(var i=0;i<result.length;i++){%>
+    <tr>
+      <td><%=result[i].lost_name%></td>
+      <td><%=result[i].age%></td>
+      <td><%=result[i].catagory%></td>
+      <td><%=result[i].agent_name%></td>
+      <td><%=result[i].last_located%></td>
+      <td><%=result[i].origin%></td>
+      <td><%=result[i].date%></td>
+      <td><%=result[i].contact%></td>
+      <td><a href="/admindashboard/productedit/<%=result[i].id%>">Edit</a> <a href="/admindashboard/productdelete/<%=result[i].id%>">Delete</a></td>
+    </tr>
+    <%}%>
+    
+  </table>
+  </div>
+</body>	
+</html>

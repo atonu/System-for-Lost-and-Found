@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Product</title>
+	<% include ../partials/head %>
+	 
+	<style>
+ 	img {
+ 		display: block;
+ 		margin-left: auto;
+ 		margin-right: auto;
+ 		border-radius:8px;
+ 	
+}
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+div.polaroid {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius:8px;
+  padding:4px;
+  background-image: url("img_tree.gif"), url("paper.gif");
+}
+
+div.container {
+  text-align: center;
+  background-image: url("img_tree.gif"), url("paper.gif");
+
+  
+}
+
+
+/*a:hover {
+    background-color: #ddd;
+    color: black;
+}*/
+
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
+
+.next {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+.zoom{
+	height:40px;
+	width:100px;
+}
+
+.white{
+	color: lightblue;
+}
+
+
+
+ 		
+ 	</style>
+</head>
+<body id="index">
+
+	<header>
+		<% include ../partials/header%>
+	</header>
+
+	<div class="row" style="margin-left:500px;">
+	<br><br>
+	
+	<div class="col-md-5 full-panel">
+				<div class="panel " style="width: 600px; margin-top: -50px">
+					<div class="panel-heading font" style="width: 600px; margin: auto;">
+						<h2 style="color:salmon">&nbsp<strong>Promote Post! <%=result[0].id%></strong></h2>
+						<form method="post" action="/user/pay">
+							<div style="margin-left:350px;">
+							<input type="hidden" value="<%=result[0].id%>" name="productID">
+							<select id="promotion" name="promotion" class="form-control font" style="width: 100%; margin-top:-10px">
+								<option value="1">80/- BDT</option>
+								<option value="3">240/- BDT</option>
+							</select>
+							<br>
+							<button class="btn btn-primary" style="width:100%" type="submit">Pay</button>
+							</div>
+							<img src ="https://i.imgur.com/RGtcsxQ.png" style="width:45%;margin-left:0px;margin-top:-80px">
+						</form>
+					</div></div></div></div>
+
+		<div class="row" style="margin-left:500px;">
+			<div class="white" style="margin-left:20px"><h5>Posted by </h5><h1>&nbsp&nbsp<%=data.agent_name%></h1></div>
+			<div class="col-md-5 full-panel">
+				<div class="panel " style="width: 640px; margin-top: -80px">
+					<div class="panel-heading font" style="width: 101%; margin: auto;">
+
+
+				<form>
+
+					<div align="center">
+					<a href="/index" type="button" style="width:30%;height:40px;" class="button pull-right">Skip</a>
+					</center>
+
+					<br><br><br><br>
+
+								<div class="polaroid" style="width: 190px; height:190px;position:absolute">
+							      	  <img src ="<%=data.quantity%>" style="width:180px;height:180px">
+							      	</div>
+
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute;margin-left:210px;">
+							      	  <img src ="<%=data.img2%>" style="width:180px;height:180px">
+							      	</div>
+
+							      	<div class="polaroid" style="width: 190px; height:190px;position:absolute;margin-left:420px;">
+							      	  <img src ="<%=data.img3%>" style="width:180px;height:180px">
+							      	</div>
+
+
+
+					<br><br><br><br><br><br><br><br><br><br><br><br>
+					<center>
+					<div class="form-group font">
+						<label for="productname" class="font">Person's Name: </label>
+						<input type="hidden"  class="form-control font" id="productname" name="productname" value="<%=data.productname%>"> 
+						<label style="color:darksalmon"><%=data.productname%></label>
+					</div>
+
+					<div class="form-group font">
+						<label for="price" class="font">Age:</label>
+						<input type="hidden" class="form-control font" id="price" name="price" value="<%=data.price%>">
+						<label style="color:darksalmon"><%=data.price%></label>
+					</div>
+
+					<div class="form-group">
+						
+						<input type="hidden" value="<%=data.quantity%>"  class="form-control font" id="quentity" name="quantity">
+						
+					</div>
+
+					<div class="form-group">
+						<label for="catagory" class="font">Last_located:</label>
+						<input type="hidden" class="form-control font" id="catagory" name="catagory"  value="<%=data.catagory%>">
+						<label style="color:darksalmon"><%=data.catagory%></label>
+					</div>
+
+					<div class="form-group">
+						<label for="origin" class="font">Origin:</label>
+						<input type="hidden" class="form-control font" id="origin" name="origin" value="<%=data.origin%>">
+						<label style="color:darksalmon"><%=data.origin%></label>
+
+					</div>
+
+					<div class="form-group">
+						<label for="category" class="font">Category:</label>
+						<input type="hidden" class="form-control font" id="category" name="category" value="<%=data.category%>">
+						<label style="color:darksalmon"><%=data.category%></label>
+
+					</div>
+
+					<div class="form-group">
+						<label for="agent_name" class="font">Agent Name:</label>
+						<input type="hidden" class="form-control font" id="agent_name" name="agent_name" value="<%=data.agent_name%>">
+						<label style="color:darksalmon"><%=data.agent_name%></label>
+					</div>
+
+					<div class="form-group">
+						<label for="details" class="font">Contact :</label>
+						<input type="hidden" class="form-control font" id="agent_name" name="details" value="<%=data.details%>">
+						<label style="color:darksalmon"><%=data.details%></label>
+					</div>
+						<label for="promotion" class="font">promotion :</label>
+						<input type="hidden" class="form-control font" id="promotion" name="promotion" value="0">
+						<label style="color:red">0</label>
+					</div>
+
+
+					</center>					
+					</form>
+					<br>
+					<a type="button" href="productedit/<%=result[result.length-1].id%>" style="width:90px;margin: auto;" class="button">Edit</a>
+		 				<script>
+		 					function goBack() {
+		 						window.history.back();
+		 					}
+		 				</script></center>
+
+				</div></div></div></div>
+				</body>
