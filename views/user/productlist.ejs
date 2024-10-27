@@ -85,7 +85,7 @@ a {
       <th>Date Posted</th>
       <th>Option</th>
     </tr>
-    <%for(var i=0;i<result.length;i++){%>
+    <%for(var i=0;i<result?.length;i++){%>
     <tr>
       <td><strong><%=result[i].lost_name%></strong></td>
       <td><strong><%=result[i].agent_name%></strong></td>
@@ -114,7 +114,7 @@ a {
                         <div id="wrap">
                         <div id="columns" class="columns_1" style="margin-left:-60px">
                             <%if(typeof result!=='undefined'){%>
-                              <%for(var i=0;i<result.length;i++){%>
+                              <%for(var i=0;i<result?.length;i++){%>
 
                                 <div>
                                 <figure style="width:1200px;height:183px">

@@ -4,7 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js"
+    "test": "node app",
+    "dev": "node app",
+    "prod": "node app",
+    "serve": "node app"
   },
   "author": "",
   "license": "ISC",

@@ -6,7 +6,7 @@ var sql="INSERT INTO `user`(`name`, `username`, `email`, `phone`, `password`, `a
 
 var param=[data.name,data.username,data.email,data.phone,passwordHash.generate(data.password),data.address,data.image];
 db.insertData(sql,param,function(result){
-	if(result==null || result.length==0)
+	if(result==null || result?.length==0)
 	{
 		callback(false);
 	}

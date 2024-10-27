@@ -38,7 +38,7 @@ tr:nth-child(even) {
       <th>Catagory</th>
       <th>Quantity</th>
     </tr>
-    <%for(var i=0;i<result.length;i++){%>
+    <%for(var i=0;i<result?.length;i++){%>
     <tr>
       <td> <a href="/cart/removecart/<%=result[i].id%>"><i class="glyphicon glyphicon-remove"></i></a></td>
       <td><%=result[i].productname%></td>
@@ -92,7 +92,7 @@ tr:nth-child(even) {
             </tr>
             <tr>
               <%var subtotal=0%>
-                <%for(var i=0;i<result.length;i++){%>
+                <%for(var i=0;i<result?.length;i++){%>
                 <tr>
                   <td> <a href="/cart/removecart/<%=result[i].id%>"><i class="glyphicon glyphicon-remove"></i></a> || <%=result[i].productname%></td>              
                   <td><%=result[i].quantity%></td>

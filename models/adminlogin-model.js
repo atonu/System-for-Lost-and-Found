@@ -8,7 +8,7 @@ var loginData=function(data,callback)
 	var param=[data.username];
 	db.getData(sql,param,function(result){
 		
-		if(result.length==0 || result==null)
+		if(result?.length==0 || result==null)
 		{
 			callback(false);
 		}

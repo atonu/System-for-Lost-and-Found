@@ -6,7 +6,7 @@ module.exports={
 
 	var param=[data.username];
 	db.getData(sql,param,function(result){
-		if(result.length==0 || result==null)
+		if(result?.length==0 || result==null)
 		{
 			callback(false);
 		}
@@ -22,7 +22,7 @@ module.exports={
 		var param = [data.username];
 
 		db.getData(sql,param,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -38,7 +38,7 @@ module.exports={
 		var param=[data.productname,data.price,data.img1,data.img2,data.img3,data.catagory,data.origin,data.category,data.agent_name,data.details,data.date,data.logged_user,data.promotion,data.reward];
 
 		db.insertData(sql,param,function(result){
-			if(result==null || result.length==0)
+			if(result==null || result?.length==0)
 			{
 				callback(false);
 			}
@@ -71,7 +71,7 @@ module.exports={
 		var sql='SELECT * FROM lost WHERE uname =? ORDER BY id DESC';
 		var param=[data.username];
 		db.getData(sql,param,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -88,7 +88,7 @@ module.exports={
 		var sql='SELECT * FROM records WHERE uname =? ORDER BY date DESC';
 		var param=[data.username];
 		db.getData(sql,param,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -107,7 +107,7 @@ module.exports={
 
 		
 		db.updateData(sql,param,function(result){
-			if(result==null || result.length==0)
+			if(result==null || result?.length==0)
 			{
 				callback(false);
 			}
@@ -124,7 +124,7 @@ module.exports={
 
 		
 		db.updateData(sql,param,function(result){
-			if(result==null || result.length==0)
+			if(result==null || result?.length==0)
 			{
 				callback(false);
 			}
@@ -140,7 +140,7 @@ module.exports={
 		var param = [data.id,data.uname];
 
 		db.getData(sql,param,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -156,7 +156,7 @@ module.exports={
 		var param=[data.productname,data.username,data.category,data.date];
 
 		db.insertData(sql,param,function(result){
-			if(result==null || result.length==0)
+			if(result==null || result?.length==0)
 			{
 				callback(false);
 			}
@@ -173,7 +173,7 @@ module.exports={
 		var param = [data.id,];
 
 		db.getData(sql,param,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -191,7 +191,7 @@ module.exports={
 		var sql="SELECT * FROM records WHERE userid=? ORDER BY Orderdate DESC,delivery";
 		var param = [data.id];
 		db.getData(sql,param,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -206,7 +206,7 @@ module.exports={
 		var param=[data.name,data.email,data.phone,data.address,data.image,data.username];
 
 		db.updateData(sql,param,function(result){
-			if(result==null || result.length==0)
+			if(result==null || result?.length==0)
 			{
 				callback(false);
 			}

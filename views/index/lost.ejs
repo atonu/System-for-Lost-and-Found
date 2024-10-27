@@ -120,7 +120,7 @@ a {
                     <a href="/index/catagory/lost/<%=prevpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:-605px;margin-top:-40px"><</a>
                     <%}%>
                     <br>
-                    <!-- <td><a href="/index/nextpage/<%=result[result.length-1].id%>" class="btn btn-primary previous round" type="submit">></a> </td> -->
+                    <!-- <td><a href="/index/nextpage/<%=result[result?.length-1].id%>" class="btn btn-primary previous round" type="submit">></a> </td> -->
                     <a href="/index/catagory/lost/<%=nextpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:570px; margin-top: -60px">></a>
                     
                     <%}%>
@@ -145,7 +145,7 @@ a {
                         <div id="wrap">
                             <div id="columns" class="columns_4">
                                 <%if(typeof result!=='undefined'){%>
-                                <%for(var i=0;i<result.length;i++){%>
+                                <%for(var i=0;i<result?.length;i++){%>
                                     <%if(i==0||i%4==0){%>
                                         <div class="whitebg" style="margin-left:-400px;position:absolute;"></div>
                                     <%}%>

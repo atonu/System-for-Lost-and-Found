@@ -5,7 +5,7 @@ module.exports={
 		var sql='select * from lost where id=?';
 		var param=[data.id];
 			db.getData(sql,param,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}

@@ -40,7 +40,7 @@ div.container {
     <div class="container font" style="margin-top: 1%;">
       <div class="row">
         <div class="col-md-5 cal-md-offset-2">
-        <%for(var i=0;i<result.length;i++){%>
+        <%for(var i=0;i<result?.length;i++){%>
               <center><form action="/reg/edit/<%=result[i].id%>" id="picUploader" method="POST" enctype="multipart/form-data">
                     <h1 ><strong>Edit Profile</strong></h1>
                         <label class="font">Image</label>

@@ -6,7 +6,7 @@ module.exports={
 		var sql='select * from lost where id=?';
 		var param=[data.id];
 			db.getData(sql,param,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -20,7 +20,7 @@ module.exports={
 		var sql='select * from lost where id=?';
 		var param=[data.id];
 			db.getData(sql,param,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -33,7 +33,7 @@ module.exports={
 	searchproduct: function(data,callback) {
 		var sql="SELECT * FROM lost WHERE "+data.filter+" LIKE '" + data.productname + "%' ORDER BY id DESC";
 			db.getAllData(sql,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -47,7 +47,7 @@ module.exports={
 		var sql='SELECT * FROM `lost` WHERE catagory LIKE ? ORDER BY lost.promotion DESC,lost.id DESC LIMIT ? OFFSET ?';
 		var param=[data.catagory,data.limit,data.id];
 			db.getData(sql,param,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -66,7 +66,7 @@ module.exports={
 			var sql = "SELECT * FROM `lost` WHERE lost_name LIKE '"+data.lost_name+"%' AND origin LIKE '"+data.origin+"%' AND last_located LIKE '"+data.last_located+"%'"+data.sqlend
 				
 			db.getAllData(sql,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -83,7 +83,7 @@ module.exports={
 
 		
 			db.getAllData(sql,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}
@@ -102,7 +102,7 @@ module.exports={
 
 		
 			db.getAllData(sql,function(result){
-			if(result.length==0 || result==null)
+			if(result?.length==0 || result==null)
 			{
 				callback(false);
 			}

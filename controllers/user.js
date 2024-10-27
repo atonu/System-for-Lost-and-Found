@@ -197,7 +197,7 @@ router.get('/productdelete/:id?',function(req,res){
 	};
 	var uname = req.session.loggedUser;
 	userModel.productedit(data,function(result){
-		if(result.length>0){
+		if(result?.length>0){
 			res.render('./admindashboard/deleteproduct',{result: result,data,uname});
 		}
 		else
@@ -219,7 +219,7 @@ router.get('/resolve/:id?',function(req,res){
 };
 var uname = req.session.loggedUser;
 userModel.productedit(data,function(result){
-	if(result.length>0){
+	if(result?.length>0){
 		res.render('./admindashboard/resolve',{result: result,data,uname});
 	}
 	else
@@ -655,7 +655,7 @@ router.get('/productedit/:id?',function(req,res){
 	};
 	var uname = req.session.loggedUser;
 	userModel.productedit(data,function(result){
-		if(result.length>0){
+		if(result?.length>0){
 			res.render('./user/editproduct',{result:result,uname});
 		}
 		else
