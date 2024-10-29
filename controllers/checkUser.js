@@ -1,6 +1,6 @@
 var express=require('express');
 var router=express.Router();
-checkmodel=require.main.require('./models/checkuser-model');
+checkmodel=require.main.require('./models/checkuser_model');
 
 
 // Request Handler
