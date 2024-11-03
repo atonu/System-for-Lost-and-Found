@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "node app",
+    "nodemon": "nodemon app",
     "dev": "node app",
     "prod": "node app",
     "serve": "node app"

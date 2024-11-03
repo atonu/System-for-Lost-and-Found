@@ -79,10 +79,10 @@ div.container {
 	<div class="col-md-5 full-panel">
 				<div class="panel " style="width: 600px; margin-top: -50px">
 					<div class="panel-heading font" style="width: 600px; margin: auto;">
-						<h2 style="color:salmon">&nbsp<strong>Promote Post! <%=result[0].id%></strong></h2>
+						<h2 style="color:salmon">&nbsp<strong>Promote Post!</strong></h2>
 						<form method="post" action="/user/pay">
 							<div style="margin-left:350px;">
-							<input type="hidden" value="<%=result[0].id%>" name="productID">
+							<input type="hidden" value="1" name="productID">
 							<select id="promotion" name="promotion" class="form-control font" style="width: 100%; margin-top:-10px">
 								<option value="1">80/- BDT</option>
 								<option value="3">240/- BDT</option>
@@ -183,7 +183,7 @@ div.container {
 					</center>					
 					</form>
 					<br>
-					<a type="button" href="productedit/<%=result[result?.length-1].id%>" style="width:90px;margin: auto;" class="button">Edit</a>
+					<a type="button" href="1" style="width:90px;margin: auto;" class="button">Edit</a>
 		 				<script>
 		 					function goBack() {
 		 						window.history.back();

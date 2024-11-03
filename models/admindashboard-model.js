@@ -143,7 +143,7 @@ module.exports = {
     });
   },
   userlist: function(callback) {
-    var sql = 'SELECT id, name, email FROM user';
+    var sql = 'SELECT id, name, email FROM users';
 
     db.getAllData(sql, function(result) {
       if (result.rows?.length == 0 || result == null) {
@@ -174,7 +174,7 @@ module.exports = {
     });
   },
   searchuser: function(data, callback) {
-    var sql = 'SELECT * FROM user WHERE name LIKE $1';
+    var sql = 'SELECT * FROM users WHERE name LIKE $1';
     var param = [data.username + '%'];
 
     db.getAllData(sql, param, function(result) {

@@ -35,14 +35,14 @@ module.exports={
 		{
 			client.query(sql,function(error,result){
 				if (error) {
-					console.log('----insert err no param------',result);
+					console.log('----insert err no param------',);
 					callback(null);
 				}
 				else
 				{
-					console.log('----insert------',result);
+					console.log('----insert no param req------',param);
 					
-					callback(result);
+					callback(param);
 				}
 			});
 			
@@ -58,8 +58,8 @@ module.exports={
 				}
 				else
 				{
-					console.log('----insert------',result);
-					callback(result);
+					console.log('----insert w param req------',param);
+					callback(param);
 				}
 			});
 		}

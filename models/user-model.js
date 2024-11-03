@@ -2,30 +2,34 @@ var db = require('./db');
 
 module.exports = {
   user: function(data, callback) {
-    var sql = 'SELECT * FROM user WHERE username = $1';
+    var sql = 'SELECT * FROM users WHERE username = $1';
     var param = [data.username];
     db.getData(sql, param, function(result) {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
   useredit: function(data, callback) {
-    var sql = 'SELECT * FROM user WHERE username = $1';
-    var param = [data.username];
+    var sql = 'SELECT * FROM users WHERE id = $1';
+    var param = [data.id];
     db.getData(sql, param, function(result) {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        console.log('shall i?',result);
+        
+        callback(result.rows);
       }
     });
   },
   productInsert: function(data, callback) {
     var sql = "INSERT INTO lost (lost_name, age, image, image2, image3, last_located, origin, category, agent_name, contact, date, uname, promotion, reward) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)";
     var param = [data.productname, data.price, data.img1, data.img2, data.img3, data.catagory, data.origin, data.category, data.agent_name, data.details, data.date, data.logged_user, data.promotion, data.reward];
+    console.log("---check---", sql,param);
+    
     db.insertData(sql, param, function(result) {
       if (result == null || result?.length == 0) {
         callback(false);
@@ -35,7 +39,7 @@ module.exports = {
     });
   },
   deleteAccount: function(data, callback) {
-    var sql = 'DELETE FROM user WHERE id = $1';
+    var sql = 'DELETE FROM users WHERE id = $1';
     var param = [data.accID];
     db.deleteData(sql, param, function(valid) {
       if (valid) {
@@ -52,7 +56,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
@@ -63,7 +67,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
@@ -96,13 +100,13 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
   submitRecord: function(data, callback) {
-    var sql = "INSERT INTO records (lost_name, uname, category, date) VALUES ($1, $2, $3, $4)";
-    var param = [data.productname, data.username, data.category, data.date];
+    var sql = "INSERT INTO records (lost_name, uname, category) VALUES ($1, $2, $3)";
+    var param = [data.lost_name, data.uname, data.category];
     db.insertData(sql, param, function(result) {
       if (result == null || result?.length == 0) {
         callback(false);
@@ -112,13 +116,13 @@ module.exports = {
     });
   },
   getUserRow: function(data, callback) {
-    var sql = "SELECT * FROM user WHERE id = $1";
+    var sql = "SELECT * FROM users WHERE id = $1";
     var param = [data.id];
     db.getData(sql, param, function(result) {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
@@ -129,7 +133,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },

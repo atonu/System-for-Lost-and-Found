@@ -1,7 +1,7 @@
 var db = require('./db');
 
 var getUser = function(data, callback) {
-  var sql = "SELECT * FROM user WHERE username = $1 OR email = $2";
+  var sql = "SELECT * FROM users WHERE username = $1 OR email = $2";
   var param = [data.username, data.email];
   db.getData(sql, param, function(result) {
     if (result == null || result?.length == 0) {

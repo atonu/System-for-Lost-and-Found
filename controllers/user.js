@@ -160,11 +160,14 @@ router.get('/success/:cost?/:id?', function(req, res) {
 
 
 
-router.get('/useredit/:username?',function(req,res){
+router.get('/useredit/:id?',function(req,res){
 	var data={
-		username: req.params.username,
+		id: req.params.id,
 	};
+	
 	userModel.useredit(data,function(result){
+		console.log('user update resp',result);
+		
 		res.render('./user/editprofile',{result:result});
 	});
 });
@@ -537,35 +540,11 @@ router.all('/createpost',function(req,res){
 	userModel.productInsert(data,function(valid){
 		if(valid)
 		{
-			var uname = req.session.loggedUser;
-			var image1=req.body.Image1;
-			var image2=req.body.Image2;
-			var image3=req.body.Image3;
-			
-			if(image1.length <1){
-				image1 ="https://i.imgur.com/S58Jnn6.jpg"
-			}
-			if(image2.length <1){
-				image2 ="https://i.imgur.com/S58Jnn6.jpg"
-			}
-			if(image3.length <1){
-				image3 ="https://i.imgur.com/S58Jnn6.jpg"
-			}
 			var data={
-				productname: req.body.productname,
-				price: req.body.price,
-				quantity: image1,
-				img2: image2,
-				img3: image3,
-				username: req.session.loggedUser,
-				catagory: req.body.catagory,
-				origin: req.body.origin,
+				lost_name: req.body.productname,
+				uname: req.session.loggedUser,
 				category: req.body.category,
-				agent_name: req.body.agent_name,
-				details: req.body.details,
-				date: date.format(new Date(), 'YYYY/MM/DD'),
-				promotion: req.body.promotion,
-			};
+				};
 
 			userModel.submitRecord(data,function(valid){
 				if(valid)
