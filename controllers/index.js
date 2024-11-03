@@ -22,12 +22,11 @@ router.all('/',function(req,res){
 	}
 
 	 dashboardModel.home(limit,function(result){
-		console.log(result);
 		
 	 	if(result && result!=null)
 	 		{
 	 			
-	 			res.render('./index/index',{result: result.rows,uname,nextpage,prevpage});
+	 			res.render('./index/index',{result: result,uname,nextpage,prevpage});
 	 		}
 	 	else
 	 		{
@@ -48,7 +47,7 @@ router.all('/productdetails/:id?',function(req,res){
 	 index.productdetails(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/productdetails',{result: result.rows,uname});
+	 			res.render('./index/productdetails',{result: result,uname});
 	 		}
 	 	
 	 	else
@@ -69,11 +68,11 @@ router.post('/search',function(req,res){
 	 index.searchproduct(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result.rows,uname,prevpage,nextpage});
+	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result.rows,uname,nextpage,prevpage});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,nextpage,prevpage});
 	 		}
 	 });
 });
@@ -92,12 +91,12 @@ router.all('/page/:id?',function(req,res){
 	 dashboardModel.nextpage(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result.rows,uname,nextpage,prevpage});
+	 			res.render('./index/index',{result: result,uname,nextpage,prevpage});
 	 		}
 	 	
 	 	else
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'No More Posts.'},result: result.rows,uname});
+	 			res.render('./index/index',{errorMessage:{message:'No More Posts.'},result: result,uname});
 	 		}
 	 });
 });
@@ -110,7 +109,7 @@ router.get('/advancesearch',function(req,res){
 	var prevpage =0;
 	var nextpage =0;
 	userModel.user(data,function(result){
-		res.render('./index/advancesearch',{result: result.rows,uname,prevpage,nextpage});
+		res.render('./index/advancesearch',{result: result,uname,prevpage,nextpage});
 	});
 	
 });
@@ -144,11 +143,11 @@ router.post('/advancesearch',function(req,res){
 	index.advancesearch(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result.rows,uname,prevpage,nextpage});
+	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result.rows,uname,prevpage,nextpage});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
 	 		}
 	 });
 
@@ -161,7 +160,7 @@ router.get('/locationsearch',function(req,res){
 	var uname = data;
 	var prevpage=1,nextpage=1;
 	userModel.user(data,function(result){
-		res.render('./index/advancesearch',{result: result.rows,uname,prevpage,nextpage});
+		res.render('./index/advancesearch',{result: result,uname,prevpage,nextpage});
 	});
 	
 });
@@ -176,11 +175,11 @@ router.post('/locationsearch',function(req,res){
 	index.searchlocation(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result.rows,uname,prevpage,nextpage});
+	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result.rows,uname,prevpage,nextpage});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
 	 		}
 	 });
 
@@ -210,11 +209,11 @@ router.all('/catagory/:catagory?/:id?',function(req,res){
 	 index.searchproductcatagory(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/lost',{result: result.rows,uname,nextpage,prevpage,});
+	 			res.render('./index/lost',{result: result,uname,nextpage,prevpage,});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/lost',{errorMessage:{message:'No More Posts.'},result: result.rows,uname});
+	 			res.render('./index/lost',{errorMessage:{message:'No More Posts.'},result: result,uname});
 	 		}
 	 });
 
@@ -225,11 +224,11 @@ router.all('/catagory/:catagory?/:id?',function(req,res){
 	 index.searchproductcatagory(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/found',{result: result.rows,uname,nextpage,prevpage,});
+	 			res.render('./index/found',{result: result,uname,nextpage,prevpage,});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/found',{errorMessage:{message:'No More Posts.'},result: result.rows,uname});
+	 			res.render('./index/found',{errorMessage:{message:'No More Posts.'},result: result,uname});
 	 		}
 	 });
 	 

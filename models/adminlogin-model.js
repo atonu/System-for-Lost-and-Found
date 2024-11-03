@@ -6,11 +6,11 @@ var loginData = function(data, callback) {
 
   var param = [data.username];
   db.getData(sql, param, function(result) {
-    if (result?.length == 0 || result == null) {
+    if (result.rows?.length == 0 || result == null) {
       callback(false);
     } else {
       if (passwordHash.verify(data.password, result[0].password)) {
-        callback(result);
+        callback(result.rows);
       } else {
         callback(false);
       }

@@ -5,10 +5,10 @@ module.exports = {
     var sql = 'SELECT * FROM lost WHERE id = $1';
     var param = [data.id];
     db.getData(sql, param, function(result) {
-      if (result?.length == 0 || result == null) {
+      if (result.rows?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   }

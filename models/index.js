@@ -36,6 +36,7 @@ module.exports = {
   searchproductcatagory: function(data, callback) {
     var sql = 'SELECT * FROM lost WHERE category LIKE $1 ORDER BY promotion DESC, id DESC LIMIT $2 OFFSET $3';
     var param = [data.catagory, data.limit, data.id];
+    
     db.getData(sql, param, function(result) {
       if (result?.length == 0 || result == null) {
         callback(false);

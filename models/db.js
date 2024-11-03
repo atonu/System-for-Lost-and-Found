@@ -31,14 +31,17 @@ client.connect()
 module.exports={
 	insertData: function(sql,param,callback){
 		console.log(param);
-		if(param==null)
+		if(!param || param ==null)
 		{
 			client.query(sql,function(error,result){
 				if (error) {
+					console.log('----insert err no param------',result);
 					callback(null);
 				}
 				else
 				{
+					console.log('----insert------',result);
+					
 					callback(result);
 				}
 			});
@@ -48,10 +51,14 @@ module.exports={
 		{
 			client.query(sql,param,function(error,result){
 				if (error) {
+					console.log('----insert err yes------',error);
+					console.log('----param------',param);
+
 					callback(null);
 				}
 				else
 				{
+					console.log('----insert------',result);
 					callback(result);
 				}
 			});
@@ -141,6 +148,8 @@ module.exports={
 				}
 				else
 				{
+					console.log('----update------',result);
+
 					callback(result);
 				}
 			});
@@ -153,6 +162,8 @@ module.exports={
 				}
 				else
 				{
+					console.log('----update------',result);
+
 					callback(result);
 				}
 			});
