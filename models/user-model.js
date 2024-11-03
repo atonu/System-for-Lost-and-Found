@@ -31,6 +31,8 @@ module.exports = {
     console.log("---check---", sql,param);
     
     db.insertData(sql, param, function(result) {
+      console.log('db insert resp',result);
+      
       if (result == null || result?.length == 0) {
         callback(false);
       } else {
@@ -138,9 +140,11 @@ module.exports = {
     });
   },
   userprofileupdate: function(data, callback) {
-    var sql = "UPDATE user SET name = $1, email = $2, phone = $3, address = $4, image = $5 WHERE username = $6";
-    var param = [data.name, data.email, data.phone, data.address, data.image, data.username];
+    var sql = "UPDATE users SET name = $1, email = $2, phone = $3, address = $4, image = $5 WHERE id = $6";
+    var param = [data.name, data.email, data.phone, data.address, data.image, data.id];
     db.updateData(sql, param, function(result) {
+      console.log(`--updated user--`, result);
+      
       if (result == null || result?.length == 0) {
         callback(false);
       } else {

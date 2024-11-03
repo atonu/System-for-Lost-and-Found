@@ -171,14 +171,14 @@ router.get('/useredit/:id?',function(req,res){
 		res.render('./user/editprofile',{result:result});
 	});
 });
-router.post('/useredit/:username?',function(req,res){
+router.post('/useredit/:id?',function(req,res){
 	var data={
-		username: req.params.username,
+		id: req.params.id,
 		name: req.body.name,
 		email: req.body.email,
 		phone: req.body.phone,
 		address: req.body.address,
-		image: req.body.Image1,
+		image: req.body.Image1
 	};
 	userModel.userprofileupdate(data,function(valid){
 		if(valid)
@@ -534,7 +534,7 @@ router.all('/createpost',function(req,res){
 		details: req.body.details,
 		date: date.format(new Date(), 'YYYY/MM/DD'),
 		promotion: req.body.promotion,
-		reward: req.body.reward,
+		reward: req.body.reward==''?0:req.body.reward,
 	};
 
 	userModel.productInsert(data,function(valid){

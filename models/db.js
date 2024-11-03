@@ -40,7 +40,7 @@ module.exports={
 				}
 				else
 				{
-					console.log('----insert no param req------',param);
+					console.log('----insert no param res------',result);
 					
 					callback(param);
 				}
@@ -58,7 +58,7 @@ module.exports={
 				}
 				else
 				{
-					console.log('----insert w param req------',param);
+					console.log('----insert w param res------',result);
 					callback(param);
 				}
 			});

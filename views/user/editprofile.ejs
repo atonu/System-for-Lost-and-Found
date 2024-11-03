@@ -76,7 +76,7 @@ div.container {
                     <%if(img1.length<1){img1=result[i].image}%>
 
 
-                <form method="post" action="/user/useredit/<%=result[i].username%>">
+                <form method="post" action="/user/useredit/<%=result[i].id%>">
                   <div class="form-group font">
                     <label for="name" class="font">Full Name:</label>
                     <input type="text" class="form-control font" id="name" name="name" value="<%=result[i].name%>">
