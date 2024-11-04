@@ -61,7 +61,6 @@ router.post('/search',function(req,res){
 	var data={
 		productname: req.body.search,
 		filter: req.body.filter,
-
 	};
 	var uname = req.session.loggedUser;
 	var prevpage=0,nextpage=0;

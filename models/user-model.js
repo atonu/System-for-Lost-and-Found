@@ -8,7 +8,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
@@ -21,7 +21,7 @@ module.exports = {
       } else {
         console.log('shall i?',result);
         
-        callback(result.rows);
+        callback(result);
       }
     });
   },
@@ -58,7 +58,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
@@ -69,7 +69,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
@@ -102,7 +102,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
@@ -124,7 +124,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
@@ -135,7 +135,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },

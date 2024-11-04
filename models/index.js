@@ -8,7 +8,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
@@ -19,59 +19,59 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
   searchproduct: function(data, callback) {
-    var sql = "SELECT * FROM lost WHERE " + data.filter + " LIKE '" + data.productname + "%' ORDER BY id DESC";
+    var sql = "SELECT * FROM lost WHERE " + data.filter + " ILIKE '" + data.productname + "%' ORDER BY id DESC";
     db.getAllData(sql, function(result) {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
   searchproductcatagory: function(data, callback) {
-    var sql = 'SELECT * FROM lost WHERE category LIKE $1 ORDER BY promotion DESC, id DESC LIMIT $2 OFFSET $3';
+    var sql = 'SELECT * FROM lost WHERE category ILIKE $1 ORDER BY promotion DESC, id DESC LIMIT $2 OFFSET $3';
     var param = [data.catagory, data.limit, data.id];
     
     db.getData(sql, param, function(result) {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
   advancesearch: function(data, callback) {
-    var sql = "SELECT * FROM lost WHERE lost_name LIKE '" + data.lost_name + "%' AND origin LIKE '" + data.origin + "%' AND last_located LIKE '" + data.last_located + "%'" + data.sqlend;
+    var sql = "SELECT * FROM lost WHERE lost_name ILIKE '" + data.lost_name + "%' AND origin ILIKE '" + data.origin + "%' AND last_located ILIKE '" + data.last_located + "%'" + data.sqlend;
     db.getAllData(sql, function(result) {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
   searchlocation: function(data, callback) {
-    var sql = "SELECT * FROM lost WHERE last_located LIKE '" + data.lastlocated + "%'";
+    var sql = "SELECT * FROM lost WHERE last_located ILIKE '" + data.lastlocated + "%'";
     db.getAllData(sql, function(result) {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   },
   searchorigin: function(data, callback) {
-    var sql = "SELECT * FROM lost WHERE origin LIKE '" + data.origin + "%'";
+    var sql = "SELECT * FROM lost WHERE origin ILIKE '" + data.origin + "%'";
     db.getAllData(sql, function(result) {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result.rows);
+        callback(result);
       }
     });
   }

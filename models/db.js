@@ -22,7 +22,7 @@ client.connect()
 //   if (err) {
 //     console.error('Query error', err.stack);
 //   } else {
-//     console.log('Query result:', res.rows);
+//     console.log('Query result:', res);
 //   }
 //   // Close the connection
 //   client.end();
@@ -76,7 +76,7 @@ module.exports={
 			}
 			else
 			{
-				callback(result);
+				callback(result.rows);
 			}
 		});
 	},
@@ -89,7 +89,7 @@ module.exports={
 				}
 				else
 				{
-					callback(result);
+					callback(result.rows);
 				}
 			});
 			
@@ -102,7 +102,7 @@ module.exports={
 				}
 				else
 				{
-					callback(result);
+					callback(result.rows);
 				}
 			});
 		}
@@ -120,7 +120,7 @@ module.exports={
 				}
 				else
 				{
-					callback(result);
+					callback(result.rows);
 				}
 			});
 			
@@ -133,7 +133,7 @@ module.exports={
 				}
 				else
 				{
-					callback(result);
+					callback(result.rows);
 				}
 			});
 		}
@@ -150,7 +150,7 @@ module.exports={
 				{
 					console.log('----update------',result);
 
-					callback(result);
+					callback(result.rows);
 				}
 			});
 		}
@@ -164,7 +164,7 @@ module.exports={
 				{
 					console.log('----update------',result);
 
-					callback(result);
+					callback(result.rows);
 				}
 			});
 		}
