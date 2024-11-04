@@ -113,19 +113,19 @@ a {
                 <form>
                     
 
-                    <%if(result.rows[0]!=null) {%>
+                    <%if(result[0]!=null) {%>
                         <%if(prevpage!=0){%>
                     <a href="/index/catagory/lost/<%=prevpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:-605px;margin-top:-40px"><</a>
                     <%}%>
                     <br>
-                    <!-- <td><a href="/index/nextpage/<%=result.rows[result.rows?.length-1].id%>" class="btn btn-primary previous round" type="submit">></a> </td> -->
+                    <!-- <td><a href="/index/nextpage/<%=result[result?.length-1].id%>" class="btn btn-primary previous round" type="submit">></a> </td> -->
                     <a href="/index/catagory/lost/<%=nextpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:570px; margin-top: -60px">></a>
                     
                     <%}%>
 
 
                 </form>
-                <%if(result.rows[0]==null) {%>
+                <%if(result[0]==null) {%>
                 <button class="btn btn-primary previous round" onclick="goBack()" style="margin-top:80px"><</button>
 
                 <script>
@@ -149,20 +149,20 @@ a {
                                     <%}%>
 
                                     <figure>
-                                        <img src = "<%=result.rows[i].image%>">
+                                        <img src = "<%=result[i].image%>">
                                         <span>
-                                        <h3><%=result.rows[i].lost_name%></h3>
-                                        <p>Age: <%=result.rows[i].age%></p>
-                                        <%if(result.rows[i].reward>0){%>
-                                        <h4 style="color:#83AE80">Reward: <%=result.rows[i].reward%>/-BDT</h4>
+                                        <h3><%=result[i].lost_name%></h3>
+                                        <p>Age: <%=result[i].age%></p>
+                                        <%if(result[i].reward>0){%>
+                                        <h4 style="color:#83AE80">Reward: <%=result[i].reward%>/-BDT</h4>
                                         <%}%>
-                                        <%if(result.rows[i].reward==0){%>
+                                        <%if(result[i].reward==0){%>
                                         <h4><br></h4>
                                         <%}%>
                                         <span class="price">Last Located:</span>
-                                        <p><%=result.rows[i].last_located%></p>
+                                        <p><%=result[i].last_located%></p>
                                         </span>
-                                        <a href="/index/productdetails/<%=result.rows[i].id%>" class="contentbutton" type="submit">Contact</a> 
+                                        <a href="/index/productdetails/<%=result[i].id%>" class="contentbutton" type="submit">Contact</a> 
                                     </figure>
                                 
                                 </a>    
