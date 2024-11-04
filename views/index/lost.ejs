@@ -43,8 +43,8 @@ a {
       display:block;
       transition:all 1s linear;
       z-index:-1;
-      width:1901px;
-      height:505px
+      width:auto;
+      height:auto;
     }
 
 
@@ -108,7 +108,7 @@ a {
 
 
 
-        <div class="container-fluid" style="margin-top: 55px; height: 1000px" >
+        <div class="container-fluid" style="margin-top: 70px;" >
             <div align="center">
                 <form>
                     
@@ -143,12 +143,9 @@ a {
                         <div id="wrap">
                             <div id="columns" class="columns_4">
                                 <%if(typeof result!=='undefined'){%>
+                                <div class="whitebg"">
                                 <%for(var i=0;i<result?.length;i++){%>
-                                    <%if(i==0||i%4==0){%>
-                                        <div class="whitebg" style="margin-left:-400px;position:absolute;"></div>
-                                    <%}%>
-
-                                    <figure>
+                                    <figure style="margin: 16px 8px">
                                         <img src = "<%=result[i].image%>">
                                         <span>
                                         <h3><%=result[i].lost_name%></h3>
@@ -160,8 +157,7 @@ a {
                                         <h4><br></h4>
                                         <%}%>
                                         <span class="price">Last Located:</span>
-                                        <p><%=result[i].last_located%></p>
-                                        </span>
+                                        <p style="overflow: hidden;"><%=result[i].last_located%></p>                                        </span>
                                         <a href="/index/productdetails/<%=result[i].id%>" class="contentbutton" type="submit">Contact</a> 
                                     </figure>
                                 
@@ -171,11 +167,10 @@ a {
                                 %>
                                 <%}%>
                                 <%}%>
-
+                                </div>
 
 
                                 <% if(typeof errorMessage !== 'undefined'){ %>
-                                <br><div class="whitebg" style="margin-left:-400px;position:absolute;"></div>
                                 <div >
                                 <br>
                                     <h1 class="text-center text-danger"><span class="glyphicon glyphicon-search text-center"></span><br><%= errorMessage.message %></h1>
