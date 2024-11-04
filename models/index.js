@@ -8,7 +8,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
@@ -19,7 +19,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
@@ -29,7 +29,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
@@ -41,7 +41,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
@@ -51,7 +51,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
@@ -61,7 +61,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   },
@@ -71,7 +71,7 @@ module.exports = {
       if (result?.length == 0 || result == null) {
         callback(false);
       } else {
-        callback(result);
+        callback(result.rows);
       }
     });
   }

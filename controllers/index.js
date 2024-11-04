@@ -143,11 +143,11 @@ router.post('/advancesearch',function(req,res){
 	index.advancesearch(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result.rows,uname,prevpage,nextpage});
+	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result.rows,uname,prevpage,nextpage});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
 	 		}
 	 });
 
@@ -175,11 +175,11 @@ router.post('/locationsearch',function(req,res){
 	index.searchlocation(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/index',{result: result.rows,uname,prevpage,nextpage});
+	 			res.render('./index/index',{result: result,uname,prevpage,nextpage});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result.rows,uname,prevpage,nextpage});
+	 			res.render('./index/index',{errorMessage:{message:'Opps....No Search Result Found.'},result: result,uname,prevpage,nextpage});
 	 		}
 	 });
 
@@ -209,11 +209,11 @@ router.all('/catagory/:catagory?/:id?',function(req,res){
 	 index.searchproductcatagory(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/lost',{result: result.rows,uname,nextpage,prevpage,});
+	 			res.render('./index/lost',{result: result,uname,nextpage,prevpage,});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/lost',{errorMessage:{message:'No More Posts.'},result: result.rows,uname});
+	 			res.render('./index/lost',{errorMessage:{message:'No More Posts.'},result: result,uname});
 	 		}
 	 });
 
@@ -224,11 +224,11 @@ router.all('/catagory/:catagory?/:id?',function(req,res){
 	 index.searchproductcatagory(data,function(result){
 	 	if(result && result!=null)
 	 		{
-	 			res.render('./index/found',{result: result.rows,uname,nextpage,prevpage,});
+	 			res.render('./index/found',{result: result,uname,nextpage,prevpage,});
 	 		}
 	 	else 
 	 		{
-	 			res.render('./index/found',{errorMessage:{message:'No More Posts.'},result: result.rows,uname});
+	 			res.render('./index/found',{errorMessage:{message:'No More Posts.'},result: result,uname});
 	 		}
 	 });
 	 
