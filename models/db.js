@@ -150,7 +150,7 @@ module.exports={
 				{
 					console.log('----update------',result);
 
-					callback(result.rows);
+					callback(result);
 				}
 			});
 		}
@@ -164,7 +164,7 @@ module.exports={
 				{
 					console.log('----update------',result);
 
-					callback(result.rows);
+					callback(result);
 				}
 			});
 		}

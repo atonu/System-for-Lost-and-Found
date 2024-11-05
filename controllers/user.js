@@ -149,7 +149,7 @@ router.get('/success/:cost?/:id?', function(req, res) {
 				}
 				else
 				{
-					res.render('/error/error');
+					res.render('./error/error');
 				}
 			});
 
@@ -259,13 +259,13 @@ router.post('/resolve/:id?',function(req,res){
 						}
 					else
 						{
-							res.render('/error/error');
+							res.render('./error/error');
 						}
 				});
 			}
 		else
 			{
-				res.render('/error/error');
+				res.render('./error/error');
 			}
 	});
 });
@@ -305,7 +305,7 @@ router.post('/productdelete/:id?',function(req,res){
 			}
 		else
 			{
-				res.render('/error/error');
+				res.render('./error/error');
 			}
 	});
 });
@@ -322,7 +322,7 @@ router.get('/broughthistory/:id?',function(req,res){
 		}
 		else
 		{
-			res.render('/error/error');
+			res.render('./error/error');
 		}
 	});
 });
@@ -554,7 +554,7 @@ router.all('/createpost',function(req,res){
 								res.render('./promotion/promotion',{result:result,data,uname});
 							}
 							else{
-								res.redirect('/error/error');
+								res.render('./error/error');
 							}
 		
 						});
@@ -648,13 +648,13 @@ router.post('/productedit/:id?',function(req,res){
 	var data={
 		id: req.params.id,
 		productname: req.body.productname,
-		price: req.body.price,
-		image: req.body.Image1,
+		age: req.body.age,
+		image1: req.body.Image1,
 		image2: req.body.Image2,
 		image3: req.body.Image3,
-		catagory: req.body.catagory,
-		origin: req.body.origin,
 		category: req.body.category,
+		origin: req.body.origin,
+		last_located: req.body.last_located,
 		agent_name: req.body.agent_name,
 		details: req.body.details,
 		date: date.format(new Date(), 'YYYY/MM/DD'),
@@ -663,6 +663,8 @@ router.post('/productedit/:id?',function(req,res){
 	};
 
 	userModel.productupdate(data,function(valid){
+		console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',valid);
+		
 		if(valid)
 		{
 			// res.redirect('/user/productlist',{file: `uploads/${req.file.filename}`});
@@ -670,7 +672,7 @@ router.post('/productedit/:id?',function(req,res){
 		}
 		else
 		{
-			res.render('/error/error');
+			res.render('./error/error');
 		}
 	});
 

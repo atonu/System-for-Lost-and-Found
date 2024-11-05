@@ -177,18 +177,21 @@ router.post('/addproduct',function(req,res){
 
 	var data={
 		productname: req.body.productname,
-		price: req.body.price,
+		age: req.body.age,
 		image1: Image1,
 		image2: req.body.Image2,
 		image3: req.body.Image3,
-		catagory: req.body.catagory,
+		last_located: req.body.last_located,
 		origin: req.body.origin,
-		category: req.body.category,
+		category: req.body.catagory || req.body.category,
 		agent_name: req.body.agent_name,
-		details: req.body.details,
-		date: date.format(new Date(), 'YYYY/MM/DD')
+		contact: req.body.details,
+		reward: req.body.reward,
+		promotion: req.body.promotion,
+		date: date.format(new Date(), 'YYYY/MM/DD'),
+		uname: req.session.loggedUser
 	};
-	
+
 		
 		dashboardModel.productInsert(data,function(valid){
 			if(valid)
@@ -197,7 +200,7 @@ router.post('/addproduct',function(req,res){
 			}
 			else
 			{
-				res.redirect('/error/error');
+				res.render('./error/error');
 			}
 		});
 		
@@ -267,7 +270,7 @@ router.post('/productdelete/:id?',function(req,res){
 			}
 		else
 			{
-				res.render('/error/error');
+				res.render('./error/error');
 			}
 	});
 });
@@ -292,21 +295,22 @@ router.post('/productedit/:id?',function(req,res){
 		image1: Image1,
 		image2: req.body.Image2,
 		image3: req.body.Image3,
-		catagory: req.body.catagory,
+		category: req.body.catagory,
 		origin: req.body.origin,
-		category: req.body.category,
 		agent_name: req.body.agent_name,
 		details: req.body.details,
-		date: date.format(new Date(), 'YYYY/MM/DD')
+		date: date.format(new Date(), 'YYYY/MM/DD'),
+		uname: 'admin'
 	};
 	dashboardModel.productupdate(data,function(valid){
+		
 		if(valid)
 			{
 				res.redirect('/admindashboard/productlist');
 			}
 		else
 			{
-				res.render('/error/error');
+				res.render('./error/error');
 			}
 	});
 });

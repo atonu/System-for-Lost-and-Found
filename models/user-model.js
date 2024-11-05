@@ -75,7 +75,7 @@ module.exports = {
   },
   productupdate: function(data, callback) {
     var sql = "UPDATE lost SET lost_name = $1, age = $2, image = $3, image2 = $4, image3 = $5, last_located = $6, origin = $7, category = $8, agent_name = $9, contact = $10, promotion = $11, reward = $12 WHERE id = $13";
-    var param = [data.productname, data.price, data.image, data.image2, data.image3, data.catagory, data.origin, data.category, data.agent_name, data.details, data.promotion, data.reward, data.id];
+    var param = [data.productname, data.age, data.image1, data.image2, data.image3, data.last_located, data.origin, data.category, data.agent_name, data.details, data.promotion, data.reward, data.id];
     db.updateData(sql, param, function(result) {
       if (result == null || result?.length == 0) {
         callback(false);
