@@ -195,13 +195,11 @@ a.Bbutton:hover,button.Bbutton:hover{
 a.Sbutton,button.Sbutton{
   padding:10px;
   background:#008CBA;
-  margin:10px;
   display:block;
   text-align:center;
   color:#fff;
   transition:all 1s linear;
   text-decoration:none;
-  position: absolute;
   z-index: 1;
   text-shadow:1px 1px 3px rgba(0,0,0,0.3);
   border: none;

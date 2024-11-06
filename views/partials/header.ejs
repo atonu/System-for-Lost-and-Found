@@ -8,7 +8,7 @@
     .box { 
       width: 160px;
       height: 30px;
-      padding 3px;
+      padding: 3px;
       background: #6A98A7;  
       display:block;
       text-align:center;
@@ -19,6 +19,22 @@
       border: none;
       border-radius:3px;
       
+    }
+
+    .alignment{
+      display: flex;
+      flex-direction: row;
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+    }
+    }
+
+    .nav-buttons{
+      display: flex;
+      flex-direction: row;
+      @media screen and (max-width: 500px) {
+      flex-flow: wrap;
+    }
     }
 
     .dd-button {
@@ -44,32 +60,136 @@
   color: grey;
 }
 
+.form-group {
+        width: 400px;
+        margin: 0 10px;
+    }
 
+    .form-group input {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 500px) {
+        .form-group {
+            width: 100%;
+        }
+        
+        .searchresult {
+            margin-left: 0 !important;
+            margin-top: 0 !important;
+        }
+        
+        .Sbutton {
+            margin-left: 0 !important;
+            width: 100% !important;
+        }
+    }
+
+    .search-form {
+        width: 100%;
+    }
+
+    .search-container {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: start;
+    }
+
+    .dd-menu {
+        min-width: 110px;
+    }
+
+    .form-group {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .Sbutton {
+        min-width: 98px;
+        height: 35px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media screen and (max-width: 500px) {
+        .search-container {
+            gap: 15px;
+        }
+        
+        .Sbutton {
+            flex: 1;
+            width: 100%;
+        }
+    }
 
   </style>
 
-  <nav class="navbar " style="width: 99%; height:105px; left: 10px; top:10px">
-    
-
-      <div style ="width: 200px; ">
-
-        
+  <nav class="navbar alignment" style="width: 99%; left: 10px; top:10px; display: flex;">
         <a href="/index">
           <img src="https://i.imgur.com/UYzeuSx.png" alt="bg" style="width: 135px; margin-left: -17px;margin-top: 0;">
         </a>
         
+        <div style="position: absolute; right: 20px;" class="box">
+              <p><%=uname%></p>        
+            </div>
 
-        <div class="dropdown" style="margin-left:180px;top:-77px;">
-                <button class="dropbtn" style="margin-top:10px";>Post</button>
+<div style="display: flex; flex-direction: column;">
+
+
+        <div class="searchresult col-md-9" id="searchresult" style="margin-left: 0;">
+  <form method="post" style="display: flex; flex-direction: row; padding: 0;" action="/index/search" class="navbar-form navbar-left search-form">
+    <div class="search-container nav-buttons">
+    <div style="display: flex; flex-direction: row;">
+      <select name="filter" type="submit" class="dd-menu" align="center">
+        <option value="lost_name">Name</option>
+        <option value="last_located">Last Located</option>
+        <option value="origin">Hometown</option>
+        <option value="agent_name">Agent Name</option>
+      </select>
+
+      <div class="form-group">
+        <input type="text" class="form-control" id="search" name="search" placeholder="Search" required style="width: 100%; max-width: 350%;">
+      </div>
+
+      <button type="submit" id="submit" class="Sbutton">Search</button>
+      
+    </div>
+      <button href="/index/advancesearch" style="width: 140px;" class="Sbutton">Advance Search</button>
+    </div>
+  </form>
+</div>
+
+      <div class="container-fluid nav-buttons">
+
+            <div class="dropdown" style="display: flex; flex-direction: row; margin: 10px;">
+                <button class="dropbtn" style="width: 140px;">Post</button>
                     <div class="dropdown-content">
                         <a href="/user/addProduct">Create Post</a>
                         <a href="/user/productlist">My Posts</a>
             
                     </div>
-            </div>
-
+            </div>  
+            
+            <button href="/index" class="button" style="width: 140px;">Home</button>
+            
+          <%if(uname =='Not Logged in'){%>
+            
+        
+            <%}%>
+            
+          <%if(uname!='Guest'){%>
+            
+            <button href="/user/user" class="button" style="width: 140px;">Profile</button>
+            <button href="/logout" class="button" style="width:  140px;">Logout</button>
           
-        </div>
+          <%}%>
+          
+        </div>  
+        </div>  
+
+
 
 
       
@@ -85,64 +205,9 @@
             <span class="icon-bar"></span>
           </button>
           
-        </div>
+        </div>          
+          <br>
 
-        
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        
-      <div class="searchresult col-md-9" style="margin-left: 115px; margin-top:-170px;">
-              <form method="post" action="/index/search" class="navbar-form navbar-left" style="margin-top: 5px">
-                
-
-
-                <select name="filter" type="submit" class="dd-menu" align="center" style="width:110px;">
-                  
-                  <option value="lost_name">Name</option>
-                  <option value="last_located">Last Located</option>
-                  <option value="origin">Hometown</option>
-                  <option value="agent_name">Agent Name</option>
-                
-
-                </select>
-
-                <!-- <input type="text" class="form-control" id="filter" name="filter" required style="width: 30%;"> -->
-
-                <div class="form-group" >
-                  <input type="text" class="form-control" id="search" name="search" placeholder="Search" required style="width: 350%;">
-                </div>
-                <button type="submit" id="submit" class="Sbutton" style="margin-left:800px;margin-top: -35px; width: 98px; height:35px; ">Search</button>
-
-                <td><a href="/index/advancesearch" class="Sbutton" style="height:35px ;width:  15%;margin-top: -35px;margin-left:910px">Advance Search</a></td>
-
-              </form>
-              </br>
-      </div>
-                                           
-                                                
-          <div align="right" style="margin-top:-125px ;margin-right: -5px;">
-            <div class="box">
-              <h3><%=uname%></h3>
-              
-            </div>
-          </div>
-          
-          
-<div style="margin-left:415px; margin-top: 50px">
-          <a href="/index" class="button" style="width: 140px;margin-top: -95px;margin-left: -100px">Home</a>
-
-          <%if(uname =='Not Logged in'){%>
-        
-        
-        <%}%>
-          
-          <%if(uname!='Guest'){%>
-          
-          <td><a href="/user/user" class="button" style="width: 140px;margin-top: -52px;margin-left:60px">Profile</a></td>
-          <td><a href="/logout" class="button" style="width:  140px;margin-top: -53px;margin-left:220px"">Logout</a></td>
-          
-          <%}%>
-          
-          </div>
 
 <%if(uname =='Guest'){%>
                           <div class="dropdown pull-right" style="position:absolute; margin-top:-52px;left: 490px;">
@@ -164,3 +229,4 @@
       </ul>
                                        
   </nav>
+
