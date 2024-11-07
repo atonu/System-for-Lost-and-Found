@@ -25,7 +25,11 @@ a {
 .previous {
     background-color: #f1f1f1;
     color: black;
-    position: absolute; 
+	height: 45px;
+    width: 45px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .next {
@@ -38,13 +42,15 @@ a {
 }
 
 .whitebg{
-         
-      background: #fff;  
-      display:block;
-      transition:all 1s linear;
-      z-index:-1;
-      width:auto;
-      height:auto;
+	background: #fff;  
+	display:block;
+	transition:all 1s linear;
+	z-index:-1;
+	width:auto;
+	height:auto;
+	@media screen and (max-width: 700px) {
+		background: none;	
+	} 
     }
 
     /*TOP NAV*/
@@ -54,6 +60,7 @@ a {
         width: 390px;
         height: 55px;
         margin: auto;
+        margin-bottom: 20px;
     }
 
     .topnav a {
@@ -79,35 +86,41 @@ a {
         background-color: #801BA6;
         color: white;
 
-        
+        .auto-width{
+      width: -webkit-fill-available;
+      @media screen and (max-width: 700px) {
+        width: max-content;
+      }
+    }
 
         
     </style>
 
  </head>
- <body id="index">
+ <body id="index" class="auto-width">
 
 
     <header>
         <% include ../partials/header %>
     </header>
+<center style="margin-top: 32px; padding-bottom: 10px">
+	<div style="display: flex; flex-direction: row; width: 700px">
+        <div class="topnav">
+         <%if(result[0]!=null && prevpage!=0 ){%>
+               <a href="/index/catagory/found/<%=prevpage%>" class="btn btn-primary previous round" type="submit"><</a>
+           <%}%>
 
-    <div class="topnav" style="margin-top: 32px;">
-        <a class="Bbutton" style="margin-left:10px; margin-top: 7px;" href="/index">All</a>
+		<a class="Bbutton" style="margin-left: 10px; margin-top: 7px;" href="/index">All</a>
 
         <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/lost/1">Lost</a>
 
         <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/found/1">Found</a>
-
     </div>
-
-    
-
-
-
-    <!--<img src="https://i.imgur.com/N6Z3Rh0.jpg" alt="bg" style="width: 100%; height: 1005px; margin-top:5px; ">-->
-    
-        
+	<%if(result[0]!=null && nextpage!=0 ){%>
+		<a href="/index/catagory/found/<%=nextpage%>" class="btn btn-primary previous round" type="submit">></a>			
+	<%}%>
+	</div>
+</center>
 
     <center>
 
@@ -115,22 +128,8 @@ a {
 
         <div class="container-fluid" style="margin-top: 70px;" >
             <div align="center">
-                <form>
-
-                    <%if(result[0]!=null) {%>
-                        <%if(prevpage!=0){%>
-                    <a href="/index/catagory/found/<%=prevpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:-605px;margin-top:-40px"><</a>
-                    <%}%>
-                    <br>
-                    <!-- <td><a href="/index/nextpage/<%=result[result?.length-1].id%>" class="btn btn-primary previous round" type="submit">></a> </td> -->
-                    <a href="/index/catagory/found/<%=nextpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:570px; margin-top: -60px">></a>
-                    
-                    <%}%>
-
-
-                </form>
                 <%if(result[0]==null) {%>
-                <button class="btn btn-primary previous round" onclick="goBack()" style="margin-top:80px"><</button>
+                <button class="btn btn-primary previous round" onclick="goBack()" style="margin-top:50px; margin-bottom: 50px;"><</button>
 
                 <script>
                     function goBack() {
