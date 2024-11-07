@@ -42,16 +42,16 @@ a {
 }
 
 .whitebg{
-         
-      background: #fff;  
-      display:block;
-      transition:all 1s linear;
-      z-index:-1;
-      width:auto;
-      height:auto;
+	background: #fff;  
+	display:block;
+	transition:all 1s linear;
+	z-index:-1;
+	width:auto;
+	height:auto;
+	@media screen and (max-width: 700px) {
+		background: none;	
+	} 
     }
-
-
     /*TOP NAV*/
     .topnav {
         overflow: hidden;
@@ -86,11 +86,16 @@ a {
         color: white;
         
 
-        
+        .auto-width{
+      width: -webkit-fill-available;
+      @media screen and (max-width: 700px) {
+        width: max-content;
+      }
+    }
     </style>
 
  </head>
- <body id="index">
+ <body id="index" class="auto-width">
 
 
     <header>
