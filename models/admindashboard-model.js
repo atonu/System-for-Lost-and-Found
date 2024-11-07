@@ -37,25 +37,27 @@ module.exports = {
     var param = [data.id];
 
     db.deleteData(sql, param, function (result) {
-      if (result == null || result?.length == 0) {
+      if (result == null) {
         callback(false);
       } else {
         callback(true);
       }
     });
   },
-  // resolve: function(data, callback) {
-  //   var sql = "UPDATE records SET productname = $1, username = $2, category = $3, date = $4, contacted_with = $5, contact = $6 WHERE id = $7";
-  //   var param = [data.productname, data.username];
+  resolve: function(data, callback) {
+    var sql = "UPDATE lost SET category = 'resolved' WHERE id = $1";
+    var param = [data.id];
 
-  //   db.insertData(sql, param, function(result) {
-  //     if (result == null || result?.length == 0) {
-  //       callback(false);
-  //     } else {
-  //       callback(true);
-  //     }
-  //   });
-  // },
+    db.updateData(sql, param, function(result) {
+      console.log('result-----------',data,result);
+      
+      if (result == null) {
+        callback(false);
+      } else {
+        callback(true);
+      }
+    });
+  },
   adminInsert: function (data, callback) {
     var sql =
       "INSERT INTO admin (name, username, email, password, gender, dob, nid, presentaddress, parmanentaddress) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)";
@@ -103,7 +105,7 @@ module.exports = {
     });
   },
   home: function (data, callback) {
-    var sql = "SELECT * FROM lost ORDER BY promotion DESC, date DESC LIMIT $1";
+    var sql = "SELECT * FROM lost WHERE category IN ('lost', 'found') ORDER BY promotion DESC, date DESC LIMIT $1";
     var param = [data.limit];
 
     db.getData(sql, param, function (result) {

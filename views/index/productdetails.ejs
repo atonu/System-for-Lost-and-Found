@@ -217,24 +217,48 @@ img.hover-shadow {
 			<% } %>
 			
 
-			<div class="form-group" style="margin-top: -20px;">
+			<div class="form-group" style="width: auto;">
 
-			<div class="containerdetails pull-right" style="margin-right:70px;">
-				<h3><strong>Name : <%=result[i].lost_name%> </strong></h3>
-				<p><h4 style="color:#F54040"><strong><%=result[i].catagory%></h4></strong></p>
-				<p><strong>Age : <%=result[i].age%> </strong></p>
-				<p><strong>Last Located : <%=result[i].last_located%> </strong></p>
-				<p><strong>Origin : <%=result[i].origin%> </strong></p>
-				<p><strong>Agent Name : <%=result[i].agent_name%> </strong></p>
-				<p><strong>Posted : <%=result[i].date%> </strong></p>
-				<%if(result[i].reward>0){%>
-				<h3 style="color:#83AE80">Reward: <%=result[i].reward%>/-BDT</h3>
-				<%}%>
-			</div>
-			<br><br><br><br><br><br><br><br><br><br>
-				<center><a id="myContactBtn" style="margin-top:190px; width:97%" class="contentbutton" ">Contact</a> </center>
 
-				<button class="contentbutton" onclick="goBack()" style="width:97%">Back</button>
+<div style="display: flex; justify-content: space-between;">
+
+	<div style="width: 42%;">
+				<h4 style="color: darksalmon;text-align:center;">Photos</h4>
+
+				  <% if( result[i].image3 != null && result[i].image3.length >0){ %>
+				  <div class="column">
+				    <img src="<%=result[i].image3%>" alt="Image not found" style="height: 250px; width: fit-content" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+				  </div>
+				  <%}%>
+
+				  <% if( result[i].image2 != null && result[i].image2.length >0 ){ %>
+				  <div class="column">
+				    <img src="<%=result[i].image2%>" alt="Image not found" style="height: 250px; width: fit-content; margin-top: 20px;" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+				  </div>
+				  <%}%>
+				  <div class="column">
+				    <img src="<%=result[i].image%>" alt="Image not found" style="height: 250px; width: fit-content; margin-top: 40px;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+				  </div>
+				</div>
+
+	<div style="margin-right: 20px">
+		<h3><strong>Name : <%=result[i].lost_name%> </strong></h3>
+		<p><h4 style="color:#F54040"><strong><%=result[i].catagory%></h4></strong></p>
+		<p><strong>Age : <%=result[i].age%> </strong></p>
+		<p><strong>Last Located : <%=result[i].last_located%> </strong></p>
+		<p><strong>Origin : <%=result[i].origin%> </strong></p>
+		<p><strong>Agent Name : <%=result[i].agent_name%> </strong></p>
+		<p><strong>Posted : <%=result[i].date%> </strong></p>
+		<%if(result[i].reward>0){%>
+			<h3 style="color:#83AE80">Reward: <%=result[i].reward%>/-BDT</h3>
+			<%}%>
+		</div>
+	</div>
+
+				<center style="width: -webkit-fill-available; margin-top: 30px;">
+					<a id="myContactBtn" style="width:97%" class="contentbutton" ">Contact</a>	
+					<button class="contentbutton" onclick="goBack()" style="width:97%">Back</button>
+				</center>
 
                 <script>
                     function goBack() {
@@ -252,27 +276,6 @@ img.hover-shadow {
 					</div>
 
 				</div>
-
-
-				<div class="row pull-left" style="width: 100px;margin-top:-520px;margin: auto;margin-left:10px;">
-				<h4 style="color: darksalmon;text-align:center;margin-top:-540px">Photos</h4>
-<br><br>
-				  <% if( result[i].image3 != null && result[i].image3.length >0){ %>
-				  <div class="column">
-				    <img src="<%=result[i].image3%>" style="width:250px;" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-				  </div><br><br>
-				  <%}%>
-
-				  <% if( result[i].image2 != null && result[i].image2.length >0 ){ %>
-				  <div class="column">
-				    <img src="<%=result[i].image2%>" style="width:250px" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
-				  </div><br><br>
-				  <%}%>
-				  <div class="column">
-				    <img src="<%=result[i].image%>" style="width:250px" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
-				  </div>
-				</div>
-
 
 			</div>
 			
@@ -317,22 +320,22 @@ window.onclick = function(event) {
 
 
 <div id="myModal" class="modal">
-  <span class="close cursor" style="color: white;margin-top:-80px;margin-right:10px;" onclick="closeModal()">X</span>
+  <a class="close button" style="color: white;position: fixed; top:20px; right:10px; font-size: 36px; z-index: 10; opacity: 0.6;" onclick="closeModal()">Close</a>
   <div class="modal-content" style="margin-top:-80px;width:702px;">
 
     <div class="mySlides">
       <div class="numbertext">1 / 4</div>
-      <img src="<%=result[i].image%>" style="width:700px">
+      <img src="<%=result[i].image%>" alt="Image not found" style="width:700px">
     </div>
 
     <div class="mySlides">
       <div class="numbertext">2 / 4</div>
-      <img src="<%=result[i].image2%>" style="width:700px">
+      <img src="<%=result[i].image2%>" alt="Image not found" style="width:700px">
     </div>
     
     <div class="mySlides">
       <div class="numbertext">3 / 4</div>
-      <img src="<%=result[i].image3%>" style="width:700px">
+      <img src="<%=result[i].image3%>" alt="Image not found" style="width:700px">
     </div>
     
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -341,6 +344,7 @@ window.onclick = function(event) {
     <div class="caption-container">
       <p id="caption"></p>
     </div>
+	
 	    <% if( result[i].image!= null){ %>
 	    <div class="column">
 	   		<img class="demo cursor" src="<%=result[i].image%>" style="width:200px" onclick="currentSlide(1)" alt="Image 1">

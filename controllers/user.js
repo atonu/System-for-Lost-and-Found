@@ -240,33 +240,15 @@ router.post('/resolve/:id?',function(req,res){
 	
 	var data={
 		id: req.params.id,
-		productname: req.body.lost_name,
-		username: req.session.loggedUser,
-		catagory: req.body.catagory,
-		date: date.format(new Date(), 'YYYY/MM/DD'),
-		contacted_with: req.body.contacted_with,
-		contact: req.body.contact
 	};
 
 	dashboardModel.resolve(data,function(valid){
 		if(valid)
-			{
-				dashboardModel.productdelete(data,function(valid){
-					if(valid)
-						{
-							res.redirect('/index');
-							
-						}
-					else
-						{
-							res.render('./error/error');
-						}
-				});
-			}
+			res.redirect('/index');
 		else
-			{
-				res.render('./error/error');
-			}
+		{
+			res.render('./error/error');
+		}
 	});
 });
 
