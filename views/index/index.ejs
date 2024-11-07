@@ -28,7 +28,11 @@ a {
 .previous {
     background-color: #f1f1f1;
     color: black;
-    position: absolute; 
+	height: 45px;
+    width: 45px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .next {
@@ -84,6 +88,7 @@ a {
  	.topnav a.active {
  		background-color: #801BA6;
  		color: white;
+		width: 50px;
     }
 
  		
@@ -98,19 +103,24 @@ a {
  	<header>
  		<% include ../partials/header %>
  	</header>
+<center style="margin-top: 32px; padding-bottom: 10px">
+	<div style="display: flex; flex-direction: row; width: 700px">
+	<%if(result[0]!=null && prevpage!=0 ){%>
+  		<a href="/index/page/<%=prevpage%>" class="btn btn-primary previous round" type="submit"><</a>
+  	<%}%>
+ 	<div class="topnav">
 
-
- 	<div class="topnav" style="margin-top: 100px">
- 		
 		<a class="Bbutton" style="margin-left: 10px; margin-top: 7px;" href="/index">All</a>
 
         <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/lost/1">Lost</a>
 
         <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/found/1">Found</a>
-
     </div>
-
-
+	<%if(result[0]!=null && nextpage!=0 ){%>
+		<a href="/index/page/<%=nextpage%>" class="btn btn-primary previous round" type="submit">></a>			
+	<%}%>
+	</div>
+</center>
 
  	
      
@@ -123,23 +133,11 @@ a {
  		<div class="container-fluid" style="margin-top: 70px;" >
  			<div align="center">
  				<form>
-                    
-
- 					<%if(result[0]!=null) {%>
-                        <%if(prevpage!=0 ){%>
- 					<a href="/index/page/<%=prevpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:-605px;margin-top:-40px"><</a>
- 					<%}%>
-                    <br>
- 					<%if(nextpage!=0 ){%>
-                    <a href="/index/page/<%=nextpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:570px; margin-top: -60px">></a>
- 					
-                    <%}%>
-                    <%}%>
 
 
  				</form>
  				<%if(result[0]==null) {%>
- 				<button class="btn btn-primary previous round" onclick="goBack()" style="margin-top:80px"><</button>
+ 				<button class="btn btn-primary previous round" onclick="goBack()" style="margin-top:30px; margin-bottom: 50px;"><</button>
 
  				<script>
  					function goBack() {
