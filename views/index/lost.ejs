@@ -25,7 +25,11 @@ a {
 .previous {
     background-color: #f1f1f1;
     color: black;
-    position: absolute; 
+	height: 45px;
+    width: 45px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .next {
@@ -55,6 +59,7 @@ a {
         width: 390px;
         height: 55px;
         margin: auto;
+        margin-bottom: 20px;
     }
 
     .topnav a {
@@ -91,17 +96,24 @@ a {
     <header>
         <% include ../partials/header %>
     </header>
-    <div class="topnav" style="margin-top: 32px;">
-        <a class="Bbutton" style="margin-left:10px; margin-top: 7px;" href="/index">All</a>
-        <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/lost/1">Lost</a>
-        
-        <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/found/1">Found</a>
-        
-        </div>
-        
+<center style="margin-top: 32px; padding-bottom: 10px">
+	<div style="display: flex; flex-direction: row; width: 700px">
+	<%if(result[0]!=null && prevpage!=0 ){%>
+  		<a href="/index/page/<%=prevpage%>" class="btn btn-primary previous round" type="submit"><</a>
+  	<%}%>
+ 	<div class="topnav">
 
-<!--    <img src="https://i.imgur.com/N6Z3Rh0.jpg" alt="bg" style="width: 100%; height: 1005px; margin-top:5px; ">-->
-    
+		<a class="Bbutton" style="margin-left: 10px; margin-top: 7px;" href="/index">All</a>
+
+        <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/lost/1">Lost</a>
+
+        <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/found/1">Found</a>
+    </div>
+	<%if(result[0]!=null && nextpage!=0 ){%>
+		<a href="/index/page/<%=nextpage%>" class="btn btn-primary previous round" type="submit">></a>			
+	<%}%>
+	</div>
+</center>
         
 
     <center>
