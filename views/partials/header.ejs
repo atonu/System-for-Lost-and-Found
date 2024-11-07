@@ -36,7 +36,15 @@
       flex-flow: wrap;
     }
     }
-
+    
+    .fix-in-mobile{
+      @media screen and (max-width: 500px) {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+    }
+    
     .dd-button {
   display: inline-block;
   border: 1px solid gray;
@@ -126,22 +134,19 @@
 
   </style>
 
-  <nav class="navbar alignment" style="width: 99%; left: 10px; top:10px; display: flex;">
-        <a href="/index">
+  <nav class="navbar alignment" style="justify-content: space-between;">
+        <a style="margin: 10px;" href="/index">
           <img src="https://i.imgur.com/UYzeuSx.png" alt="bg" style="width: 135px; margin-left: -17px;margin-top: 0;">
         </a>
         
-        <div style="position: absolute; right: 20px;" class="box">
-              <p><%=uname%></p>        
-            </div>
 
-<div style="display: flex; flex-direction: column;">
+        <div style="display: flex; flex-direction: column;">
 
 
         <div class="searchresult col-md-9" id="searchresult" style="margin-left: 0;">
-  <form method="post" style="display: flex; flex-direction: row; padding: 0;" action="/index/search" class="navbar-form navbar-left search-form">
-    <div class="search-container nav-buttons">
-    <div style="display: flex; flex-direction: row;">
+        <form method="post" style="display: flex; flex-direction: row; padding: 0;" action="/index/search" class="navbar-form navbar-left search-form">
+          <div class="search-container nav-buttons">
+          <div style="display: flex; flex-direction: row; gap: 10px;">
       <select name="filter" type="submit" class="dd-menu" align="center">
         <option value="lost_name">Name</option>
         <option value="last_located">Last Located</option>
@@ -161,7 +166,8 @@
   </form>
 </div>
 
-      <div class="container-fluid nav-buttons">
+      <div class="nav-buttons" style="display: flex; flex-direction: row; justify-content: space-between;width: 100%;">
+        <div style="display: flex; flex-direction: row; gap: 10px;">
 
             <div class="dropdown" style="display: flex; flex-direction: row; margin: 10px;">
                 <button class="dropbtn" style="width: 140px;">Post</button>
@@ -172,56 +178,38 @@
                     </div>
             </div>  
             
-            <button href="/index" class="button" style="width: 140px;">Home</button>
+            <a href="/index" class="button" style="width: 140px;">Home</a>
             
-          <%if(uname =='Not Logged in'){%>
-            
-        
-            <%}%>
             
           <%if(uname!='Guest'){%>
-            
-            <button href="/user/user" class="button" style="width: 140px;">Profile</button>
-            <button href="/logout" class="button" style="width:  140px;">Logout</button>
-          
+            <a href="/user/user" class="button" style="width: 140px;">Profile</a>
           <%}%>
-          
-        </div>  
-        </div>  
+
+        </div>
 
 
+          <%if(uname!='Guest'){%>
+            <a href="/logout" class="button" style="width:  140px;">Logout</a>
+          <%}%>
 
-
-      
-
-      <div class="container-fluid">
-
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          
-        </div>          
-          <br>
-
-
-<%if(uname =='Guest'){%>
-                          <div class="dropdown pull-right" style="position:absolute; margin-top:-52px;left: 490px;">
-                          <button class="dropbtn" >Login</button>
+          <%if(uname =='Guest'){%>
+                          <div class="dropdown" style="width: 140px;">
+                          <button class="button" style="width: 140px;">Login</button>
                             <div class="dropdown-content">
                               <a href="/login">Login</a>
                               <a href="/reg">Register</a>
                           
                             </div>    
                           </div>
-<%}%>
+            <%}%>
+          
+        </div>  
+        </div>  
 
+        
+        <div class="box fix-in-mobile" style="margin: 10px;">
+          <p><%=uname%></p>        
         </div>
-
 </div>
 
         
