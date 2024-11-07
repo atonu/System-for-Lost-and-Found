@@ -54,22 +54,27 @@ div.container {
 }
 
 
-
+.auto-width{
+      width: -webkit-fill-available;
+      @media screen and (max-width: 700px) {
+        width: max-content;
+      }
+      }
  		
 
  		
  	</style>
 </head>
-<body id="index">
+<body id="index" class="auto-width">
 
 	<header>
 		<% include ../partials/header%>
 	</header>
 	
-		<div class="row" style="margin-left:500px;">
+		<div class="row" style="display: flex; justify-content: center;">
 
-			<div class="col-md-5 full-panel">
-				<div class="panel panel-primary" style="width: 640px;margin-left:-160px">
+			<div class="full-panel">
+				<div class="panel panel-primary" style="width: 640px;">
 					<div class="panel-heading font" style="width: 101%; margin-top:-50px;">
 					<center><form action="/user/upload" id="picUploader" method="POST" enctype="multipart/form-data">
 									<h1 ><strong>Enter Lost Person's descriptions</strong></h1>
@@ -136,14 +141,16 @@ div.container {
 										<input type="text" value="<%= typeof file3 != 'undefined' ? file3 : '' %>"  class="form-control font" placeholder="Link 3" id="Image3" name="Image3" style="width:200px;margin-left:420px;margin-top: -34px";>
 									</div>
 
-									<div class="form-group">
-										<label for="catagory" class="font">Last Located:</label>
-										<input type="text" required placeholder="Last Seen / Current Locatation" class="form-control font" id="catagory" name="catagory">
+									<div style="display: flex; justify-content: center; align-items: end;">
+										<div class="form-group">
+											<label for="catagory" class="font">Last Located:</label>
+											<input type="text" required placeholder="Last Seen / Current Locatation" class="form-control font" id="catagory" name="catagory">
+										</div>
+										<a href="javascript:void(0);" type="button" class="button" style="height:37px; margin-bottom: 0;"
+										NAME="My Window Name"  title=" My location"
+										onClick=window.open("https://maps.google.com","Ratting","width=900,height=470,0,status=0,");>Maps</a>
 									</div>
-											<a href="javascript:void(0);" type="button" class="button" style="margin-left:514px; margin-top:-50px;width:100px;height:37px;"
-											 NAME="My Window Name"  title=" My location"
-											 onClick=window.open("https://maps.google.com","Ratting","width=900,height=470,0,status=0,");>Maps</a>
-
+										
 
 									<div class="form-group">
 										<label for="origin" class="font">Hometown / Origin:</label>
