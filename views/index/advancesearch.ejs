@@ -16,9 +16,15 @@
 		display: inline-block;
 		padding: 8px 16px;
 	}
+	.auto-width{
+      width: -webkit-fill-available;
+      @media screen and (max-width: 700px) {
+        width: max-content;
+      }
+      }	
 	</style>
 	</head>
-	<body id="advsearch">
+	<body id="advsearch" class="auto-width">
 
 	<header>
 	<% include ../partials/header%>
@@ -26,7 +32,7 @@
 
 
 	<div class="container font"
-	<div class="row" style="margin-top: -80px;">
+	<div class="row" style="margin-top: -40px;">
 	<div class="col-md-5 full-panel">
 	<div class="panel panel-primary" style="width: 660px;">
 	<div class="panel-heading" style="height: 300px; width: 660px; margin: auto;">
@@ -36,7 +42,7 @@
 	<div id="home" class="tab-pane fade in active">
 	<form method="post">
 
-	<div class="form-group font">
+	<div class=" font">
 
 	<label for="lost_name" class="font">Name</label>
 
@@ -46,7 +52,7 @@
 
 
 
-	<div class="form-group font">
+	<div class=" font">
 
 	<label for="last_located" class="font">Last Located</label>
 
@@ -55,14 +61,14 @@
 	</div>
 
 
-	<div class="form-group font">
+	<div class=" font">
 	<label for="origin" class="font">Origin / Home Town</label>
 
 	<input type="text" class="form-control" id="origin" name="origin" placeholder="Search" style="width: 82%;">
 
 	</div>
 
-	<div class="form-group font">
+	<div class=" font">
 	<label for="age" class="font">Age</label>
 
 	<br>
