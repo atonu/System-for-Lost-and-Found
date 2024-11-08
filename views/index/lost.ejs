@@ -107,7 +107,7 @@ a {
 <center style="margin-top: 32px; padding-bottom: 10px">
 	<div style="display: flex; flex-direction: row; width: 700px">
 	<%if(result[0]!=null && prevpage!=0 ){%>
-  		<a href="/index/catagory/lost/<%=prevpage%>" class="btn btn-primary previous round" type="submit"><</a>
+  		<a href="/index/catagory/lost/<%=prevpage%>" class="btn btn-primary previous round" type="submit">←</a>
   	<%}%>
  	<div class="topnav">
 
@@ -118,7 +118,7 @@ a {
         <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/found/1">Found</a>
     </div>
 	<%if(result[0]!=null && nextpage!=0 ){%>
-		<a href="/index/catagory/lost/<%=nextpage%>" class="btn btn-primary previous round" type="submit">></a>			
+		<a href="/index/catagory/lost/<%=nextpage%>" class="btn btn-primary previous round" type="submit">→</a>			
 	<%}%>
 	</div>
 </center>
@@ -130,23 +130,8 @@ a {
 
         <div class="container-fluid" style="margin-top: 70px;" >
             <div align="center">
-                <form>
-                    
-
-                    <%if(result[0]!=null) {%>
-                        <%if(prevpage!=0){%>
-                    <a href="/index/catagory/lost/<%=prevpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:-605px;margin-top:-40px"><</a>
-                    <%}%>
-                    <br>
-                    <!-- <td><a href="/index/nextpage/<%=result[result?.length-1].id%>" class="btn btn-primary previous round" type="submit">></a> </td> -->
-                    <a href="/index/catagory/lost/<%=nextpage%>" class="btn btn-primary previous round" type="submit" style="margin-left:570px; margin-top: -60px">></a>
-                    
-                    <%}%>
-
-
-                </form>
                 <%if(result[0]==null) {%>
-                <button class="btn btn-primary previous round" onclick="goBack()" style="margin-top:50px; margin-bottom: 50px;"><</button>
+                <button class="btn btn-primary previous round" onclick="goBack()" style="margin-top:50px; margin-bottom: 50px;">←</button>
 
                 <script>
                     function goBack() {

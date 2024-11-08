@@ -5,7 +5,7 @@
  	<% include ../partials/head %>
 	<meta property="og:title" content="Nikhoj" />
 <meta property="og:description" content="A system to find lost and found people" />
-<meta property="og:image" content="https://i.postimg.cc/t4QKppqP/title.png" />
+<meta property="og:image" content="https://scontent.fdac27-1.fna.fbcdn.net/v/t39.30808-6/465903103_3988905038058732_5421683127191974094_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=SwcUQ-tH45AQ7kNvgGPE3fD&_nc_zt=23&_nc_ht=scontent.fdac27-1.fna&_nc_gid=AjQ3QorHudDxknrKS0Ta_9a&oh=00_AYDKVAgniQ0Dmweibez6_wjchC7UzNpiD3jaQ3Vmj9sj0g&oe=673415BD" />
 <meta property="og:url" content="http://nikhoj.onrender.com/" />
 
  	<style>
@@ -122,7 +122,7 @@ a {
 <center style="margin-top: 32px; padding-bottom: 10px">
 	<div style="display: flex; flex-direction: row; width: 700px">
 	<%if(result[0]!=null && prevpage!=0 ){%>
-  		<a href="/index/page/<%=prevpage%>" class="btn btn-primary previous round" type="submit"><</a>
+  		<a href="/index/page/<%=prevpage%>" class="btn btn-primary previous round" type="submit">←</a>
   	<%}%>
  	<div class="topnav">
 
@@ -133,7 +133,7 @@ a {
         <a class="Bbutton" style="margin-left:20px; margin-top: 7px;" href="/index/catagory/found/1">Found</a>
     </div>
 	<%if(result[0]!=null && nextpage!=0 ){%>
-		<a href="/index/page/<%=nextpage%>" class="btn btn-primary previous round" type="submit">></a>			
+		<a href="/index/page/<%=nextpage%>" class="btn btn-primary previous round" type="submit">→</a>			
 	<%}%>
 	</div>
 </center>
@@ -149,7 +149,7 @@ a {
  		<div class="container-fluid" style="margin-top: 70px;" >
  			<div align="center">
  				<%if(result[0]==null) {%>
- 				<button class="btn btn-primary previous round" onclick="goBack()" style="margin-top:30px; margin-bottom: 50px;"><</button>
+ 				<button class="btn btn-primary previous round" onclick="goBack()" style="margin-top:30px; margin-bottom: 50px;">←</button>
 
  				<script>
  					function goBack() {
