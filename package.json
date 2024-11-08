@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "nodemon": "nodemon app",
-    "dev": "nodemon app",
-    "prod": "nodemon app",
-    "serve": "nodemon app"
+    "dev": "node app",
+    "prod": "node app",
+    "serve": "node app"
   },
   "author": "Atonu",
   "license": "ISC",
