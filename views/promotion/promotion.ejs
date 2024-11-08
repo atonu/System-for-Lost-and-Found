@@ -63,17 +63,22 @@ div.container {
 }
 
 
-
+.auto-width{
+    width: -webkit-fill-available;
+    @media screen and (max-width: 700px) {
+      width: max-content;
+    }
+  }	   
  		
  	</style>
 </head>
-<body id="index">
+<body id="index" class="auto-width">
 
 	<header>
 		<% include ../partials/header%>
 	</header>
 
-	<div class="row" style="margin-left:500px;">
+	<div class="row" style="display: flex; justify-content: center;">
 	<br><br>
 	
 	<div class="col-md-5 full-panel">
@@ -94,7 +99,7 @@ div.container {
 						</form>
 					</div></div></div></div>
 
-		<div class="row" style="margin-left:500px;">
+		<div class="row" style="display: flex; justify-content: center;">
 			<div class="white" style="margin-left:20px"><h5>Posted by </h5><h1>&nbsp&nbsp<%=data.agent_name%></h1></div>
 			<div class="col-md-5 full-panel">
 				<div class="panel " style="width: 640px; margin-top: -80px">
