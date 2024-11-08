@@ -30,12 +30,17 @@ div.container {
   text-align: center;
   background-image: url("img_tree.gif"), url("paper.gif");
 
-  
+.auto-width{
+      width: -webkit-fill-available;
+      @media screen and (max-width: 700px) {
+        width: max-content;
+      }
+    }  
 }
 
 </style>
 </head>
-<body id="index">
+<body id="index" class="auto-width">
 
 	<header>
 		<% include ../partials/header%>
@@ -43,10 +48,10 @@ div.container {
 
 	<!-- if you want to create login page and register page together in one page ...you have to only chnage his name...that's it...                 -->
 	
-		<div class="row" style="margin-left:500px;">
+		<div class="row" style="display: flex; justify-content: center;">
 
-			<div class="col-md-5 full-panel">
-				<div class="panel panel-primary" style="width: 640px;margin-left:-160px">
+			<div class="full-panel">
+				<div class="panel panel-primary" style="width: 640px;">
 					<div class="panel-heading font" style="width: 100%; margin-top:-50px;">
 						<h1><strong> <center>Edit Post</center></strong></h1>
 						<%for(var i=0;i<result?.length;i++){%>
@@ -125,9 +130,19 @@ div.container {
 										<input type="text" value="<%=img3%>"  class="form-control font" id="Image3" name="Image3" style="width:200px;margin-left:420px;margin-top: -34px";>
 									</div>
 
-									<div class="form-group">
+									<!-- <div class="form-group">
 										<label for="last_located" class="font">Last Located:</label>
 										<input type="text" required class="form-control font" id="last_located" name="last_located" value="<%=result[i].last_located%>">
+									</div> -->
+
+									<div style="display: flex; flex-direction: row; justify-content: center; align-items: end;">
+										<div class="form-group">
+											<label for="catagory" class="font">Last Located:</label>
+											<input type="text" required placeholder="Last Seen / Current Locatation" class="form-control font" id="last_located" name="last_located" value="<%=result[i].last_located%>">
+										</div>
+										<a href="javascript:void(0);" type="button" class="button" style="height:37px; width: 120px; margin-bottom: 0;"
+										NAME="My Window Name"  title=" My location"
+										onClick=window.open("https://maps.google.com","Ratting","width=900,height=470,0,status=0,");>Maps</a>
 									</div>
 
 									<div class="form-group">
