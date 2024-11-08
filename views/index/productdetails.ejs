@@ -272,7 +272,9 @@ img.hover-shadow {
 					<!-- Modal content -->
 					<div class="contactmodal-content">
 						<span style="color:darkred" class="close">&times;</span>
-						<p><%=result[i].contact%></p>
+						<a
+						href="tel:<%=result[i].contact%>"
+						><%=result[i].contact%></a>
 					</div>
 
 				</div>
