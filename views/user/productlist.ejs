@@ -22,8 +22,7 @@
 
   img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-right: 40px;
   
 }
 a {
@@ -119,28 +118,16 @@ a {
                                 <div>
                                 <figure style="width:1200px; height:200px; display: flex; justify-content: space-between; align-items: start; overflow: auto; padding: 10px;">
 
-                                <img src = "<%=result[i].image%>" style="height:155px; width: fit-content; max-width: 200px;">
-                                <!--<span class="pull-right">
-                                <h3><%=result[i].lost_name%></h3>
-                                <p>Age: <%=result[i].age%></p>
+                                  <div style="flex: 2;">
+                                    <img src = "<%=result[i].image%>" style="height:165px; width: fit-content; max-width: 200px; flex: 2">
+                                  </div>
 
-                                        <%if(result[i].reward>0){%>
-                                          <h4 style="color:#83AE80">Reward: <%=result[i].reward%>/-BDT</h4>
-                                        <%}%>
-                                        <%if(result[i].reward==0){%>
-                                          <h4><br></h4>
-                                        <%}%>
-
-                                <span class="price">Last Located:</span>
-                                        <p><%=result[i].last_located%></p>
-                                </p>
-                                </span>-->
-                                <div style="margin-left:160px; display: flex; flex-direction: column; justify-content: start; align-items: start;">
+                                <div style="display: flex; flex-direction: column; justify-content: start; align-items: start; flex: 3;">
                                   <h3><%=result[i].lost_name%></h3>
                                   <h4 style="color:#F54040"><%=result[i].catagory%></h4>
                                 </div>
 
-                                <div style=" display: flex; justify-content: space-between; align-items: start;">
+                                <div style=" display: flex; justify-content: space-between; align-items: start; flex: 10">
 
                                   <div align="center">
                                     <h4>Agent Name: <%=result[i].agent_name%></h4>
