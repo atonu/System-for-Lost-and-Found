@@ -48,9 +48,12 @@
 		border-radius: 50%;
 	}
 	
-	
-	/*TOP NAV*/
-	
+	.auto-width{
+		width: -webkit-fill-available;
+		@media screen and (max-width: 700px) {
+			width: max-content;
+		}
+	}	  
 		
 	</style>
 <head>
@@ -68,10 +71,10 @@
 <header>
     <% include ../partials/header%>
   </header>
-<body id="index">
+<body id="index" class="auto-width">
 
-			<div class="col-md-5 full-panel" style="margin-left: 400px;">
-				<div class="panel panel-primary" style="width: 500px;height:100px; margin-top: -40px">
+			<div class="row" style="display: flex; justify-content: center;">
+				<div class="panel-primary" style="width: 500px;height:100px; margin-top: 40px">
 					<div class="panel-heading font" style="width: 500px; margin: auto;">
 						<h2>Delete Post: <%= result[0].lost_name%></h2>
 						<p>Post ID: <%= data.id %></p>
@@ -88,5 +91,8 @@
 		 				</script></center>
 
 						</div></div></div>
+						<div style="margin-top: 100px;">
+							<% include ../partials/footer %>
+						</div>
 </body>
 </html>

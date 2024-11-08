@@ -70,12 +70,17 @@ a {
     flex-direction: column;
   }
 }
-    
+.auto-width{
+    width: -webkit-fill-available;
+    @media screen and (max-width: 700px) {
+      width: max-content;
+    }
+  }   
   </style>
 
 </style>
 </head>
-<body id="index">
+<body id="index" class="auto-width">
 
   <header>
     <% include ../partials/header%>
