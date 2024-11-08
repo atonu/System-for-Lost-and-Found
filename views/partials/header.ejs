@@ -197,18 +197,18 @@
             <a href="/index" class="button" style="width: 140px;">Home</a>
             
             
-          <%if(uname!='Guest'){%>
+          <%if(uname && uname!='Guest'){%>
             <a href="/user/user" class="button" style="width: 140px;">Profile</a>
           <%}%>
 
         </div>
 
 
-          <%if(uname!='Guest'){%>
+          <%if(uname && uname!='Guest'){%>
             <a href="/logout" class="button" style="width:  140px;">Logout</a>
           <%}%>
 
-          <%if(uname =='Guest'){%>
+          <%if(uname &&  uname =='Guest'){%>
                           <div class="dropdown" style="width: 140px;">
                           <button class="button" style="width: 140px;">Login</button>
                             <div class="dropdown-content">

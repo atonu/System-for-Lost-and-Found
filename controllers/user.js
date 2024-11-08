@@ -477,9 +477,10 @@ router.post('/addproduct',function(req,res){
 		details: req.body.details,
 		date: date.format(new Date(), 'YYYY/MM/DD'),
 		promotion: req.body.promotion,
+		uname: uname 
 	};
 
-		res.render('./promotion/promotion',{data,uname});
+		res.render('./promotion/promotion',{data});
 
 
 });
@@ -514,7 +515,7 @@ router.all('/createpost',function(req,res){
 		category: req.body.category,
 		agent_name: req.body.agent_name,
 		details: req.body.details,
-		date: date.format(new Date(), 'YYYY/MM/DD'),
+		date: date.format(new Date(), 'YYYY/MM/DD HH:mm:ss'),
 		promotion: req.body.promotion,
 		reward: req.body.reward==''?0:req.body.reward,
 	};
