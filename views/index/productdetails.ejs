@@ -227,17 +227,17 @@ img.hover-shadow {
 
 				  <% if( result[i].image3 != null && result[i].image3.length >0){ %>
 				  <div class="column">
-				    <img src="<%=result[i].image3%>" alt="Image not found" style="height: 250px; width: fit-content" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+				    <img src="<%=result[i].image3%>" alt="Image not found" style="height: 250px; width: fit-content; max-width: 200px;" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
 				  </div>
 				  <%}%>
 
 				  <% if( result[i].image2 != null && result[i].image2.length >0 ){ %>
 				  <div class="column">
-				    <img src="<%=result[i].image2%>" alt="Image not found" style="height: 250px; width: fit-content; margin-top: 20px;" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+				    <img src="<%=result[i].image2%>" alt="Image not found" style="height: 250px; width: fit-content; max-width: 200px; margin-top: 20px;" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
 				  </div>
 				  <%}%>
 				  <div class="column">
-				    <img src="<%=result[i].image%>" alt="Image not found" style="height: 250px; width: fit-content; margin-top: 40px;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+				    <img src="<%=result[i].image%>" alt="Image not found" style="height: 250px; width: fit-content; max-width: 200px; margin-top: 40px;" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
 				  </div>
 				</div>
 
