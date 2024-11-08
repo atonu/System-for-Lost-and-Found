@@ -5,11 +5,11 @@
   "main": "app.js",
   "scripts": {
     "nodemon": "nodemon app",
-    "dev": "node app",
-    "prod": "node app",
-    "serve": "node app"
+    "dev": "nodemon app",
+    "prod": "nodemon app",
+    "serve": "nodemon app"
   },
-  "author": "",
+  "author": "Atonu",
   "license": "ISC",
   "dependencies": {
     "alert-node": "^1.1.2",
