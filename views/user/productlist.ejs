@@ -117,8 +117,9 @@ a {
                               <%for(var i=0;i<result?.length;i++){%>
 
                                 <div>
-                                <figure style="width:1200px;height:183px">
-                                <img src = "<%=result[i].image%>" class="pull-left" style="height:155px; width: fit-content; max-width: 200px;">
+                                <figure style="width:1200px; height:200px; display: flex; justify-content: space-between; align-items: start; overflow: auto; padding: 10px;">
+
+                                <img src = "<%=result[i].image%>" style="height:155px; width: fit-content; max-width: 200px;">
                                 <!--<span class="pull-right">
                                 <h3><%=result[i].lost_name%></h3>
                                 <p>Age: <%=result[i].age%></p>
@@ -134,21 +135,27 @@ a {
                                         <p><%=result[i].last_located%></p>
                                 </p>
                                 </span>-->
-                                <div style="margin-left:160px">
+                                <div style="margin-left:160px; display: flex; flex-direction: column; justify-content: start; align-items: start;">
                                   <h3><%=result[i].lost_name%></h3>
                                   <h4 style="color:#F54040"><%=result[i].catagory%></h4>
                                 </div>
-                                  <div align="center" style="margin-top:-60px;">
+
+                                <div style=" display: flex; justify-content: space-between; align-items: start;">
+
+                                  <div align="center">
                                     <h4>Agent Name: <%=result[i].agent_name%></h4>
-                                    <h4>Contact: <%=result[i].contact%></h4>
+                                    <h4 style="font-size: 18px; white-space: pre-wrap; width: 30%;">Contact: <%=result[i].contact%></h4>
                                     <h4>Promotion: <%=result[i].promotion%></h4>
                                     <h4>Date: <%=result[i].date%></h4>
-
+                                    
                                   </div>
-
-                                <a href="/user/productdelete/<%=result[i].id%>" style="margin-top:-25px;margin-left:-5px" class="contentbutton pull-right glyphicon glyphicon-trash" type="submit"></a> 
-                                 <a href="/user/resolve/<%=result[i].id%>" style="margin-top:-25px;" class="button glyphicon glyphicon-ok pull-right" type="submit">Resolve</a>
-                                 <a href="/user/productedit/<%=result[i].id%>" style="margin-top:-25px;" class="button glyphicon glyphicon-edit pull-right" type="submit">Edit</a>
+                                  
+                                  <div style="display: flex; flex-direction: row;">
+                                    <a href="/user/productdelete/<%=result[i].id%>" style="width: 80px;" class="contentbutton glyphicon glyphicon-trash" type="submit"></a> 
+                                    <a href="/user/resolve/<%=result[i].id%>" style="width: 80px;" class="button glyphicon glyphicon-ok" type="submit">Resolve</a>
+                                    <a href="/user/productedit/<%=result[i].id%>" style="width: 80px;" class="button glyphicon glyphicon-edit" type="submit">Edit</a>
+                                  </div>
+                                </div>
                               </figure>
                               </div>
                                             
